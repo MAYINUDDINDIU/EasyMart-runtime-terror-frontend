@@ -40,12 +40,12 @@ const Navbar = () => {
         </Link>
       </li>
       <li tabIndex="0">
-        <Link to="/completedTasks" className="justify-between font-bold">
+        <Link to="/completedTasks" className=" font-bold">
           <FaShoppingCart></FaShoppingCart>My Cart
         </Link>
       </li>
       <li tabIndex="0">
-        <Link to="/todo" className="justify-between font-bold">
+        <Link to="/todo" className="font-bold">
           <BsFillBagCheckFill></BsFillBagCheckFill>Checkout
         </Link>
       </li>
@@ -61,7 +61,7 @@ const Navbar = () => {
               class="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="white"
             >
               <path
                 stroke-linecap="round"
@@ -73,7 +73,7 @@ const Navbar = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen ml-0"
           >
             {navItems}
           </ul>
@@ -85,8 +85,8 @@ const Navbar = () => {
           EASY <span className="text-primary">MART</span>
         </Link>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0 text-white">{navItems}</ul>
+      <div class="navbar-center hidden lg:flex ">
+        <ul class="menu menu-horizontal p-0 text-white ">{navItems}</ul>
       </div>
       <div class="navbar-end">
         <Link to="/login" className="text-white font-bold mr-3">
