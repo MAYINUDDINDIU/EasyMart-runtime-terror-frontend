@@ -12,17 +12,17 @@ const Navbar = () => {
           </li>
           <li tabIndex="0">
             <Link to="/completedTasks" className="justify-between font-bold">
-              Completed Tasks
+              My Cart
             </Link>
           </li>
           <li tabIndex="0">
             <Link to="/todo" className="justify-between font-bold">
-              To Do
+            Checkout
             </Link>
           </li>
           <li>
             <Link to="/calender" className="font-bold">
-              Calender
+            Signup/Login
             </Link>
           </li>
         </>
