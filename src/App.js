@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Pages/Shared/Navbar';
+import Home from './Pages/Home/Home';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
 
       <Navbar></Navbar>
       <Routes>
-        {/* <Route path='/' element={<Navbar></Navbar>} >Home</Route> */}
+        <Route path='/' element={<Home></Home>} >Home</Route>
 
       </Routes>
 
