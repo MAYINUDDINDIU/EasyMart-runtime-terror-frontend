@@ -10,7 +10,7 @@ const products = [
         id:1,
         title: "Bed",
         price:"$66.55",
-        category:"Smrt bed",
+        category:"Smart bed",
         image:"https://i.ibb.co/fqbjQGx/five.webp"
     },
     {
