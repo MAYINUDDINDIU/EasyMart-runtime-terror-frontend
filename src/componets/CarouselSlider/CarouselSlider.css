@@ -1,38 +1,34 @@
-
-.slider{
-   width: 90%;
-   margin: 0 auto;
-   margin-top: 50px;
+.slider {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 150px;
 }
 
 .slick-slide > div {
-    margin: 0 10px;
-  }
-  .slick-list {
-    margin: 0 -10px;
-  }
-
-.card{
-    border: 1px solid #fff;
-    /* background: black; */
-    background: #005cb2;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 400px;
-    color:#fff;
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
 }
 
-.card-top h1{
-    font-size: 1rem;
-    margin: 10px 20px;
-}
-.card-top > img{
-    width: 100%;
-    /* height: 100%; */
-    object-fit: cover;
+.card {
+  border: 1px solid #fff;
+  /* background: black; */
+  background: #005cb2;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 400px;
+  color: #fff;
 }
 
-.card-bottom{
-    margin: 10px 20px;
+.card-top h1 {
+}
+.card-top > img {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+}
 
+.card-bottom {
+  margin: 10px 20px;
 }
