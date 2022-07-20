@@ -1,6 +1,6 @@
 
 .slider{
-    width: 90%;
+   width: 90%;
    margin: 0 auto;
    margin-top: 50px;
 }
@@ -14,7 +14,8 @@
 
 .card{
     border: 1px solid #fff;
-    background: black;
+    /* background: black; */
+    background: #005cb2;
     border-radius: 8px;
     overflow: hidden;
     height: 400px;
