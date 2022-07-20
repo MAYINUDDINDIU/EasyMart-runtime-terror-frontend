@@ -13,7 +13,7 @@ const Product = () => {
 
 
     return (
-        <div className='justify-center'>
+        <div className='justify-center mt-20'>
             <h2 className='text-center lg:text-2xl drop-shadow mt-4 mb-1 font-bold'>OUR BEST PRODUCTS</h2>
             <div className='grid px-6 lg:px-16 grid-col-4 lg:grid-cols-5 gap-4  mt-5 mb-5 flex justify-center'>
                 <div class="card bordered rounded lg:w-60 w-72 h-80 bg-base-100 hover:scale-105 duration-500 shadow-xl">
