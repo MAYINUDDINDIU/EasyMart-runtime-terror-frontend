@@ -5,7 +5,6 @@ import p2 from '../../assets/products/product2.jpg';
 import p3 from '../../assets/products/product3.jpg';
 import p4 from '../../assets/products/product4.jpg';
 import p5 from '../../assets/products/product5.jpg';
-import p6 from '../../assets/products/product6.jpg';
 
 
 const Product = () => {
