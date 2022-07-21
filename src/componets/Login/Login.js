@@ -12,7 +12,7 @@ const Login = () => {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-xs"
         >
           <label
-            class="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
+            className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
             for="username"
           >
             Email
@@ -24,7 +24,7 @@ const Login = () => {
             placeholder="Email"
           />
           <label
-            class="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
+            className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
             for="username"
           >
             Password
@@ -35,21 +35,21 @@ const Login = () => {
             {...register("password", { required: true })}
           />
 
-          <div class="flex items-center justify-between mt-10">
+          <div className="flex items-center justify-between mt-10">
             <button
-              class="bg-[#005cb2] hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
+              className="bg-[#005cb2] hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
               type="submit"
             >
               login
             </button>
             <Link
-              class="inline-block align-baseline font-bold text-sm text-[#005cb2] hover:text-blue-500"
+              className="inline-block align-baseline font-bold text-sm text-[#005cb2] hover:text-blue-500"
               to="#"
             >
               Forgot Password?
             </Link>
           </div>
-          <p class=" font-bold text-sm text-left mt-10" to="/login">
+          <p className=" font-bold text-sm text-left mt-10" to="/login">
             Don't have an account?
             <Link to="/register" className="text-[#005cb2] mx-3 uppercase">
               Register
