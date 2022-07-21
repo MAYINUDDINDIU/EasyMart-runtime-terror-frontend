@@ -23,6 +23,11 @@ const Navbar = () => {
           <BsFillBagCheckFill></BsFillBagCheckFill>Checkout
         </Link>
       </li>
+      <li tabIndex="0">
+        <Link to="/contact" className="font-bold">
+          <BsFillBagCheckFill></BsFillBagCheckFill>Contact Us
+        </Link>
+      </li>
     </>
   );
   return (
