@@ -16,7 +16,7 @@ const CarouselSlider = () => {
         initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 2000,
-        // cssEase: "linear",
+       
         responsive: [
           {
             breakpoint: 1024,
@@ -66,7 +66,7 @@ const CarouselSlider = () => {
             //         <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
             //         <div class="card-body">
             //             <h2 class="card-title">Shoes!</h2>
-            //             <p>If a dog chews shoes whose shoes does he choose?</p>
+            //             <p>If a dogs chews shoes whose shoes does he choose?</p>
             //             <div class="card-actions justify-end">
             //             <button class="btn btn-primary">Buy Now</button>
             //             </div>

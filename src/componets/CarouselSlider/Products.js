@@ -3,14 +3,14 @@ const products = [
         id:1,
         title: "Maria kart",
         price:"$56.55",
-        category:"smart",
+        category:"Smart kart",
         image:"https://i.ibb.co/1KwNs8G/chair-four.webp"
     },
     {
         id:1,
         title: "Bed",
         price:"$66.55",
-        category:"Smrt bed",
+        category:"Smart bed",
         image:"https://i.ibb.co/fqbjQGx/five.webp"
     },
     {
