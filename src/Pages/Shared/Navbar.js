@@ -92,7 +92,7 @@ const Navbar = () => {
         <Link to="/login" className="text-white font-bold mr-3">
           Login
         </Link>
-        <Link to="/login" className="text-white font-bold mr-3">
+        <Link to="/register" className="text-white font-bold mr-3">
           Register
         </Link>
       </div>
