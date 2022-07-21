@@ -17,7 +17,7 @@ const products = [
         id:3,
         title: "Kitty Chair",
         price:"$16.55",
-        category:"smart kitty",
+        category:"Smart kitty",
         image:"https://i.ibb.co/yVztMyM/chair-two.webp",
     },
     {

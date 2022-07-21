@@ -48,16 +48,17 @@ const CarouselSlider = () => {
 
     return (
         <div className='slider'>
+          <h1 className='uppercase font-bold text-4xl mb-10'>Deals of the day</h1>
             <Slider {...settings}>
             {products.map(item =>(
                    <div className='card'>
                    <div className='card-top'>
                     <img className='w-60 h-60' src={item.image} alt={item.title} />
-                    <h1>{item.title}</h1>
+                    <h1 className='text-3xl bg-success mt-0 text-neutral font-bold p-3 uppercase'>{item.title}</h1>
                      </div>
                        <div className='card-bottom'> 
-                       <h3>{item.price}</h3>
-                       <p>{item.category}</p>
+                       <h3 className='text-3xl font-bold'>{item.price}</h3>
+                       <p className='text-2xl'>{item.category}</p>
                     </div> 
                </div>
                 
