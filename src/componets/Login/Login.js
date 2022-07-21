@@ -40,7 +40,7 @@ const Login = () => {
               class="bg-[#005cb2] hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
               type="submit"
             >
-              Signin
+              login
             </button>
             <Link
               class="inline-block align-baseline font-bold text-sm text-[#005cb2] hover:text-blue-500"

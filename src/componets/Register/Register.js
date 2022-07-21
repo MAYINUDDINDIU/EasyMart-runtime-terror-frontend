@@ -76,7 +76,7 @@ const Register = () => {
           <p class=" font-bold text-sm text-left mt-10" to="/login">
             Already have an account?
             <Link to="/login" className="text-[#005cb2] mx-3 uppercase">
-              SignIn
+              Login
             </Link>
           </p>
         </form>
