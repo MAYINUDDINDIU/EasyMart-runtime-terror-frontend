@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../utilities/Loading/Loading";
-
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -38,7 +37,7 @@ const Register = () => {
     displayError = <p className="text-red-500">{error?.message}</p>;
   }
   return (
-    <div className="h-screen mt-20">
+    <div className="h-screen mt-20 ">
       <div className="flex justify-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
