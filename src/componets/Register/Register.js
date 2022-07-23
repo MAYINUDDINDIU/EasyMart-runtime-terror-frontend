@@ -13,7 +13,7 @@ const Register = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    const name = data.name;
+    // const name = data.name;
     const email = data.email;
     const password = data.password;
     const cpassword = data.cpassword;
