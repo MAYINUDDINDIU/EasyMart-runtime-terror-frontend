@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineSearch, AiFillHome } from "react-icons/ai";
+import { AiFillHome } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
