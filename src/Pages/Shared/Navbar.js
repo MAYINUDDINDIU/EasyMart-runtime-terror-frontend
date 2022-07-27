@@ -6,6 +6,7 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import Dashboard from "../../componets/Dashboard/Dashboard";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -22,6 +23,16 @@ const Navbar = () => {
           <AiFillHome></AiFillHome>Home
         </Link>
       </li>
+      {/* <li tabIndex="0">
+        <Link to="/dashboard" className=" font-bold">
+          <Dashboard></Dashboard>Dashboard
+        </Link>
+      </li> */}
+      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content">
+        {/* <!-- Page content here --> */}
+        <label for="my-drawer" className="btn  drawer-button">Dashboard</label>
+      </div>
       <li tabIndex="0">
         <Link to="/completedTasks" className=" font-bold">
           <FaShoppingCart></FaShoppingCart>My Cart
