@@ -5,6 +5,19 @@
 }
 
 .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+
+.card{
+    border: 1px solid #fff;
+    background: #005cb2;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 400px;
+    color:#fff;
   margin: 0 10px;
 }
 .slick-list {
