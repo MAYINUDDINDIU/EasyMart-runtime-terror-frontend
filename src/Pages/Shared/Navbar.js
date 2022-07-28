@@ -1,13 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { AiOutlineSearch, AiFillHome } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsFillBagCheckFill } from "react-icons/bs";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
+
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    signOut(auth);
+    navigate("/login");
+  };
   const navItems = (
     <>
-     
-
       <li>
         <Link to="/" className="font-bold">
           <AiFillHome></AiFillHome>Home
@@ -68,7 +77,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0 text-white ">{navItems}</ul>
       </div>
       <div className="navbar-end">
-      <div className="form-control mr-10">
+        <div className="form-control mr-10">
           <div className="input-group">
             <input
               type="text"
@@ -93,12 +102,24 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        <Link to="/login" className="text-white font-bold mr-3">
-          Login
-        </Link>
-        <Link to="/register" className="text-white font-bold mr-3">
-          Register
-        </Link>
+        {user ? (
+          <>
+            <span className="text-primary mx-3 font-bold">{user?.email}</span>{" "}
+            <button className="btn btn-primary font-bold" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            {" "}
+            <Link to="/login" className="text-white font-bold mr-3">
+              Login
+            </Link>
+            <Link to="/register" className="text-white font-bold mr-3">
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

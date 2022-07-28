@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
-// import NavLink from "./NavLink";
+
 
 const MegaNavbar = () => {
   const [open, setOpen] = useState(false);
