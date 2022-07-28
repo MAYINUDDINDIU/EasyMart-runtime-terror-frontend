@@ -9,11 +9,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./componets/Register/Register";
 import Login from "./componets/Login/Login";
+import MegaNavbar from "./Pages/Shared/MegaNavbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <MegaNavbar></MegaNavbar>
+      {/* <Navbar></Navbar> */}
       <Routes>
         <Route path="/" element={<Home></Home>}>
           Home
