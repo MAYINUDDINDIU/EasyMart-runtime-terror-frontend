@@ -9,8 +9,6 @@ import p5 from '../../assets/products/product5.jpg';
 
 const Product = () => {
 
-
-
     return (
         <div className='justify-center mt-20'>
             <h2 className='text-center lg:text-4xl drop-shadow mt-4 mb-10 font-bold'>OUR BEST PRODUCTS</h2>
@@ -25,6 +23,7 @@ const Product = () => {
                         <button className='btn btn-secondary btn-sm  rounded px-12 mt-3 ' >BUY NOW</button>
                     </div>
                 </div>
+
 
                 <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 bg-base-100 shadow-xl">
                     <figure><img className='h-48 lg:w-60 w-72' src={p2} alt="Shoes" /></figure>
