@@ -77,7 +77,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0 text-white ">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <div className="form-control mr-10">
+        {/* <div className="form-control mr-10">
           <div className="input-group">
             <input
               type="text"
@@ -101,7 +101,7 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
         {user ? (
           <>
             <span className="text-primary mx-3 font-bold">{user?.email}</span>{" "}
@@ -112,12 +112,15 @@ const Navbar = () => {
         ) : (
           <>
             {" "}
-            <Link to="/login" className="text-white font-bold mr-3">
-              Login
+            <Link to="/login" className="text-white font-bold mr-3 text-3xl">
+            <ion-icon name="log-in-outline" ></ion-icon>
             </Link>
-            <Link to="/register" className="text-white font-bold mr-3">
+            <Link to="/cart" className="text-white font-bold mr-3 text-3xl">
+            <ion-icon name="cart-outline" ></ion-icon>
+            </Link>
+            {/* <Link to="/register" className="text-white font-bold mr-3">
               Register
-            </Link>
+            </Link> */}
           </>
         )}
       </div>
