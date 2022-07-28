@@ -41,7 +41,7 @@ const MegaNavbar = () => {
 
       <div className="flex font-medium justify-center">
         {/* For mobile topBar  */}
-        <div className="z-50 p-5 md:w-auto w-full flex  justify-between">
+        <div className="z-50 p-5 md:w-auto w-full flex  justify-between text-white">
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
           </div>
@@ -66,18 +66,17 @@ const MegaNavbar = () => {
         {/* For  Mobile  nav  */}
         <ul
           className={`
-                md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4
-                duration-500 ${open ? "left-0" : "left-[-100%]"}
+                md:hidden bg-slate-600 absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${open ? "left-0" : "left-[-100%]"}
                 `}
         >
           <li>
             <div className="md:ml-10 border-b border-gray-500 py-2 w-[310px] flex justify-center items-center">
               <input
-                class="appearance-none bg-transparent border-none w-full text-gray-700 mr-1 py-1 px-2 leading-tight focus:outline-none"
+                class="appearance-none bg-transparent border-none w-full text-white mr-1 py-1 px-2 leading-tight focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               ></input>
-              <div className="text-2xl text-gray-400">
+              <div className="text-2xl text-white">
                 <ion-icon name="search-outline"></ion-icon>
               </div>
             </div>
