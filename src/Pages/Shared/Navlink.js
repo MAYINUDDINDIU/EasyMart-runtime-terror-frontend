@@ -30,14 +30,13 @@ const NavLink = () => {
               </span>
 
               <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <ion-icon name="chevron-down"> </ion-icon>
-                
+                <ion-icon name="chevron-down"> </ion-icon>    
               </span>
             </h1>
 
             {link.submenu && (
               <div>
-                <div className="absolute top-36 hidden group-hover:md:block hover:md:block z-50">
+                <div className="absolute top-36 hidden group-hover:md:block hover:md:block z-50 bg-white">
                  
                   <div className="p-5 grid grid-cols-3  gap-10">
                     {link.sublinks.map((mysublinks) => (
@@ -46,7 +45,7 @@ const NavLink = () => {
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-white my-2.5">
+                          <li className="text-sm my-2.5">
                             <Link
                               to={slink.link}
                               className="hover:text-primary"
