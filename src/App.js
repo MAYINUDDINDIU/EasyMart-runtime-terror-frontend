@@ -13,8 +13,9 @@ import MegaNavbar from "./Pages/Shared/MegaNavbar";
 function App() {
   return (
     <div className="App">
-      <MegaNavbar></MegaNavbar>
-      {/* <Navbar></Navbar> */}
+      <Navbar></Navbar>
+
+      {/* <MegaNavbar></MegaNavbar> */}
       <Routes>
         <Route path="/" element={<Home></Home>}>
           Home
