@@ -20,6 +20,17 @@ export const deleteProduct = createAsyncThunk('product/createProduct', async (id
     }).then(res => res.json())
 });
 
+export const updateProduct = createAsyncThunk('product/updateProduct', async (data) => {
+    const { id } = data;
+    return fetch(`http://localhost:5000/product/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json())
+});
+
 const productSlice = createSlice({
     name: 'product',
     initialState: {

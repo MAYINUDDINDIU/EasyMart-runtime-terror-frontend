@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteProduct } from '../../features/productSlice';
 
 const AllProduct = ({ pd }) => {
@@ -24,9 +25,9 @@ const AllProduct = ({ pd }) => {
                 <span className="text-secondary  text-lg font-bold">Available: {quantity}</span>
             </p>
             <div className="card-actions justify-center">
-                <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
+                <Link to='/dashboard/editproduct' state={{ _id, name, price, quantity, img }}><button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
                     Edit
-                </button>
+                </button></Link>
                 <button onClick={() => handleDelete(_id)} className="btn btn-error btn-sm  rounded px-12 mt-3 ">
                     Delete
                 </button>

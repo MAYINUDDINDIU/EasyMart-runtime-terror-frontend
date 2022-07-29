@@ -11,6 +11,7 @@ import Login from "./componets/Login/Login";
 import Dashborad from "./Pages/Dashboard/Dashborad";
 import AddProducts from "./Pages/Dashboard/AddProducts";
 import AllProducts from "./Pages/Dashboard/AllProducts";
+import EditProduct from "./Pages/Dashboard/EditProduct";
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/dashboard" element={<Dashborad></Dashborad>}>
-          <Route path="addproduct" element={<AddProducts></AddProducts>}></Route>
           <Route index element={<AllProducts></AllProducts>}></Route>
+          <Route path="addproduct" element={<AddProducts></AddProducts>}></Route>
+          <Route path="editproduct" element={<EditProduct></EditProduct>}></Route>
         </Route>
       </Routes>
 
