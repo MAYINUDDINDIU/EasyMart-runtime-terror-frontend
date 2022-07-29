@@ -8,6 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./componets/Register/Register";
 import Login from "./componets/Login/Login";
+import Dashborad from "./Pages/Dashboard/Dashborad";
+import AddProducts from "./Pages/Dashboard/AddProducts";
+import AllProducts from "./Pages/Dashboard/AllProducts";
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="/dashboard" element={<Dashborad></Dashborad>}>
+          <Route path="addproduct" element={<AddProducts></AddProducts>}></Route>
+          <Route index element={<AllProducts></AllProducts>}></Route>
+        </Route>
       </Routes>
 
       <Footer></Footer>

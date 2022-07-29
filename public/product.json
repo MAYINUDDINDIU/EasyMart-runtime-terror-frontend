@@ -1,74 +1,50 @@
 [
     {
-        "slno": 1,
         "name": "HP OMEN 17-W295MS 17",
-        "email": "mdborhanuddinmajumder058@gmail.com",
-        "quantity": 3,
         "price": "1,299",
-        "description": "HP OMEN 17-W295MS 17 Gaming Laptop i7-7700HQ 1TB HDD 256GB SSD 16GB GTX 1070.",
+        "quantity": 3,
         "img": "https://i.ibb.co/whyFR7r/2d10a256-68b7-4016-b054-9e566b15c8af-1-cc386d9dc265f52f289384b0003679a4.jpg"
     },
     {
-        "slno": 2,
         "name": "Samsung Notebook",
-        "email": "0318402483@student.wub.edu.bd",
         "price": "100",
         "quantity": 7,
-        "description": "A laptop combines the components, inputs, outputs, and capabilities of a desktop computer, including the display screen, small speakers, a keyboard.",
         "img": "https://i.ibb.co/n7x78xh/laptop-PNG5908.png"
     },
     {
-        "slno": 3,
         "name": "Refurbished Dell Latitude E6430 14",
-        "email": "mdborhanuddinmajumder058@gmail.com",
         "price": "143.98",
         "quantity": 4,
-        "description": "Refurbished Dell Latitude E6430 14 Laptop, Windows 10 Pro, Intel Core i5-3210M Processor, 4GB RAM, 320GB Hard Drive.",
         "img": "https://i.ibb.co/FXRHS0f/laptop-png-laptop-png-image-6754-4042.png"
     },
     {
-        "slno": 4,
         "name": "HP Pavilion 15-eh1012na Touchscreen",
-        "email": "0318402483@student.wub.edu.bd",
         "price": "469.99",
         "quantity": 5,
-        "description": "The Pavilion 15.6 inch Laptop packs more performance into a smaller profile, so you can get more done wherever you go. Enjoy mind-blowing entertainment with a micro-edge screen and Audio by B&O.",
         "img": " https://i.ibb.co/dWTcSrW/istockphoto-488793102-170667a.jpg"
     },
     {
-        "slno": 5,
         "name": "Acer Aspire 5 Slim Laptop, 15.6",
-        "email": "mdborhanuddinmajumder058@gmail.com",
         "price": "109.45",
         "quantity": 2,
-        "description": "If you are going to shop for either Acer Aspire 5 Slim vs Acer Swift 3 laptop, we will provide details about them that will help you choose the right one.",
         "img": "https://i.ibb.co/YjT0yVD/594929a8-8cb9-41b6-aec2-a52e73f6867a-182e8423b76c8be28ec20a52ff73aff5.jpg"
     },
     {
-        "slno": 6,
         "name": "ASUS VivoBook",
-        "email": "0318402483@student.wub.edu.bd",
         "price": "310",
         "quantity": 6,
-        "description": "Asus beat the drum loudest for the ZenBook Flip 14, which it calls “the world’s thinnest 2-in-1 laptop with high-performance discrete graphics.",
         "img": "https://i.ibb.co/4KthNRQ/purepng-com-laptop-notebooklaptopsnotebooknotebook-computerclamshell-1701528354844ktgom.png"
     },
     {
-        "slno": 7,
         "name": "Apple laptop",
-        "email": "mdborhanuddinmajumder058@gmail.com",
         "price": "200",
         "quantity": 4,
-        "description": "They come in different models such as the Intel 2.33GHz Core 2 Duo seen in the Apple MacBook pro, the 2.16Hz white Macbook, and others, all combining speed and design.",
         "img": "https://i.ibb.co/FJKgQLT/6a46a252-b366-4a34-b108-5153b4fc3eb4-1-d03c3a14d6325726d8dd63958d8806b1.jpg"
     },
     {
-        "slno": 8,
         "name": "Avita Essential Laptop",
-        "email": "0318402483@student.wub.edu.bd",
         "price": "700",
         "quantity": 4,
-        "description": "The Avita Essential Price is set for India at Rs. 17,990. If you want to book this then it is available on the Amazon shopping site.",
         "img": "https://i.ibb.co/ctwrzsL/939c7858-36db-4d57-8bbb-ef543092aefa-0593257cdb1160afb0a2da7bb8eac739.jpg"
     }
 ]
