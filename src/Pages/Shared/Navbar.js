@@ -37,6 +37,11 @@ const Navbar = () => {
           <BsFillBagCheckFill></BsFillBagCheckFill>Contact Us
         </Link>
       </li>
+      <li tabIndex="0">
+        <Link to="/dashboard" className="font-bold">
+          <AiFillHome></AiFillHome>Dashboard
+        </Link>
+      </li>
     </>
   );
   return (
@@ -113,10 +118,10 @@ const Navbar = () => {
           <>
             {" "}
             <Link to="/login" className="text-white font-bold mr-3 text-3xl">
-            <ion-icon name="log-in-outline" ></ion-icon>
+              <ion-icon name="log-in-outline" ></ion-icon>
             </Link>
             <Link to="/cart" className="text-white font-bold mr-3 text-3xl">
-            <ion-icon name="cart-outline" ></ion-icon>
+              <ion-icon name="cart-outline" ></ion-icon>
             </Link>
             {/* <Link to="/register" className="text-white font-bold mr-3">
               Register
