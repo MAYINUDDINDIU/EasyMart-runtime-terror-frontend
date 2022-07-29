@@ -1,7 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteProduct } from '../../features/productSlice';
 
 const AllProduct = ({ pd }) => {
-    const { name, img, price, quantity } = pd;
+    const { _id, name, img, price, quantity } = pd;
+    const dispatch = useDispatch();
+
+    const handleDelete = id => {
+        dispatch(deleteProduct(id))
+    }
     return (
         <div className="card bordered rounded lg:w-60 w-72 hover:scale-105 duration-500 cardBg shadow-xl">
             <figure>
@@ -20,7 +27,7 @@ const AllProduct = ({ pd }) => {
                 <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
                     Edit
                 </button>
-                <button className="btn btn-error btn-sm  rounded px-12 mt-3 ">
+                <button onClick={() => handleDelete(_id)} className="btn btn-error btn-sm  rounded px-12 mt-3 ">
                     Delete
                 </button>
             </div>
