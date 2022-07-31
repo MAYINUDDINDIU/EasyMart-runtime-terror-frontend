@@ -24,13 +24,13 @@ const MegaNavbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/" className="font-bold flex items-center my-3">
+        <Link to="/cart" className="font-bold flex items-center my-3">
           <FaShoppingCart></FaShoppingCart>&nbsp;&nbsp;
           <span>My Cart</span>
         </Link>
       </li>
       <li>
-        <Link to="/" className="font-bold flex items-center  my-3">
+        <Link to="/checkout" className="font-bold flex items-center  my-3">
           <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
           <span>Checkout</span>
         </Link>
@@ -42,7 +42,7 @@ const MegaNavbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="font-bold flex items-center">
+        <Link to="/dashboard" className="font-bold flex items-center">
           <AiFillHome></AiFillHome>&nbsp;&nbsp;
           <span>Dashboard</span>
         </Link>
@@ -60,12 +60,12 @@ const MegaNavbar = () => {
     setShowCatagories(false);
   };
   return (
-    <nav className={` lg:flex ${desktop ? "bg-gray-600" : "bg-[#005cb2]"}`}>
+    <nav className={` lg:flex ${desktop ? "bg-green-600" : "bg-[#005cb2]"}`}>
       {/* Top Navbar it only show large screen  */}
-      <div className="mx-20 p-5 md:flex hidden items-center justify-between">
-        <div className="md:ml-10 border-b border-gray-500 py-2 flex justify-center items-center">
+      <div className="mx-20 p-5 md:flex hidden items-center justify-between font-sans">
+        <div className="md:ml-10 border-b border-white py-2 flex justify-center items-center">
           <input
-            class="appearance-none bg-transparent border-none w-full text-white mr-1 py-1 px-2 leading-tight focus:outline-none"
+            class="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-1 py-1 px-2 leading-tight focus:outline-none"
             type="text"
             placeholder="Search Products"
           ></input>
@@ -148,9 +148,7 @@ const MegaNavbar = () => {
             <div className="w-1/2 cursor-pointer">
               <h4
                 className={`text-center my-3 p-3 ${
-
                   showMenuItems ? "bg-primary" : "bg-gray-400 "
-
                 }`}
                 onClick={handleShowMenuItems}
               >
@@ -163,9 +161,7 @@ const MegaNavbar = () => {
               {" "}
               <h4
                 className={`text-center my-3 p-3 ${
-
                   showCatagories ? "bg-primary" : "bg-gray-400 "
-
                 }`}
                 onClick={handleShowCatagories}
               >
