@@ -148,7 +148,9 @@ const MegaNavbar = () => {
             <div className="w-1/2 cursor-pointer">
               <h4
                 className={`text-center my-3 p-3 ${
+
                   showMenuItems ? "bg-primary" : "bg-gray-400 "
+
                 }`}
                 onClick={handleShowMenuItems}
               >
@@ -161,7 +163,9 @@ const MegaNavbar = () => {
               {" "}
               <h4
                 className={`text-center my-3 p-3 ${
+
                   showCatagories ? "bg-primary" : "bg-gray-400 "
+
                 }`}
                 onClick={handleShowCatagories}
               >
