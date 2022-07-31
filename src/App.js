@@ -12,13 +12,22 @@ import Dashborad from "./Pages/Dashboard/Dashborad";
 import AddProducts from "./Pages/Dashboard/AddProducts";
 import AllProducts from "./Pages/Dashboard/AllProducts";
 import EditProduct from "./Pages/Dashboard/EditProduct";
+import { useEffect, useState } from "react";
+import MegaNavbar from "./Pages/Shared/MegaNavbar";
 
 function App() {
+  const [desktop, setDesktop] = useState(window.innerWidth > 650);
+  const updatePic = () => {
+    setDesktop(window.innerWidth > 650);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updatePic);
+    return () => window.removeEventListener("resize", updatePic);
+  });
   return (
     <div className="App">
-      <Navbar></Navbar>
+      {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
 
-      {/* <MegaNavbar></MegaNavbar> */}
       <Routes>
         <Route path="/" element={<Home></Home>}>
           Home
@@ -29,8 +38,14 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/dashboard" element={<Dashborad></Dashborad>}>
           <Route index element={<AllProducts></AllProducts>}></Route>
-          <Route path="addproduct" element={<AddProducts></AddProducts>}></Route>
-          <Route path="editproduct" element={<EditProduct></EditProduct>}></Route>
+          <Route
+            path="addproduct"
+            element={<AddProducts></AddProducts>}
+          ></Route>
+          <Route
+            path="editproduct"
+            element={<EditProduct></EditProduct>}
+          ></Route>
         </Route>
       </Routes>
 
