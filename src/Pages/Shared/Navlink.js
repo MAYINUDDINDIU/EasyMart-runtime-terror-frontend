@@ -10,7 +10,7 @@ const NavLink = () => {
     <>
       {links.map((link) => (
         <div>
-          <div className="px-3 text-left md:cursor-pointer group">
+          <div className="px-3 text-left md:cursor-pointer group font-sans normal-case font-bold">
             <h1
               className="py-7 flex justify-between items-center md:pr-0 pr-5 group text-white"
               onClick={() => {
