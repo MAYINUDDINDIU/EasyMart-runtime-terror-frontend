@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { AiFillHome } from "react-icons/ai";
+import { BsFillBagCheckFill } from "react-icons/bs";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
-
 
 const MegaNavbar = () => {
   const [open, setOpen] = useState(false);
@@ -13,6 +15,50 @@ const MegaNavbar = () => {
     window.addEventListener("resize", updatePic);
     return () => window.removeEventListener("resize", updatePic);
   });
+  const menuItems = (
+    <>
+      <li>
+        <Link to="/" className="font-bold flex items-center my-3">
+          <AiFillHome></AiFillHome>&nbsp;&nbsp;
+          <span>Home</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/" className="font-bold flex items-center my-3">
+          <FaShoppingCart></FaShoppingCart>&nbsp;&nbsp;
+          <span>My Cart</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/" className="font-bold flex items-center  my-3">
+          <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
+          <span>Checkout</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className="font-bold flex items-center my-3">
+          <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
+          <span>Contact Us</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className="font-bold flex items-center">
+          <AiFillHome></AiFillHome>&nbsp;&nbsp;
+          <span>Dashboard</span>
+        </Link>
+      </li>
+    </>
+  );
+  const [showCatagories, setShowCatagories] = useState(false);
+  const [showMenuItems, setShowMenuItems] = useState(true);
+  const handleShowCatagories = () => {
+    setShowCatagories(true);
+    setShowMenuItems(false);
+  };
+  const handleShowMenuItems = () => {
+    setShowMenuItems(true);
+    setShowCatagories(false);
+  };
   return (
     <nav className="bg-slate-600  lg:flex">
       {/* Top Navbar it only show large screen  */}
@@ -28,7 +74,9 @@ const MegaNavbar = () => {
           </div>
         </div>
         <div className="md:mr-44">
-          {desktop?null:<h1 className="text-2xl  text-sky-300">Easy Mart</h1>}
+          {desktop ? null : (
+            <h1 className="text-2xl  text-sky-300">Easy Mart</h1>
+          )}
         </div>
 
         {/* <div className="flex gap-3 text-2xl cursor-pointer">
@@ -74,7 +122,9 @@ const MegaNavbar = () => {
         {/* For  Mobile  nav  */}
         <ul
           className={`
-                md:hidden bg-slate-600 absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${open ? "left-0" : "left-[-100%]"}
+                md:hidden bg-slate-600 absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${
+                  open ? "left-0" : "left-[-100%]"
+                }
                 `}
         >
           <li>
@@ -88,12 +138,32 @@ const MegaNavbar = () => {
                 <ion-icon name="search-outline"></ion-icon>
               </div>
             </div>
-
-            <Link to="/" className="py-7 px-3 inline-block">
-              Home
-            </Link>
           </li>
-          <NavLink />
+          <li className="flex justify-between">
+            <div className="w-1/2">
+              <h4
+                className={`text-center my-3 p-3 ${
+                  showMenuItems ? "bg-sky-500" : null
+                }`}
+                onClick={handleShowMenuItems}
+              >
+                Menu
+              </h4>
+              {showMenuItems ? menuItems : null}
+              {showCatagories ? <NavLink /> : null}
+            </div>
+            <div className="w-1/2">
+              {" "}
+              <h4
+                className={`text-center my-3 p-3 ${
+                  showCatagories ? "bg-sky-500" : null
+                }`}
+                onClick={handleShowCatagories}
+              >
+                Catagories
+              </h4>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
