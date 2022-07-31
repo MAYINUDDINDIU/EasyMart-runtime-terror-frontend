@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
-import { BsFillBagCheckFill } from "react-icons/bs";
+import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
@@ -37,7 +37,7 @@ const MegaNavbar = () => {
       </li>
       <li>
         <Link to="/contact" className="font-bold flex items-center my-3">
-          <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
+          <BsFillTelephoneFill></BsFillTelephoneFill>&nbsp;&nbsp;
           <span>Contact Us</span>
         </Link>
       </li>
@@ -140,10 +140,10 @@ const MegaNavbar = () => {
             </div>
           </li>
           <li className="flex justify-between">
-            <div className="w-1/2">
+            <div className="w-1/2 cursor-pointer">
               <h4
                 className={`text-center my-3 p-3 ${
-                  showMenuItems ? "bg-sky-500" : null
+                  showMenuItems ? "bg-sky-500" : "bg-gray-400 "
                 }`}
                 onClick={handleShowMenuItems}
               >
@@ -152,11 +152,11 @@ const MegaNavbar = () => {
               {showMenuItems ? menuItems : null}
               {showCatagories ? <NavLink /> : null}
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 cursor-pointer">
               {" "}
               <h4
                 className={`text-center my-3 p-3 ${
-                  showCatagories ? "bg-sky-500" : null
+                  showCatagories ? "bg-sky-500" : "bg-gray-400 "
                 }`}
                 onClick={handleShowCatagories}
               >

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsFillBagCheckFill } from "react-icons/bs";
+import { BsFillBagCheckFill ,BsFillTelephoneFill} from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
@@ -34,7 +34,7 @@ const Navbar = () => {
       </li>
       <li tabIndex="0">
         <Link to="/contact" className="font-bold">
-          <BsFillBagCheckFill></BsFillBagCheckFill>Contact Us
+         <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
       <li tabIndex="0">
@@ -45,6 +45,7 @@ const Navbar = () => {
     </>
   );
   return (
+    
     <div className="navbar bg-[#005cb2] lg:px-24  sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
