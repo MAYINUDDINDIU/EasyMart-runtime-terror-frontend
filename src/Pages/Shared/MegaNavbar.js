@@ -60,7 +60,7 @@ const MegaNavbar = () => {
     setShowCatagories(false);
   };
   return (
-    <nav className="bg-slate-600  lg:flex">
+    <nav className={` lg:flex ${desktop ? "bg-gray-600" : "bg-[#005cb2]"}`}>
       {/* Top Navbar it only show large screen  */}
       <div className="mx-20 p-5 md:flex hidden items-center justify-between">
         <div className="md:ml-10 border-b border-gray-500 py-2 flex justify-center items-center">
@@ -73,7 +73,7 @@ const MegaNavbar = () => {
             <ion-icon name="search-outline"></ion-icon>
           </div>
         </div>
-        <div className="md:mr-44">
+        <div className="md:mr-44 ">
           {desktop ? null : (
             <h1 className="text-2xl  text-sky-300">Easy Mart</h1>
           )}
@@ -95,14 +95,19 @@ const MegaNavbar = () => {
 
       {/* center navigation bar  */}
 
-      <div className="flex font-medium justify-center">
+      <div className="flex font-medium justify-center ">
         {/* For mobile topBar  */}
         <div className="z-50 p-5 md:w-auto w-full flex  justify-between text-white">
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
           </div>
           <h1 className="md:cursor-pointer md:hidden h-9 text-sky-400 text-2xl">
-            Easy Mart
+            <Link
+              className=" normal-case font-bold drop-shadow text-2xl text-white"
+              to="/"
+            >
+              EASY <span className="text-primary">MART</span>
+            </Link>
           </h1>
 
           <div className="text-3xl md:hidden">
@@ -122,7 +127,7 @@ const MegaNavbar = () => {
         {/* For  Mobile  nav  */}
         <ul
           className={`
-                md:hidden bg-slate-600 absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${
+                md:hidden bg-[#005cb2] absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${
                   open ? "left-0" : "left-[-100%]"
                 }
                 `}
@@ -143,7 +148,7 @@ const MegaNavbar = () => {
             <div className="w-1/2 cursor-pointer">
               <h4
                 className={`text-center my-3 p-3 ${
-                  showMenuItems ? "bg-sky-500" : "bg-gray-400 "
+                  showMenuItems ? "bg-primary" : "bg-gray-400 "
                 }`}
                 onClick={handleShowMenuItems}
               >
@@ -156,7 +161,7 @@ const MegaNavbar = () => {
               {" "}
               <h4
                 className={`text-center my-3 p-3 ${
-                  showCatagories ? "bg-sky-500" : "bg-gray-400 "
+                  showCatagories ? "bg-primary" : "bg-gray-400 "
                 }`}
                 onClick={handleShowCatagories}
               >
