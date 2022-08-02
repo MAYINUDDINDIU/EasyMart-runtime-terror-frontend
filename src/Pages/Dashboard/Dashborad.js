@@ -16,7 +16,8 @@ const Dashborad = () => {
                 <label for="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-56 bg-base-100 text-base-content">
                     <button className='btn mt-2 text-white font-bold'><li><Link to='/dashboard'>All Products</Link></li></button>
-                    <button className='btn btn-secondary mt-2 text-white font-bold'><li><Link to='/dashboard/addproduct'>Add Products</Link></li></button>
+                    <button className='btn mt-2 text-white font-bold'><li><Link to='/dashboard/allcategory'>Add Categories Products</Link></li></button>
+                    {/* <button className='btn btn-secondary mt-2 text-white font-bold'><li><Link to='/dashboard/addproduct'>Add Products</Link></li></button> */}
                 </ul>
 
             </div>

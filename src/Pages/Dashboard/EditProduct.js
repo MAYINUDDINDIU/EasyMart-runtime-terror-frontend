@@ -23,7 +23,7 @@ const EditProduct = () => {
     return (
         <div>
             <h1 className='text-4xl text-green-500 font-bold'>Edit Product</h1>
-            <form onSubmit={handleSubmit} className='flex flex-col items-center gap-2 mt-4'>
+            <form onSubmit={handleSubmit} className='flex flex-col w-48 mx-auto gap-2 mt-4'>
                 <div className="form-control">
                     <label className="input-group input-group-lg">
                         <span>Name</span>

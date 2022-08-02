@@ -7,10 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import productReducer from './features/productSlice';
+import collectionReducer from './features/collectionSlice';
 
 const store = configureStore({
   reducer: {
-    productReducer: productReducer
+    productReducer: productReducer,
+    collectionSlice: collectionReducer
   },
 });
 
