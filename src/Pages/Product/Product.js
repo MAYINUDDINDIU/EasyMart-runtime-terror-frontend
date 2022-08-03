@@ -12,7 +12,7 @@ const Product = () => {
         OUR BEST PRODUCTS
       </h2>
 
-      <div className=" w-full mb-4">
+      <div className=" w-full mb-20">
         <ul className="menu flex-col md:flex-row justify-center gap-4 menu-horizontal">
           <button className='btn text-white font-bold'><li><Link to=''>All Collection</Link></li></button>
           <button className='btn text-white font-bold'><li><Link to='/mencollection'>Men's Collection</Link></li></button>

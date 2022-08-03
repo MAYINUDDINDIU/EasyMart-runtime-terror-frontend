@@ -127,7 +127,7 @@ const MegaNavbar = () => {
         {/* For  Mobile  nav  */}
         <ul
           className={`
-                md:hidden bg-[#005cb2] absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-white ${
+                md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-black ${
                   open ? "left-0" : "left-[-100%]"
                 }
                 `}
@@ -135,11 +135,11 @@ const MegaNavbar = () => {
           <li>
             <div className="md:ml-10 border-b border-gray-500 py-2 w-[310px] flex justify-center items-center">
               <input
-                class="appearance-none bg-transparent border-none w-full text-white mr-1 py-1 px-2 leading-tight focus:outline-none"
+                class="appearance-none bg-transparent border-none w-full text-black mr-1 py-1 px-2 leading-tight focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               ></input>
-              <div className="text-2xl text-white">
+              <div className="text-2xl text-black">
                 <ion-icon name="search-outline"></ion-icon>
               </div>
             </div>
@@ -148,7 +148,7 @@ const MegaNavbar = () => {
             <div className="w-1/2 cursor-pointer">
               <h4
                 className={`text-center my-3 p-3 ${
-                  showMenuItems ? "bg-primary" : "bg-gray-400 "
+                  showMenuItems ? "bg-secondary" : "bg-gray-400"
                 }`}
                 onClick={handleShowMenuItems}
               >
@@ -161,7 +161,7 @@ const MegaNavbar = () => {
               {" "}
               <h4
                 className={`text-center my-3 p-3 ${
-                  showCatagories ? "bg-primary" : "bg-gray-400 "
+                  showCatagories ? "bg-secondary" : "bg-gray-400 "
                 }`}
                 onClick={handleShowCatagories}
               >

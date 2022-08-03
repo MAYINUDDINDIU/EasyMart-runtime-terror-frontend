@@ -39,7 +39,7 @@ function App() {
       {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
 
       <div className="flex">
-        <div className="w-1/4 z-10">
+        <div className="w-1/5 z-10">
           {desktop ? <SidebarCatagory></SidebarCatagory> : null}
         </div>
         <div className={`${desktop ? "w-4/5" : "w-full"}`}>

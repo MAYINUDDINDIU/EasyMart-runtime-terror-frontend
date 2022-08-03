@@ -65,13 +65,13 @@ const Login = () => {
 
           <div className="flex items-center justify-between mt-10">
             <button
-              className="bg-[#005cb2] hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
+              className="bg-secondary hover:bg-green-400 text-neutral font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
               type="submit"
             >
               login
             </button>
             <Link
-              className="inline-block align-baseline font-bold text-sm text-[#005cb2] hover:text-blue-500"
+              className="inline-block align-baseline font-bold text-sm text-green-400"
               to="#"
             >
               Forgot Password?
@@ -79,7 +79,7 @@ const Login = () => {
           </div>
           <p className=" font-bold text-sm text-left mt-10" to="/login">
             Don't have an account?
-            <Link to="/register" className="text-[#005cb2] mx-3 uppercase">
+            <Link to="/register" className="text-green-400 mx-3 uppercase">
               Register
             </Link>
           </p>
