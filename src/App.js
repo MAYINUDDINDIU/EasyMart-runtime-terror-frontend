@@ -15,6 +15,15 @@ import EditProduct from "./Pages/Dashboard/EditProduct";
 import { useEffect, useState } from "react";
 import MegaNavbar from "./Pages/Shared/MegaNavbar";
 import SidebarCatagory from "./Pages/Shared/SidebarCatagory";
+import Allcaetgory from "./Pages/Dashboard/Allcaetgory";
+import MensItem from "./Pages/Dashboard/MensItem";
+import WomensItem from "./Pages/Dashboard/WomensItem";
+import KidsItem from "./Pages/Dashboard/KidsItem";
+import MenCollection from "./Pages/Product/MenCollection";
+import AllCollection from "./Pages/Product/AllCollection";
+import WomenCollection from "./Pages/Product/WomenCollection";
+import KidsCollection from "./Pages/Product/KidsCollection";
+import PrivateRoute from "./componets/privateroute/PrivateRoute";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -27,22 +36,51 @@ function App() {
   });
   return (
     <div className="App">
-      {/* {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>} */}
-      <Navbar></Navbar>
+      {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
+
       <div className="flex">
-        <div className="w-1/4">
-          <SidebarCatagory></SidebarCatagory>
+        <div className="w-1/4 z-10">
+          {desktop ? <SidebarCatagory></SidebarCatagory> : null}
         </div>
-        <div className="w-3/4">
+        <div className={`${desktop ? "w-4/5" : "w-full"}`}>
           <Routes>
             <Route path="/" element={<Home></Home>}>
-              Home
+              <Route index element={<AllCollection></AllCollection>}></Route>
+              <Route
+                path="mencollection"
+                element={<MenCollection></MenCollection>}
+              ></Route>
+              <Route
+                path="womencollection"
+                element={<WomenCollection></WomenCollection>}
+              ></Route>
+              <Route
+                path="kidcollection"
+                element={<KidsCollection></KidsCollection>}
+              ></Route>
             </Route>
+
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
-            <Route path="/dashboard" element={<Dashborad></Dashborad>}>
+
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashborad></Dashborad>
+                </PrivateRoute>
+              }
+            >
+              <Route path="allcategory" element={<Allcaetgory></Allcaetgory>}>
+                <Route index element={<MensItem></MensItem>}></Route>
+                <Route
+                  path="womensitem"
+                  element={<WomensItem></WomensItem>}
+                ></Route>
+                <Route path="kidsItem" element={<KidsItem></KidsItem>}></Route>
+              </Route>
               <Route index element={<AllProducts></AllProducts>}></Route>
               <Route
                 path="addproduct"
