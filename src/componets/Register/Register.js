@@ -93,13 +93,13 @@ const Register = () => {
           {passwordMatchError}
           <div className="flex items-center justify-between mt-10">
             <button
-              className="bg-[#005cb2] hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
+              className="bg-secondary hover:bg-green-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase"
               type="submit"
             >
               Register
             </button>
             <Link
-              className="inline-block align-baseline font-bold text-sm text-[#005cb2] hover:text-blue-500"
+              className="inline-block align-baseline font-bold text-sm text-green-400"
               to="#"
             >
               Forgot Password?
@@ -107,7 +107,7 @@ const Register = () => {
           </div>
           <p className=" font-bold text-sm text-left mt-10" to="/login">
             Already have an account?
-            <Link to="/login" className="text-[#005cb2] mx-3 uppercase">
+            <Link to="/login" className="text-green-400 mx-3 uppercase">
               Login
             </Link>
           </p>
