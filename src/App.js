@@ -22,6 +22,7 @@ import MenCollection from "./Pages/Product/MenCollection";
 import AllCollection from "./Pages/Product/AllCollection";
 import WomenCollection from "./Pages/Product/WomenCollection";
 import KidsCollection from "./Pages/Product/KidsCollection";
+import PrivateRoute from "./componets/privateroute/PrivateRoute";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -46,11 +47,13 @@ function App() {
           <Route path="womencollection" element={<WomenCollection></WomenCollection>}></Route>
           <Route path="kidcollection" element={<KidsCollection></KidsCollection>}></Route>
         </Route>
+
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
-        <Route path="/dashboard" element={<Dashborad></Dashborad>}>
+
+        <Route path="/dashboard" element={<PrivateRoute><Dashborad></Dashborad></PrivateRoute>}>
           <Route path="allcategory" element={<Allcaetgory></Allcaetgory>}>
             <Route index element={<MensItem></MensItem>}></Route>
             <Route path="womensitem" element={<WomensItem></WomensItem>}></Route>
@@ -66,6 +69,7 @@ function App() {
             element={<EditProduct></EditProduct>}
           ></Route>
         </Route>
+
       </Routes>
 
       <Footer></Footer>

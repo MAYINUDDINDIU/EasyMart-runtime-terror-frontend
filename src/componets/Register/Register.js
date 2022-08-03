@@ -19,7 +19,7 @@ const Register = () => {
     if (password === cpassword) {
       createUserWithEmailAndPassword(email, password);
       if (user) {
-        navigate("/");
+        navigate("/dashboard");
       }
     } else {
       setPasswordMatchError(
