@@ -60,7 +60,7 @@ const MegaNavbar = () => {
     setShowCatagories(false);
   };
   return (
-    <nav className={` lg:flex ${desktop ? "bg-green-600" : "bg-[#005cb2]"}`}>
+    <nav className={` lg:flex ${desktop ? "bg-secondary" : "bg-secondary"}`}>
       {/* Top Navbar it only show large screen  */}
       <div className="mx-20 p-5 md:flex hidden items-center justify-between font-sans">
         <div className="md:ml-10 border-b border-white py-2 flex justify-center items-center">
@@ -97,13 +97,13 @@ const MegaNavbar = () => {
 
       <div className="flex font-medium justify-center ">
         {/* For mobile topBar  */}
-        <div className="z-50 p-5 md:w-auto w-full flex  justify-between text-white">
+        <div className="z-50 p-5 md:w-auto w-full flex  justify-between text-black">
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
           </div>
           <h1 className="md:cursor-pointer md:hidden h-9 text-sky-400 text-2xl">
             <Link
-              className=" normal-case font-bold drop-shadow text-2xl text-white"
+              className=" normal-case font-bold drop-shadow text-2xl text-black"
               to="/"
             >
               EASY <span className="text-primary">MART</span>
