@@ -22,38 +22,13 @@ const MensItem = () => {
     }
     return (
         <div>
-            <h1 className='text-4xl text-purple-800 font-bold'>Add Products For Men's</h1>
-            <form onSubmit={handleSubmit} className='flex flex-col w-48 mx-auto gap-2 mt-4'>
-                <div className="form-control">
-                    <label className="input-group input-group-lg">
-                        <span>Men</span>
-                        <input type="text" name='men' value='men' disabled className="input input-bordered input-group-lg" />
-                    </label>
-                </div>
-                <div className="form-control">
-                    <label className="input-group input-group-lg">
-                        <span>Name</span>
-                        <input type="text" name='name' placeholder="Name" className="input input-bordered input-group-lg" />
-                    </label>
-                </div>
-                <div className="form-control">
-                    <label className="input-group">
-                        <span>Price</span>
-                        <input type="text" name='price' placeholder="Price" className="input input-bordered input-group-lg" />
-                    </label>
-                </div>
-                <div className="form-control">
-                    <label className="input-group">
-                        <span>Quantity</span>
-                        <input type="text" name='quantity' placeholder="Quantity" className="input input-bordered input-group-lg" />
-                    </label>
-                </div>
-                <div className="form-control">
-                    <label className="input-group">
-                        <span>URL</span>
-                        <input type="text" name='url' placeholder="Image" className="input input-bordered input-group-lg" />
-                    </label>
-                </div>
+            <h1 className='text-4xl text-purple-800 font-bold my-4'>Add Products For Men's</h1>
+            <form onSubmit={handleSubmit} className='flex flex-col items-center mx-auto gap-2 mt-4'>
+                <input type="text" name='men' value='men' disabled className="input input-bordered text-center font-bold text-3xl input-info w-full max-w-xs" />
+                <input type="text" name='name' placeholder="Name" className="input input-bordered input-info w-full max-w-xs" />
+                <input type="text" name='price' placeholder="Price" className="input input-bordered input-info w-full max-w-xs" />
+                <input type="text" name='quantity' placeholder="Quantity" className="input input-bordered input-info w-full max-w-xs" />
+                <input type="text" name='url' placeholder="Image" className="input input-bordered input-info w-full max-w-xs" />
                 <button type='submit' className='btn text-white font-bold'>Add</button>
             </form>
         </div>
