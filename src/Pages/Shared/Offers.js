@@ -6,7 +6,7 @@ const Offers = () => {
   return (
     <div>
       <div className="bg-white text-left p-5 font-semibold">
-        <h3 className="text-xl bg-green-600 p-3 text-white font-bold text-center mb-3">
+        <h3 className="text-xl bg-[#E3F56C] p-3 text-black font-bold text-center mb-3">
           Offers
         </h3>
         <div className="flex">

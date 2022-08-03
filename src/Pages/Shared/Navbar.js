@@ -46,7 +46,7 @@ const Navbar = () => {
   );
   return (
     
-    <div className="navbar bg-[#005cb2] lg:px-24  sticky top-0 z-50">
+    <div className="navbar bg-[#E3F56C] text-black lg:px-24  sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -73,14 +73,14 @@ const Navbar = () => {
           </ul>
         </div>
         <Link
-          className=" normal-case font-bold drop-shadow text-2xl text-white"
+          className=" normal-case font-bold drop-shadow text-2xl "
           to="/"
         >
           EASY <span className="text-primary">MART</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal p-0 text-white ">{navItems}</ul>
+        <ul className="menu menu-horizontal p-0  ">{navItems}</ul>
       </div>
       <div className="navbar-end">
         {/* <div className="form-control mr-10">
@@ -118,10 +118,10 @@ const Navbar = () => {
         ) : (
           <>
             {" "}
-            <Link to="/login" className="text-white font-bold mr-3 text-3xl">
+            <Link to="/login" className=" font-bold mr-3 text-3xl">
               <ion-icon name="log-in-outline" ></ion-icon>
             </Link>
-            <Link to="/cart" className="text-white font-bold mr-3 text-3xl">
+            <Link to="/cart" className=" font-bold mr-3 text-3xl">
               <ion-icon name="cart-outline" ></ion-icon>
             </Link>
             {/* <Link to="/register" className="text-white font-bold mr-3">

@@ -10,11 +10,11 @@ const SingleProduct = ({ pd }) => {
             <h6 className=" font-bold text-xl text-dark mt-3">{name}</h6>
             <p className="text-center">
                 {" "}
-                <span className="text-secondary  text-lg font-bold">{price}$</span>
+                <span className="text-neutral  text-lg font-bold">{price}$</span>
             </p>
             <p className="text-center">
                 {" "}
-                <span className="text-secondary  text-lg font-bold">Available: {quantity}</span>
+                <span className="text-neutral  text-lg font-bold">Available: {quantity}</span>
             </p>
             <div className="card-actions justify-center">
                 <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">

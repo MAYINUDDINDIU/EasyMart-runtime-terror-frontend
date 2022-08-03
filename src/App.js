@@ -92,10 +92,11 @@ function App() {
               ></Route>
             </Route>
           </Routes>
+          <Footer></Footer>
         </div>
       </div>
 
-      <Footer></Footer>
+    
       <ToastContainer />
     </div>
   );

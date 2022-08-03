@@ -3,10 +3,10 @@ import { links } from "./Mylinks";
 import Offers from "./Offers";
 const SidebarCatagory = () => {
   return (
-    <div className="fixed w-1/5">
+    <div className="fixed w-1/5  border-r-gray border-t-0 border-2">
       <Offers></Offers>
       <div className="bg-white h-screen p-5">
-        <h3 className="text-xl bg-green-600 p-3 text-white font-bold">
+        <h3 className="text-xl bg-[#E3F56C] p-3 text-black font-bold">
           Catagories
         </h3>
         {links.map((link) => (
