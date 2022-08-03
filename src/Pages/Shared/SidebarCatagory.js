@@ -1,8 +1,10 @@
 import React from "react";
 import { links } from "./Mylinks";
+import Offers from "./Offers";
 const SidebarCatagory = () => {
   return (
     <div className="fixed w-1/5">
+      <Offers></Offers>
       <div className="bg-white h-screen p-5">
         <h3 className="text-xl bg-green-600 p-3 text-white font-bold">
           Catagories
