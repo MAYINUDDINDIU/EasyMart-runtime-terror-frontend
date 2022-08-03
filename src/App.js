@@ -14,6 +14,7 @@ import AllProducts from "./Pages/Dashboard/AllProducts";
 import EditProduct from "./Pages/Dashboard/EditProduct";
 import { useEffect, useState } from "react";
 import MegaNavbar from "./Pages/Shared/MegaNavbar";
+import SidebarCatagory from "./Pages/Shared/SidebarCatagory";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -26,28 +27,35 @@ function App() {
   });
   return (
     <div className="App">
-      {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
-
-      <Routes>
-        <Route path="/" element={<Home></Home>}>
-          Home
-        </Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/contact" element={<Contact></Contact>}></Route>
-        <Route path="/dashboard" element={<Dashborad></Dashborad>}>
-          <Route index element={<AllProducts></AllProducts>}></Route>
-          <Route
-            path="addproduct"
-            element={<AddProducts></AddProducts>}
-          ></Route>
-          <Route
-            path="editproduct"
-            element={<EditProduct></EditProduct>}
-          ></Route>
-        </Route>
-      </Routes>
+      {/* {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>} */}
+      <Navbar></Navbar>
+      <div className="flex">
+        <div className="w-1/4">
+          <SidebarCatagory></SidebarCatagory>
+        </div>
+        <div className="w-3/4">
+          <Routes>
+            <Route path="/" element={<Home></Home>}>
+              Home
+            </Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/register" element={<Register></Register>}></Route>
+            <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/contact" element={<Contact></Contact>}></Route>
+            <Route path="/dashboard" element={<Dashborad></Dashborad>}>
+              <Route index element={<AllProducts></AllProducts>}></Route>
+              <Route
+                path="addproduct"
+                element={<AddProducts></AddProducts>}
+              ></Route>
+              <Route
+                path="editproduct"
+                element={<EditProduct></EditProduct>}
+              ></Route>
+            </Route>
+          </Routes>
+        </div>
+      </div>
 
       <Footer></Footer>
       <ToastContainer />

@@ -16,9 +16,9 @@ const Home = () => {
     });
     return (
         <div>
-            {
+            {/* {
                 desktop?<MegaNavbar></MegaNavbar>:null
-            }
+            } */}
             <Carousel></Carousel>
             <Product></Product>
             <CarouselSlider></CarouselSlider>
