@@ -1,9 +1,32 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../utilities/Loading/Loading";
+
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    signInWithEmailAndPassword(email, password);
+    console.log(data);
+  };
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    navigate("/");
+  }
+  let displayError;
+  if (error) {
+    displayError = <p className="text-red-500">{error?.message}</p>;
+  }
   return (
     <div className="h-screen mt-20">
       <div className="flex justify-center">
@@ -11,12 +34,14 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-xs"
         >
+          {displayError}
           <label
             className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
             for="username"
           >
             Email
           </label>
+
           <input
             {...register("email", { required: true })}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
