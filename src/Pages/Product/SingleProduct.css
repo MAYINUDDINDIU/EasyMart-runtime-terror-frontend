@@ -1,0 +1,10 @@
+.card_image {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.card_image:hover {
+  opacity: 0.3;
+}
