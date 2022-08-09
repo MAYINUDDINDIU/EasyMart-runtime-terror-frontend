@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../utilities/Loading/Loading";
+import useToken from "../../hook/useToken";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -11,6 +12,13 @@ const Register = () => {
 
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+
+  // const [token] = useToken(user);
+
+  if (user) {
+    navigate("/dashboard");
+  }
+
   const onSubmit = (data) => {
     // const name = data.name;
     const email = data.email;
@@ -18,9 +26,7 @@ const Register = () => {
     const cpassword = data.cpassword;
     if (password === cpassword) {
       createUserWithEmailAndPassword(email, password);
-      if (user) {
-        navigate("/dashboard");
-      }
+
     } else {
       setPasswordMatchError(
         <p className="text-red-500  mt-3">Passwords didn't match, try again</p>

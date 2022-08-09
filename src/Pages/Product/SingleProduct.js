@@ -18,7 +18,7 @@ const SingleProduct = ({ pd }) => {
             </p>
             <div className="card-actions justify-center">
                 <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
-                    BUY NOW
+                    BUY NOWd
                 </button>
             </div>
         </div>
