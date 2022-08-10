@@ -58,6 +58,7 @@ const Navbar = () => {
   return (
 
     <div className="navbar bg-[#E3F56C] text-black lg:px-24  sticky top-0 z-50">
+      {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
