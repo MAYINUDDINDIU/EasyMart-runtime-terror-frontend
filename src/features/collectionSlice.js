@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 
 export const menProduct = createAsyncThunk('product/menProduct', async () => {
@@ -11,6 +12,25 @@ export const womenProduct = createAsyncThunk('product/womenProduct', async () =>
 
 export const kidProduct = createAsyncThunk('product/kidProduct', async () => {
     return fetch('http://localhost:5000/kidProduct').then(res => res.json())
+});
+
+// Add To Cart
+export const addToCart = createAsyncThunk('product/addToCart', async (pd) => {
+    return fetch('http://localhost:5000/addtocart', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(pd)
+    }).then(res => res.json()).then(result => {
+        if (result.success) {
+
+            toast(`${pd.name} added Successfully`);
+        }
+        else {
+            toast.error(`${pd.name} Already added`);
+        }
+    })
 });
 
 const collectionSlice = createSlice({

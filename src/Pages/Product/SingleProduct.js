@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addToCart } from "../../features/collectionSlice";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
   const { name, img, price, quantity } = pd;
@@ -9,6 +12,34 @@ const SingleProduct = ({ pd }) => {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    // const change = 'Confirm';
+    // setReq(change)
+    const proceed = window.confirm('Are You Confirm?');
+    if (proceed) {
+      dispatch(addToCart(pd))
+      // const url = `http://localhost:5000/addtocart`;
+      // fetch(url, {
+      //   method: "POST",
+      //   headers: {
+      //     "content-type": "application/json"
+      //   },
+      //   body: JSON.stringify(pd)
+      // })
+      //   .then(res => res.json())
+      // .then(result => {
+      //   if (result.success) {
+
+      //     toast(`${name} Purchase Successfully`);
+      //   }
+      //   else {
+      //     toast.error(`${name} Already Purchased`);
+      //   }
+      // })
+    }
+  }
   return (
     <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl cursor-pointer">
       <section
@@ -43,8 +74,8 @@ const SingleProduct = ({ pd }) => {
           </span>
         </p>
         <div className="card-actions justify-center">
-          <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
-            BUY NOW
+          <button onClick={handleAddToCart} className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
+            Add To Cart
           </button>
         </div>
       </div>
