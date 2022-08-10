@@ -24,6 +24,7 @@ import AllCollection from "./Pages/Product/AllCollection";
 import WomenCollection from "./Pages/Product/WomenCollection";
 import KidsCollection from "./Pages/Product/KidsCollection";
 import PrivateRoute from "./componets/privateroute/PrivateRoute";
+import AddToCart from "./Pages/AddToCart/AddToCart";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -64,6 +65,7 @@ function App() {
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
+            <Route path='/addtocart' element={<AddToCart></AddToCart>}></Route>
 
             <Route
               path="/dashboard"
@@ -96,7 +98,7 @@ function App() {
         </div>
       </div>
 
-    
+
       <ToastContainer />
     </div>
   );

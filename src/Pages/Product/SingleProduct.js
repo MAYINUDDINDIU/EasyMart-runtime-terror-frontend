@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { addToCart } from "../../features/collectionSlice";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
@@ -14,31 +13,9 @@ const SingleProduct = ({ pd }) => {
   };
 
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
-    // const change = 'Confirm';
-    // setReq(change)
-    const proceed = window.confirm('Are You Confirm?');
-    if (proceed) {
-      dispatch(addToCart(pd))
-      // const url = `http://localhost:5000/addtocart`;
-      // fetch(url, {
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json"
-      //   },
-      //   body: JSON.stringify(pd)
-      // })
-      //   .then(res => res.json())
-      // .then(result => {
-      //   if (result.success) {
 
-      //     toast(`${name} Purchase Successfully`);
-      //   }
-      //   else {
-      //     toast.error(`${name} Already Purchased`);
-      //   }
-      // })
-    }
+  const handleAddToCart = () => {
+    dispatch(addToCart(pd))
   }
   return (
     <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl cursor-pointer">
