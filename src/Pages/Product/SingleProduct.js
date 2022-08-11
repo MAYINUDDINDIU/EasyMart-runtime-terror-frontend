@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/collectionSlice";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
   const { name, img, price, quantity } = pd;
@@ -9,6 +11,12 @@ const SingleProduct = ({ pd }) => {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(pd))
+  }
   return (
     <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl cursor-pointer">
       <section
@@ -43,8 +51,8 @@ const SingleProduct = ({ pd }) => {
           </span>
         </p>
         <div className="card-actions justify-center">
-          <button className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
-            BUY NOW
+          <button onClick={handleAddToCart} className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
+            Add To Cart
           </button>
         </div>
       </div>

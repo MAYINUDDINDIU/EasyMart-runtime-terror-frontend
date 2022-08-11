@@ -14,11 +14,12 @@ export const createProduct = createAsyncThunk('product/createProduct', async (po
     }).then(res => res.json())
 });
 
-export const deleteProduct = createAsyncThunk('product/createProduct', async (id) => {
+export const deleteProduct = createAsyncThunk('product/deleteProduct', async (id) => {
     return fetch(`http://localhost:5000/product/${id}`, {
         method: 'DELETE',
     }).then(res => res.json())
 });
+
 
 export const updateProduct = createAsyncThunk('product/updateProduct', async (data) => {
     const { id } = data;
