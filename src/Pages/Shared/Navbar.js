@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsFillBagCheckFill ,BsFillTelephoneFill} from "react-icons/bs";
+import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from "../../utilities/Loading/Loading";
+import { getFromCart } from "../../features/cartSlice";
 
 const Navbar = () => {
+  const { isLoading, product, error } = useSelector(state => state.cartSlice)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getFromCart());
+  }, [dispatch])
+
+
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -23,8 +33,9 @@ const Navbar = () => {
           <AiFillHome></AiFillHome>Home
         </Link>
       </li>
-      <li tabIndex="0">
-        <Link to="/completedTasks" className=" font-bold">
+      <li className="indicator relative" tabIndex="0">
+        <span className="indicator-item top-4 right-2 text-2xl bg-transparent border-none absolute badge text-red-500 font-bold">{product.length}</span>
+        <Link to="/addtocart" className=" font-bold">
           <FaShoppingCart></FaShoppingCart>My Cart
         </Link>
       </li>
@@ -35,7 +46,7 @@ const Navbar = () => {
       </li>
       <li tabIndex="0">
         <Link to="/contact" className="font-bold">
-         <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
+          <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
       <li tabIndex="0">
@@ -46,8 +57,9 @@ const Navbar = () => {
     </>
   );
   return (
-    
+
     <div className="navbar bg-[#E3F56C] text-black lg:px-24  sticky top-0 z-50">
+      {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
