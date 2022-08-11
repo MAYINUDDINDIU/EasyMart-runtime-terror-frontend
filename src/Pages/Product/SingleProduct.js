@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import Modal from "../../features/Modal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/collectionSlice";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
-  const { name, img, price, quantity } = pd;
+  const { _id, name, img, price, quantity } = pd;
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -15,12 +16,12 @@ const SingleProduct = ({ pd }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(pd))
-  }
+    dispatch(addToCart(pd));
+  };
   return (
     <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl cursor-pointer">
       <section
-        className="relative"
+        className="relative "
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
@@ -30,10 +31,17 @@ const SingleProduct = ({ pd }) => {
           </div>
         </figure>
         {isHovering && (
-          <button className="btn  bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none">
-            Details &nbsp;
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </button>
+          <>
+            {" "}
+            <label
+              for={`my-modal-${_id}`}
+              class="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
+            >
+              Details &nbsp;{" "}
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </label>
+            <Modal pd={pd} key={_id}></Modal>
+          </>
         )}
       </section>
 
@@ -51,7 +59,10 @@ const SingleProduct = ({ pd }) => {
           </span>
         </p>
         <div className="card-actions justify-center">
-          <button onClick={handleAddToCart} className="btn btn-secondary btn-sm  rounded px-12 mt-3 ">
+          <button
+            onClick={handleAddToCart}
+            className="btn btn-secondary btn-sm  rounded px-12 mt-3 "
+          >
             Add To Cart
           </button>
         </div>
