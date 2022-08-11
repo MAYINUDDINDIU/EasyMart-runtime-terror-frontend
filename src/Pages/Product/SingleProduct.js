@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Modal from "../../features/Modal";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
-  const { name, img, price, quantity } = pd;
+  const { _id, name, img, price, quantity } = pd;
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -12,7 +13,7 @@ const SingleProduct = ({ pd }) => {
   return (
     <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl cursor-pointer">
       <section
-        className="relative"
+        className="relative "
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
@@ -22,10 +23,17 @@ const SingleProduct = ({ pd }) => {
           </div>
         </figure>
         {isHovering && (
-          <button className="btn  bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none">
-            Details &nbsp;
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </button>
+          <>
+            {" "}
+            <label
+              for={`my-modal-${_id}`}
+              class="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
+            >
+              Details &nbsp;{" "}
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </label>
+            <Modal pd={pd} key={_id}></Modal>
+          </>
         )}
       </section>
 

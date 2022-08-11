@@ -4,20 +4,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../utilities/Loading/Loading";
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
+
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [passwordMatchError, setPasswordMatchError] = useState("");
+  const [updateProfile, updating, error_update] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    // const name = data.name;
+  const onSubmit =async (data) => {
+    const name = data.name;
+    const photo = data.photo;
     const email = data.email;
     const password = data.password;
     const cpassword = data.cpassword;
     if (password === cpassword) {
-      createUserWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({displayName: name, photoURL: photo})
       if (user) {
         navigate("/dashboard");
       }
@@ -67,6 +72,18 @@ const Register = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
             placeholder="Email"
+          />
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
+            for="username"
+          >
+            Profile Photo URL
+          </label>
+          <input
+            {...register("photo", { required: true })}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            placeholder="Add profile photo URL"
           />
           <label
             className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"

@@ -17,6 +17,7 @@ const Navbar = () => {
   };
   const navItems = (
     <>
+    {console.log(user)}
       <li>
         <Link to="/" className="font-bold">
           <AiFillHome></AiFillHome>Home
@@ -110,7 +111,7 @@ const Navbar = () => {
         </div> */}
         {user ? (
           <>
-            <span className="text-primary mx-3 font-bold">{user?.email}</span>{" "}
+            <span className="text-primary mx-3 font-bold flex items-center w-1/2"> <div><img src={user?.photoURL} alt="profileImg" className="mr-5" style={{height:"50px",width:"70%", borderRadius:"50%"}}/></div>{user?.displayName} </span>{" "}
             <button className="btn btn-primary font-bold" onClick={logout}>
               Logout
             </button>
