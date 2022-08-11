@@ -5,9 +5,9 @@ export const getFromCart = createAsyncThunk('cart/getFromCart', async () => {
     return fetch('http://localhost:5000/addtocart').then(res => res.json())
 });
 
-// Delete cart data
+// // Delete cart data
 export const deleteCartData = createAsyncThunk('cart/deleteCartData', async (id) => {
-    return fetch(`http://localhost:5000/addtocart/${id}`, {
+    return fetch(`http://localhost:5000/deleteCart/${id}`, {
         method: 'DELETE',
     }).then(res => res.json())
 });

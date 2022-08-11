@@ -16,13 +16,16 @@ const SingleCart = ({ pd }) => {
             </div>
             <div className='text-xl font-bold'>
                 <p>Name: {name}</p>
-                <p>Price: {price}</p>
+                <p>Price: ${price}</p>
+                <p>Available: {quantity}</p>
                 <p>Quantity: <button className='text-2xl btn btn-active btn-ghost'>-</button> {quantity} <button className='text-2xl btn btn-active btn-ghost'>+</button></p>
-                <p>Sub Total: {price * quantity}</p>
+                <p>Sub Total: ${price * quantity}</p>
             </div>
             <div className='flex gap-4'>
                 <button className='btn btn-info text-white font-bold'>Buy Now</button>
-                <button onClick={() => handleDelete(_id)} className='text-2xl text-red-500 font-bold'>X</button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-error rounded p-4 font-bold ">
+                    X
+                </button>
             </div>
         </div>
     );
