@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome ,AiFillInfoCircle} from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
+import {  BsFillTelephoneFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from "../../utilities/Loading/Loading";
 import { getFromCart } from "../../features/cartSlice";
 import { IoHelpCircleSharp } from "react-icons/io5";
 const Navbar = () => {
@@ -106,12 +105,22 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link
+        {
+          !adminStatus?  <Link
           className=" normal-case font-bold drop-shadow text-2xl "
           to="/"
         >
           EASY <span className="text-primary">MART</span>
+        </Link>:  <Link
+          className=" normal-case font-bold drop-shadow text-2xl"
+          to="/"
+        >
+           EASY <span className="text-primary">MART</span>  
+        
+          <small style={{fontSize:"15px"}} className="m-0 text-blue-400">(Admin)</small>
         </Link>
+        }
+      
       </div>
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal p-0  ">{navItems}</ul>
