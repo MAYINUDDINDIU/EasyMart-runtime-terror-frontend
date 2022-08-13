@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome ,AiFillInfoCircle} from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -9,7 +9,7 @@ import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from "../../utilities/Loading/Loading";
 import { getFromCart } from "../../features/cartSlice";
-
+import { IoHelpCircleSharp } from "react-icons/io5";
 const Navbar = () => {
   const { isLoading, product, error } = useSelector(state => state.cartSlice)
   const dispatch = useDispatch();
@@ -19,6 +19,15 @@ const Navbar = () => {
 
 
   const [user] = useAuthState(auth);
+  //Checking Admin
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+  const selectedUser = users.find(u=>u.email===user?.email)
+  const adminStatus = selectedUser?.role;
   const navigate = useNavigate();
 
   const logout = () => {
@@ -39,9 +48,20 @@ const Navbar = () => {
           <FaShoppingCart></FaShoppingCart>My Cart
         </Link>
       </li>
-      <li tabIndex="0">
+      {/* <li tabIndex="0">
         <Link to="/todo" className="font-bold">
           <BsFillBagCheckFill></BsFillBagCheckFill>Checkout
+        </Link>
+      </li> */}
+      <li tabIndex="0">
+        <Link to="/about" className="font-bold">
+          <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>About
+        </Link>
+      </li>
+      {console.log(adminStatus)}
+      <li tabIndex="0">
+        <Link to="/help" className="font-bold">
+          <IoHelpCircleSharp className="text-2xl"></IoHelpCircleSharp>Help
         </Link>
       </li>
       <li tabIndex="0">
@@ -49,11 +69,12 @@ const Navbar = () => {
           <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
-      <li tabIndex="0">
+      {adminStatus? <li tabIndex="0">
         <Link to="/dashboard" className="font-bold">
           <AiFillHome></AiFillHome>Dashboard
         </Link>
-      </li>
+      </li>:null}
+     
     </>
   );
   return (
@@ -134,8 +155,11 @@ const Navbar = () => {
             <Link to="/login" className=" font-bold mr-3 text-3xl">
               <ion-icon name="log-in-outline" ></ion-icon>
             </Link>
-            <Link to="/cart" className=" font-bold mr-3 text-3xl">
+            <Link to="/addtocart" className=" font-bold mr-3 text-3xl">
               <ion-icon name="cart-outline" ></ion-icon>
+            </Link>
+            <Link to="/profile" className=" font-bold mr-3 text-3xl">
+            <ion-icon name="person-outline"></ion-icon>
             </Link>
             {/* <Link to="/register" className="text-white font-bold mr-3">
               Register

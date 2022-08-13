@@ -4,17 +4,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../utilities/Loading/Loading";
-import { useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useUpdateProfile } from "react-firebase-hooks/auth";
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [passwordMatchError, setPasswordMatchError] = useState("");
   const [updateProfile, updating, error_update] = useUpdateProfile(auth);
-
+  const addUser = (email, currentUser) => {
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(currentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const onSubmit =async (data) => {
+  const onSubmit = async (data) => {
     const name = data.name;
     const photo = data.photo;
     const email = data.email;
@@ -22,15 +32,19 @@ const Register = () => {
     const cpassword = data.cpassword;
     if (password === cpassword) {
       await createUserWithEmailAndPassword(email, password);
-      await updateProfile({displayName: name, photoURL: photo})
-      if (user) {
-        navigate("/dashboard");
-      }
+      await updateProfile({ displayName: name, photoURL: photo });
     } else {
       setPasswordMatchError(
         <p className="text-red-500  mt-3">Passwords didn't match, try again</p>
       );
       console.log(data);
+    }
+    if (user) {
+      const currentUser = { email: user?.user?.email };
+      addUser(user?.user?.email, currentUser);
+
+      console.log(user?.user?.email);
+      navigate("/");
     }
 
     if (loading) {

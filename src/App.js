@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./Pages/Shared/Navbar";
 import Home from "./Pages/Home/Home";
 import Footer from "./Pages/Shared/Footer";
@@ -35,15 +35,37 @@ function App() {
     window.addEventListener("resize", updatePic);
     return () => window.removeEventListener("resize", updatePic);
   });
+  // const [isDashboard, setDashboard] = useState(false);
+  const location = useLocation();
+  // if (location.pathname === "/dashboard") {
+  //   setDashboard(true);
+  // }
   return (
     <div className="App">
       {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
 
       <div className="flex">
-        <div className="w-1/5 z-10">
-          {desktop ? <SidebarCatagory></SidebarCatagory> : null}
-        </div>
-        <div className={`${desktop ? "w-4/5" : "w-full"}`}>
+        {location.pathname !== "/dashboard" &&
+        location.pathname !== "/dashboard/allcategory" &&
+        location.pathname !== "/dashboard/allcategory/womensitem" &&
+        location.pathname !== "/dashboard/allcategory/kidsItem" ? (
+          <div className="w-1/5 z-10">
+            {desktop && location.pathname !== "/dashboard" ? (
+              <SidebarCatagory></SidebarCatagory>
+            ) : null}
+          </div>
+        ) : null}
+
+        <div
+          className={`${
+            desktop &&
+            location.pathname !== "/dashboard" &&
+            location.pathname !== "/dashboard/allcategory" &&
+            location.pathname !== "/dashboard/allcategory/womensitem"
+              ? "w-4/5"
+              : "w-full"
+          }`}
+        >
           <Routes>
             <Route path="/" element={<Home></Home>}>
               <Route index element={<AllCollection></AllCollection>}></Route>
@@ -65,7 +87,7 @@ function App() {
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
-            <Route path='/addtocart' element={<AddToCart></AddToCart>}></Route>
+            <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
 
             <Route
               path="/dashboard"
@@ -97,7 +119,6 @@ function App() {
           <Footer></Footer>
         </div>
       </div>
-
 
       <ToastContainer />
     </div>

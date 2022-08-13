@@ -14,7 +14,7 @@ const AddToCart = () => {
   }, [dispatch]);
   return (
     <div className="flex justify-center">
-      <div className="flex    mt-20 w-3/4 shadow-lg">
+      <div className="flex    mt-20 w-3/4  shadow-inner">
         <div className="w-3/4 p-10">
           {isLoading && <Loading></Loading>}
           {/* <div className="grid grid-cols-1 p-4 gap-5  mx-auto border ">
