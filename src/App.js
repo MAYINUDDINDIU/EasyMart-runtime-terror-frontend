@@ -35,11 +35,8 @@ function App() {
     window.addEventListener("resize", updatePic);
     return () => window.removeEventListener("resize", updatePic);
   });
-  // const [isDashboard, setDashboard] = useState(false);
   const location = useLocation();
-  // if (location.pathname === "/dashboard") {
-  //   setDashboard(true);
-  // }
+
   return (
     <div className="App">
       {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
