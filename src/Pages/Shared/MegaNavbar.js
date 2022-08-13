@@ -4,6 +4,8 @@ import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
+import { AiFillInfoCircle} from "react-icons/ai";
+import { IoHelpCircleSharp } from "react-icons/io5";
 
 const MegaNavbar = () => {
   const [open, setOpen] = useState(false);
@@ -29,10 +31,20 @@ const MegaNavbar = () => {
           <span>My Cart</span>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/checkout" className="font-bold flex items-center  my-3">
           <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
           <span>Checkout</span>
+        </Link>
+      </li> */}
+      <li tabIndex="0">
+        <Link to="/about"  className="font-bold flex items-center my-3">
+          <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>&nbsp;&nbsp;<span>About</span>
+        </Link>
+      </li>
+      <li tabIndex="0">
+        <Link to="/help"className="font-bold flex items-center my-3">
+          <IoHelpCircleSharp className="text-2xl"></IoHelpCircleSharp>&nbsp;&nbsp;<span>Help</span>
         </Link>
       </li>
       <li>

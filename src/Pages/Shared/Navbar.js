@@ -19,6 +19,15 @@ const Navbar = () => {
 
 
   const [user] = useAuthState(auth);
+  //Checking Admin
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+  const selectedUser = users.find(u=>u.email===user?.email)
+  const adminStatus = selectedUser?.role;
   const navigate = useNavigate();
 
   const logout = () => {
@@ -49,6 +58,7 @@ const Navbar = () => {
           <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>About
         </Link>
       </li>
+      {console.log(adminStatus)}
       <li tabIndex="0">
         <Link to="/help" className="font-bold">
           <IoHelpCircleSharp className="text-2xl"></IoHelpCircleSharp>Help
@@ -59,11 +69,12 @@ const Navbar = () => {
           <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
-      <li tabIndex="0">
+      {adminStatus? <li tabIndex="0">
         <Link to="/dashboard" className="font-bold">
           <AiFillHome></AiFillHome>Dashboard
         </Link>
-      </li>
+      </li>:null}
+     
     </>
   );
   return (
@@ -146,6 +157,9 @@ const Navbar = () => {
             </Link>
             <Link to="/addtocart" className=" font-bold mr-3 text-3xl">
               <ion-icon name="cart-outline" ></ion-icon>
+            </Link>
+            <Link to="/profile" className=" font-bold mr-3 text-3xl">
+            <ion-icon name="person-outline"></ion-icon>
             </Link>
             {/* <Link to="/register" className="text-white font-bold mr-3">
               Register
