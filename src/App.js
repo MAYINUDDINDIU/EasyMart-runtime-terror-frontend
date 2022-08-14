@@ -44,6 +44,7 @@ function App() {
       <div className="flex">
         {location.pathname !== "/dashboard" &&
         location.pathname !== "/dashboard/allcategory" &&
+        location.pathname !== "/dashboard/editproduct" &&
         location.pathname !== "/dashboard/allcategory/womensitem" &&
         location.pathname !== "/dashboard/allcategory/kidsItem" ? (
           <div className="w-1/5 z-10">
