@@ -48,7 +48,7 @@ const EditProduct = () => {
                         <input type="text" name='url' value={img} onChange={(e) => setImg(e.target.value)} className="input input-bordered input-group-lg" />
                     </label>
                 </div>
-                <button type='submit' className='btn text-white font-bold'>Edit</button>
+                <button type='submit' className='btn text-white font-bold uppercase'>Update</button>
             </form>
         </div>
     );
