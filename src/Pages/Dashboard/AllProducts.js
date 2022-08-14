@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { deleteProduct, fetchProduct } from "../../features/productSlice";
 import Loading from "../../utilities/Loading/Loading";
 import AllProduct from "./AllProduct";
+import SalesStatistics from "./Statistics/SalesStatistics";
 import Summery from "./Summery";
 
 const AllProducts = () => {
@@ -22,6 +23,7 @@ const AllProducts = () => {
     <div>
       {" "}
       <Summery></Summery>
+      <SalesStatistics></SalesStatistics>
       <div className="flex justify-center mt-10">
         <div class="overflow-x-auto w-3/4 shadow-2xl">
           <table class="table w-full">
