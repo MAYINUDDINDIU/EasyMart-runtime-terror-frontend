@@ -47,7 +47,7 @@ const SingleProduct = ({ pd }) => {
 
       <div className="p-3">
         {" "}
-        <h1 className=" font-bold text-2xl text-dark mt-1">{name}</h1>
+        <h1 className=" font-bold text-2xl text-black mt-1">{name}</h1>
         <p className="text-center">
           {" "}
           <span className="text-neutral  text-lg font-bold">{price}$</span>

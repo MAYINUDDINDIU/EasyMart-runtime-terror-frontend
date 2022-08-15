@@ -11,11 +11,11 @@ const SingleMencollection = ({ pd }) => {
         dispatch(addToCart(pd))
     }
     return (
-        <div className="card bordered rounded lg:w-60 w-72 h-80 hover:scale-105 duration-500 cardBg shadow-xl">
+        <div className="card bordered rounded lg:w-60 w-72 h-100 hover:scale-105 duration-500 cardBg shadow-xl">
             <figure>
                 <img className="h-48 lg:w-60 w-72" src={img} alt="Shoes" />
             </figure>
-            <h6 className=" font-bold text-xl text-dark mt-3">{name}</h6>
+            <h6 className=" font-bold text-xl text-black mt-3">{name}</h6>
             <p className="text-center">
                 {" "}
                 <span className="text-secondary  text-lg font-bold">{price}$</span>
