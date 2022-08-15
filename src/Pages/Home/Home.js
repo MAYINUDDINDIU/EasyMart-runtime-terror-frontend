@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CarouselSlider from '../../componets/CarouselSlider/CarouselSlider';
+import CatagorySelection from '../../componets/CatagorySelection/CatagorySelection';
 import Carousel from '../../utilities/Carousel/Carousel';
 
 import Product from '../Product/Product';
@@ -19,7 +20,9 @@ const Home = () => {
             {/* {
                 desktop?<MegaNavbar></MegaNavbar>:null
             } */}
+            
             <Carousel></Carousel>
+            <CatagorySelection></CatagorySelection>
             <Product></Product>
             <CarouselSlider></CarouselSlider>
 
