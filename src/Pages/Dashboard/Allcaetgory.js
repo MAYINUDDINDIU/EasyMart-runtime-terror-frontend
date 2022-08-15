@@ -87,7 +87,7 @@ const Allcaetgory = () => {
                 name="name"
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                class="input input-bordered text-black"
               />
             </div>
             <div class="form-control">
@@ -98,14 +98,14 @@ const Allcaetgory = () => {
                 name="url"
                 type="text"
                 placeholder="Image"
-                class="input input-bordered"
+                class="input input-bordered text-black"
               />
             </div>
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Which Catagory you want to add?</span>
               </label>
-              <div class="input-group">
+              <div class="input-group text-black">
                 <select
                   value={selected}
                   onChange={handleChange}
@@ -125,13 +125,13 @@ const Allcaetgory = () => {
             </div>
             <div class="form-control">
               <label class="label">
-                <span class="label-text">Price</span>
+                <span class="label-text ">Price</span>
               </label>
               <input
                 name="price"
                 type="text"
                 placeholder="Price"
-                class="input input-bordered"
+                class="input input-bordered text-black"
               />
             </div>
             <div class="form-control">
@@ -142,7 +142,7 @@ const Allcaetgory = () => {
                 name="quantity"
                 type="text"
                 placeholder="Quantity"
-                class="input input-bordered"
+                class="input input-bordered text-black"
               />
             </div>
 
