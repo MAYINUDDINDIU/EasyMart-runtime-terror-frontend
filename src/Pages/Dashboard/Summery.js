@@ -11,7 +11,7 @@ const Summery = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center my-10">
       <div className="flex justify-between w-3/4">
         <div className="shadow-2xl flex h-24 w-64 items-center p-3">
           <BsCurrencyDollar className="text-5xl   bg-yellow-500 text-white rounded-full p-2"></BsCurrencyDollar>
