@@ -19,8 +19,8 @@ const Modal = ({ pd }) => {
           >
             ✕
           </label>
-          <h3 class="text-lg font-bold">{name}</h3>
-          <p class="py-4">
+          <h3 class="text-lg font-bold text-black">{name}</h3>
+          <p class="py-4 text-black">
             <b>Price:</b> ${price}
           </p>
         </div>

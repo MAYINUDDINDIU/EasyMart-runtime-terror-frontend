@@ -75,7 +75,7 @@ const Allcaetgory = () => {
           </p>
         </div>
         <form
-          class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"
+          class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-black"
           onSubmit={handleSubmit}
         >
           <div class="card-body">
@@ -109,7 +109,7 @@ const Allcaetgory = () => {
                 <select
                   value={selected}
                   onChange={handleChange}
-                  className="select select-bordered"
+                  className="select select-bordered w-full text-black"
                 >
                   {options.map((option) => (
                     <option
