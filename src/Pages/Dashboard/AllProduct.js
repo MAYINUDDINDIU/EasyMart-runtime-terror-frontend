@@ -19,6 +19,7 @@ const AllProduct = ({ pd }) => {
         <td>{pd?.name}</td>
         <td>${pd?.price}</td>
         <td>{pd?.quantity}</td>
+        <td>{pd?.offer}</td>
         <td>
           {" "}
           <Link

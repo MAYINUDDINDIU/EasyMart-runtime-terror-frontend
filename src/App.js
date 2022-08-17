@@ -25,6 +25,10 @@ import WomenCollection from "./Pages/Product/WomenCollection";
 import KidsCollection from "./Pages/Product/KidsCollection";
 import PrivateRoute from "./componets/privateroute/PrivateRoute";
 import AddToCart from "./Pages/AddToCart/AddToCart";
+import Orders from "./Pages/Dashboard/Orders";
+import NotFound from "./Pages/NotFound";
+import Customers from "./Pages/Dashboard/Customers";
+import StatisticsComponent from "./Pages/Dashboard/StatisticsComponent";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -46,6 +50,9 @@ function App() {
         location.pathname !== "/dashboard/allcategory" &&
         location.pathname !== "/dashboard/editproduct" &&
         location.pathname !== "/dashboard/allcategory/womensitem" &&
+        location.pathname !== "/dashboard/orders" &&
+        location.pathname !== "/dashboard/customers" &&
+        location.pathname !== "/dashboard/statistics" &&
         location.pathname !== "/dashboard/allcategory/kidsItem" ? (
           <div className="w-1/5 z-10">
             {desktop && location.pathname !== "/dashboard" ? (
@@ -59,6 +66,9 @@ function App() {
             desktop &&
             location.pathname !== "/dashboard" &&
             location.pathname !== "/dashboard/allcategory" &&
+            location.pathname !== "/dashboard/orders" &&
+            location.pathname !== "/dashboard/customers" &&
+            location.pathname !== "/dashboard/statistics" &&
             location.pathname !== "/dashboard/allcategory/womensitem"
               ? "w-4/5"
               : "w-full"
@@ -95,6 +105,12 @@ function App() {
                 </PrivateRoute>
               }
             >
+              <Route path="orders" element={<Orders></Orders>}></Route>
+              <Route path="customers" element={<Customers></Customers>}></Route>
+              <Route
+                path="statistics"
+                element={<StatisticsComponent></StatisticsComponent>}
+              ></Route>
               <Route path="allcategory" element={<Allcaetgory></Allcaetgory>}>
                 <Route index element={<MensItem></MensItem>}></Route>
                 <Route
@@ -114,6 +130,7 @@ function App() {
               ></Route>
             </Route>
           </Routes>
+
           <Footer></Footer>
         </div>
       </div>
