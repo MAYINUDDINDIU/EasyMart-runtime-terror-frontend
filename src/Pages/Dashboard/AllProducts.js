@@ -33,6 +33,7 @@ const AllProducts = () => {
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Offers</th>
                 <th>Edit</th>
                 <th>Remove</th>
               </tr>

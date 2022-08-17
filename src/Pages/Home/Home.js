@@ -23,7 +23,7 @@ const Home = () => {
             
             <Carousel></Carousel>
             <CatagorySelection></CatagorySelection>
-            <Product></Product>
+            {/* <Product></Product> */}
             <CarouselSlider></CarouselSlider>
 
         </div>

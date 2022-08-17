@@ -51,17 +51,17 @@ const Dashborad = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/allcategory">
+              <Link to="/dashboard/orders">
                 <BsFillCartFill className="mr-3"></BsFillCartFill>Orders
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/allcategory">
+              <Link to="/dashboard/customers">
                 <FaUsers className="mr-3 text-2xl"></FaUsers>Customers
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/allcategory">
+              <Link to="/dashboard/statistics">
                 <BsBarChartFill className="mr-3 text-2xl"></BsBarChartFill>
                 Statistics
               </Link>

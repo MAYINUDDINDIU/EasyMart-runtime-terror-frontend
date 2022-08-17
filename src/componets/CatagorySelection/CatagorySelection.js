@@ -30,7 +30,7 @@ const CatagorySelection = () => {
   return (
     <section>
       <div className="flex justify-center my-10">
-        <div className="px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-5 mb-5 grid justify-center">
+        <div className="px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-5 mb-5 grid justify-center ">
           <div
             className="shadow-2xl flex h-24 w-64 items-center p-3 cursor-pointer"
             onClick={showAllProducts}
@@ -88,7 +88,7 @@ const CatagorySelection = () => {
           </div>
         </div>
       </div>
-      <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-5 mb-5 grid justify-center ">
+      <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-5 mb-5 grid justify-center ">
         {!menClick && !womenClick && !kidClick
           ? products.map((product) => (
               <SingleCatagory

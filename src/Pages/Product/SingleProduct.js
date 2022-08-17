@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/collectionSlice";
 import "./SingleProduct.css";
 const SingleProduct = ({ pd }) => {
-  const { _id, name, img, price, quantity } = pd;
+  const { _id, name, img, price, quantity,offer } = pd;
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -48,6 +48,7 @@ const SingleProduct = ({ pd }) => {
       <div className="p-3">
         {" "}
         <h1 className=" font-bold text-2xl text-black mt-1">{name}</h1>
+      
         <p className="text-center">
           {" "}
           <span className="text-neutral  text-lg font-bold">{price}$</span>
