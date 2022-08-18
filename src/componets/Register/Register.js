@@ -4,28 +4,47 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../utilities/Loading/Loading";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [passwordMatchError, setPasswordMatchError] = useState("");
-
+  const [updateProfile, updating, error_update] = useUpdateProfile(auth);
+  const addUser = (email, currentUser) => {
+    fetch(`http://localhost:5000/user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(currentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    // const name = data.name;
+  const onSubmit = async (data) => {
+    const name = data.name;
+    const photo = data.photo;
     const email = data.email;
     const password = data.password;
     const cpassword = data.cpassword;
     if (password === cpassword) {
-      createUserWithEmailAndPassword(email, password);
-      if (user) {
-        navigate("/dashboard");
-      }
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name, photoURL: photo });
     } else {
       setPasswordMatchError(
         <p className="text-red-500  mt-3">Passwords didn't match, try again</p>
       );
       console.log(data);
+    }
+    if (user) {
+      const currentUser = { email: user?.user?.email };
+      addUser(user?.user?.email, currentUser);
+
+      console.log(user?.user?.email);
+      navigate("/");
     }
 
     if (loading) {
@@ -67,6 +86,18 @@ const Register = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
             placeholder="Email"
+          />
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"
+            for="username"
+          >
+            Profile Photo URL
+          </label>
+          <input
+            {...register("photo", { required: true })}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            placeholder="Add profile photo URL"
           />
           <label
             className="block text-gray-700 text-sm font-bold mb-2 text-left mt-4"

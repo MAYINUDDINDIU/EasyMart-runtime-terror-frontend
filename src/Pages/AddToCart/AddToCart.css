@@ -1,0 +1,25 @@
+.table :where(:first-child) :where(:first-child) :where(th, td):last-child {
+  border-top-right-radius: 0;
+}
+.table :where(:first-child) :where(:first-child) :where(th, td):first-child {
+  border-top-left-radius: 0;
+}
+ion-icon {
+  font-size: 20px;
+}
+.table:where(:not(.table-zebra))
+  :where(thead, tbody, tfoot)
+  :where(tr:not(:last-child) :where(th, td)) {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 0;
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+}
+.hr_checkout {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 1px;
+  background: rgb(222, 219, 219);
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
