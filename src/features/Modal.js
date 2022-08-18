@@ -3,7 +3,7 @@ import React from "react";
 const Modal = ({ pd }) => {
   const { _id, name, img, price, quantity, offer } = pd;
   return (
-    <div className=" z-50">
+    <div className=" z-50 overflow-hidden">
       <input type="checkbox" id={`my-modal-${_id}`} class="modal-toggle" />
       <div
         class="modal  overflow-visible z-50"
