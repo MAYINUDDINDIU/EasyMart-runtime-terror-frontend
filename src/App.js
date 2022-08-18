@@ -47,13 +47,13 @@ function App() {
 
       <div className="flex">
         {location.pathname !== "/dashboard" &&
-        location.pathname !== "/dashboard/allcategory" &&
-        location.pathname !== "/dashboard/editproduct" &&
-        location.pathname !== "/dashboard/allcategory/womensitem" &&
-        location.pathname !== "/dashboard/orders" &&
-        location.pathname !== "/dashboard/customers" &&
-        location.pathname !== "/dashboard/statistics" &&
-        location.pathname !== "/dashboard/allcategory/kidsItem" ? (
+          location.pathname !== "/dashboard/allcategory" &&
+          location.pathname !== "/dashboard/editproduct" &&
+          location.pathname !== "/dashboard/allcategory/womensitem" &&
+          location.pathname !== "/dashboard/orders" &&
+          location.pathname !== "/dashboard/customers" &&
+          location.pathname !== "/dashboard/statistics" &&
+          location.pathname !== "/dashboard/allcategory/kidsItem" ? (
           <div className="w-1/5 z-10">
             {desktop && location.pathname !== "/dashboard" ? (
               <SidebarCatagory></SidebarCatagory>
@@ -62,17 +62,16 @@ function App() {
         ) : null}
 
         <div
-          className={`${
-            desktop &&
-            location.pathname !== "/dashboard" &&
-            location.pathname !== "/dashboard/allcategory" &&
-            location.pathname !== "/dashboard/orders" &&
-            location.pathname !== "/dashboard/customers" &&
-            location.pathname !== "/dashboard/statistics" &&
-            location.pathname !== "/dashboard/allcategory/womensitem"
+          className={`${desktop &&
+              location.pathname !== "/dashboard" &&
+              location.pathname !== "/dashboard/allcategory" &&
+              location.pathname !== "/dashboard/orders" &&
+              location.pathname !== "/dashboard/customers" &&
+              location.pathname !== "/dashboard/statistics" &&
+              location.pathname !== "/dashboard/allcategory/womensitem"
               ? "w-4/5"
               : "w-full"
-          }`}
+            }`}
         >
           <Routes>
             <Route path="/" element={<Home></Home>}>

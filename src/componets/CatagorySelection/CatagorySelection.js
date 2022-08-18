@@ -6,6 +6,7 @@ import SingleCatagory from "../CatagoryWiseProduct/SingleCatagory";
 import { FaMale, FaFemale } from "react-icons/fa";
 import { TbMoodKid } from "react-icons/tb";
 const CatagorySelection = () => {
+  const [searchItem, setSearchItem] = useState('');
   const [products, setProducts] = useState([]);
   const [menProducts, setMenProducts] = useState([]);
   const [menClick, setMenClick] = useState(false);
@@ -29,6 +30,9 @@ const CatagorySelection = () => {
   };
   return (
     <section>
+      <div className="mt-6 mb-[-25px]">
+        <input type="text" placeholder="Search..." className="input input-bordered w-full max-w-xs" onChange={event => { setSearchItem(event.target.value) }} />
+      </div>
       <div className="flex justify-center my-10">
         <div className="px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-5 mb-5 grid justify-center ">
           <div
@@ -90,18 +94,30 @@ const CatagorySelection = () => {
       </div>
       <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-5 mb-5 grid justify-center ">
         {!menClick && !womenClick && !kidClick
-          ? products.map((product) => (
-              <SingleCatagory
-                key={product._id}
-                product={product}
-              ></SingleCatagory>
-            ))
-          : menProducts.map((product) => (
-              <SingleCatagory
-                key={product._id}
-                product={product}
-              ></SingleCatagory>
-            ))}
+          ? products.filter((val) => {
+            if (searchItem == '') {
+              return val;
+            } else if (val.name.toLowerCase().includes(searchItem.toLowerCase())) {
+              return val;
+            }
+          }).map((product) => (
+            <SingleCatagory
+              key={product._id}
+              product={product}
+            ></SingleCatagory>
+          ))
+          : menProducts.filter((val) => {
+            if (searchItem == '') {
+              return val;
+            } else if (val.name.toLowerCase().includes(searchItem.toLowerCase())) {
+              return val;
+            }
+          }).map((product) => (
+            <SingleCatagory
+              key={product._id}
+              product={product}
+            ></SingleCatagory>
+          ))}
       </div>
     </section>
   );
