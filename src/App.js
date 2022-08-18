@@ -65,7 +65,7 @@ function App() {
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
-            <Route path='/addtocart' element={<AddToCart></AddToCart>}></Route>
+            <Route path='/addtocart' element={<PrivateRoute><AddToCart></AddToCart></PrivateRoute>}></Route>
 
             <Route
               path="/dashboard"
