@@ -7,4 +7,5 @@
 }
 .card_image:hover {
   opacity: 0.3;
+  z-index: -1000;
 }

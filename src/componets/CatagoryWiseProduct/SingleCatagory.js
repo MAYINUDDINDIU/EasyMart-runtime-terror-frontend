@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../features/collectionSlice";
 import Modal from "../../features/Modal";
 const SingleCatagory = ({ product }) => {
-  const { _id, name, price, img, quantity, offer } = product;
+  const { _id, name, price, img, offer } = product;
   const [isHovering, setIsHovering] = useState(false);
+  const navigate = useNavigate();
+  const handleDetail = (id) => {
+    navigate(`/details/${id}`);
+  };
   const handleMouseOver = () => {
     setIsHovering(true);
   };
+
   const handleMouseOut = () => {
     setIsHovering(false);
   };
@@ -28,24 +34,26 @@ const SingleCatagory = ({ product }) => {
           <div className="h-48 lg:w-60 w-72">
             <img className="h-48 lg:w-60 w-72 " src={img} alt="Shoes" />
           </div>
-        </figure>
+        </figure>{" "}
         {isHovering && (
           <>
             {" "}
             <label
               for={`my-modal-${_id}`}
               class="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
+              onClick={() => {
+                handleDetail(_id);
+              }}
             >
               Details &nbsp;{" "}
               <ion-icon name="chevron-forward-outline"></ion-icon>
             </label>
-            <Modal pd={product} key={_id}></Modal>
+            {/* <Modal pd={product} key={_id}></Modal> */}
           </>
         )}
       </section>
 
       <div className="p-3">
-        {" "}
         <h1 className=" font-bold text-2xl text-black mt-1">{name}</h1>
         <p className="text-center">
           {" "}
@@ -66,12 +74,6 @@ const SingleCatagory = ({ product }) => {
             <span className="text-neutral   text-2xl  font-bold">${price}</span>
           )}
         </p>
-        {/* <p className="text-center">
-            {" "}
-            <span className="text-neutral  text-lg font-bold">
-              Available: {quantity}
-            </span>
-          </p> */}
         <div className="card-actions justify-center">
           <button
             onClick={handleAddToCart}

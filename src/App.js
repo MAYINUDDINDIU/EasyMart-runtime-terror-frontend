@@ -29,6 +29,7 @@ import Orders from "./Pages/Dashboard/Orders";
 import NotFound from "./Pages/NotFound";
 import Customers from "./Pages/Dashboard/Customers";
 import StatisticsComponent from "./Pages/Dashboard/StatisticsComponent";
+import Details from "./Pages/Details";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -47,13 +48,13 @@ function App() {
 
       <div className="flex">
         {location.pathname !== "/dashboard" &&
-          location.pathname !== "/dashboard/allcategory" &&
-          location.pathname !== "/dashboard/editproduct" &&
-          location.pathname !== "/dashboard/allcategory/womensitem" &&
-          location.pathname !== "/dashboard/orders" &&
-          location.pathname !== "/dashboard/customers" &&
-          location.pathname !== "/dashboard/statistics" &&
-          location.pathname !== "/dashboard/allcategory/kidsItem" ? (
+        location.pathname !== "/dashboard/allcategory" &&
+        location.pathname !== "/dashboard/editproduct" &&
+        location.pathname !== "/dashboard/allcategory/womensitem" &&
+        location.pathname !== "/dashboard/orders" &&
+        location.pathname !== "/dashboard/customers" &&
+        location.pathname !== "/dashboard/statistics" &&
+        location.pathname !== "/dashboard/allcategory/kidsItem" ? (
           <div className="w-1/5 z-10">
             {desktop && location.pathname !== "/dashboard" ? (
               <SidebarCatagory></SidebarCatagory>
@@ -62,16 +63,17 @@ function App() {
         ) : null}
 
         <div
-          className={`${desktop &&
-              location.pathname !== "/dashboard" &&
-              location.pathname !== "/dashboard/allcategory" &&
-              location.pathname !== "/dashboard/orders" &&
-              location.pathname !== "/dashboard/customers" &&
-              location.pathname !== "/dashboard/statistics" &&
-              location.pathname !== "/dashboard/allcategory/womensitem"
+          className={`${
+            desktop &&
+            location.pathname !== "/dashboard" &&
+            location.pathname !== "/dashboard/allcategory" &&
+            location.pathname !== "/dashboard/orders" &&
+            location.pathname !== "/dashboard/customers" &&
+            location.pathname !== "/dashboard/statistics" &&
+            location.pathname !== "/dashboard/allcategory/womensitem"
               ? "w-4/5"
               : "w-full"
-            }`}
+          }`}
         >
           <Routes>
             <Route path="/" element={<Home></Home>}>
@@ -80,6 +82,7 @@ function App() {
                 path="mencollection"
                 element={<MenCollection></MenCollection>}
               ></Route>
+
               <Route
                 path="womencollection"
                 element={<WomenCollection></WomenCollection>}
@@ -89,12 +92,14 @@ function App() {
                 element={<KidsCollection></KidsCollection>}
               ></Route>
             </Route>
-
+            <Route path="/details/:productId" element={<Details />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
+
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
             <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
+            <Route path="*" element={<NotFound></NotFound>}></Route>
 
             <Route
               path="/dashboard"
