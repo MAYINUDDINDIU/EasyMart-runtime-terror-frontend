@@ -14,7 +14,7 @@ const AddToCart = () => {
     dispatch(getFromCart());
   }, [dispatch]);
 
-  const [quan, setQuan] = useState(12);
+  const [quan, setQuan] = useState(1);
 
   const handleDecrease = () => {
     setQuan(quan - 1)
@@ -76,7 +76,7 @@ const AddToCart = () => {
                     </td>
                     <td>
                       <div className=" flex items-center cursor-pointer">
-                        <button onClick={() => handleDecrease(pd.quantity)}><ion-icon name="remove-outline"></ion-icon> &nbsp;</button>
+                        <button onClick={() => handleDecrease(pd.quantity - 1)}><ion-icon name="remove-outline"></ion-icon> &nbsp;</button>
                         <button className="border-2 p-2">{pd?.quantity}</button>
 
                         <button onClick={() => handleIncrease()}> &nbsp;<ion-icon name="add-outline"></ion-icon></button>

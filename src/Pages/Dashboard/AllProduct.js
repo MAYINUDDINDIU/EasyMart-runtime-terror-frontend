@@ -33,7 +33,7 @@ const AllProduct = ({ pd }) => {
           {" "}
           <MdDelete
             onClick={() => handleDelete(pd?._id)}
-            className="text-2xl text-red-500"
+            className="text-2xl text-red-500 cursor-pointer"
           ></MdDelete>
         </td>
       </tr>
