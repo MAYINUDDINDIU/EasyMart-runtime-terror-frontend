@@ -13,11 +13,23 @@ const Allcaetgory = () => {
     { value: "women", text: "Women" },
     { value: "kids", text: "Kids" },
   ];
+  const optionsSubcatagory = [
+    { value: "", text: "Select Subcatagory" },
+    { value: "Topwear", text: "Topwear" },
+    { value: "Bottomwear", text: "Bottomwear" },
+    { value: "Footerwear", text: "Footerwear" },
+  ];
   const [selected, setSelected] = useState(options[0].value);
+  const [selectedSubCatagory, setSelectedSubCatagory] = useState(
+    optionsSubcatagory[0].value
+  );
 
   const handleChange = (event) => {
     console.log(event.target.value);
     setSelected(event.target.value);
+  };
+  const handleChangeSub = (e) => {
+    setSelectedSubCatagory(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -35,35 +47,6 @@ const Allcaetgory = () => {
     navigate("/dashboard", { replace: true });
   };
   return (
-    // <div className="drawer">
-    //     <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-    //     <div className="drawer-content flex flex-col">
-    //         <div className="w-8/12 mx-auto navbar bg-base-300">
-    //             <div className="flex-none lg:hidden">
-    //                 <label for="my-drawer-3" className="btn btn-square btn-ghost">
-    //                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-    //                 </label>
-    //             </div>
-    //             <div className="flex-none w-full hidden lg:block">
-    //                 <ul className="menu menu-horizontal">
-    //                     <button className='btn btn-primary text-white font-bold'><li><Link to='/dashboard/allcategory'>Men's Item</Link></li></button>
-    //                     <button className='btn btn-secondary mx-6 text-white font-bold'><li><Link to='/dashboard/allcategory/womensitem'>Women's Item</Link></li></button>
-    //                     <button className='btn text-white font-bold'><li><Link to='/dashboard/allcategory/kidsItem'>Kid's Item</Link></li></button>
-    //                 </ul>
-    //             </div>
-    //         </div>
-    //         <Outlet></Outlet>
-    //     </div>
-    //     <div className="drawer-side">
-    //         <label for="my-drawer-3" className="drawer-overlay"></label>
-    //         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
-    //             <button className='btn btn-primary text-white font-bold'><li><Link to='/dashboard/allcategory'>Men's Item</Link></li></button>
-    //             <button className='btn btn-secondary mx-6 my-4 md:my-0 text-white font-bold'><li><Link to='/dashboard/allcategory/womensitem'>Women's Item</Link></li></button>
-    //             <button className='btn text-white font-bold'><li><Link to='/dashboard/allcategory/kidsItem'>Kid's Item</Link></li></button>
-    //         </ul>
-
-    //     </div>
-    // </div>
     <div class="hero min-h-screen bg-base-200 flex justify-center items-start py-20">
       <div class="hero-content flex-col lg:flex-row items-start">
         <div class="text-center lg:text-left">
@@ -101,6 +84,7 @@ const Allcaetgory = () => {
                 class="input input-bordered text-black"
               />
             </div>
+            {/* Catagory */}
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Which Catagory you want to add?</span>
@@ -118,6 +102,29 @@ const Allcaetgory = () => {
                       className="text-black"
                     >
                       {option.text}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            {/* Sub Catagory */}
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text"> Sub-catagory</span>
+              </label>
+              <div class="input-group text-black">
+                <select
+                  value={selectedSubCatagory}
+                  onChange={handleChangeSub}
+                  className="select select-bordered w-full text-black"
+                >
+                  {optionsSubcatagory.map((sub) => (
+                    <option
+                      key={sub.value}
+                      value={sub.value}
+                      className="text-black"
+                    >
+                      {sub.text}
                     </option>
                   ))}
                 </select>

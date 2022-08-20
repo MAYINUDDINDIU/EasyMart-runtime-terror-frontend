@@ -16,7 +16,7 @@ const Details = () => {
   );
   return (
     <div class="hero min-h-screen">
-      <div class="hero-content flex-col lg:flex-row">
+      <div class="hero-content flex-col lg:flex-row shadow-2xl">
         <img src={selectedProduct?.img} alt="productImg" />
         <div className="text-left ml-10  p-5">
           <h1 class="text-5xl font-bold">{selectedProduct?.name}</h1>
@@ -46,7 +46,22 @@ const Details = () => {
             </div>
           )}
           <hr />
-          <div className="my-3">Quantity: </div>
+          <div className="my-3">
+            Quantity:{" "}
+            <span className="ml-3">
+              <button className="bg-gray-100 p-2">
+                <ion-icon name="remove-outline"></ion-icon>
+              </button>
+              <input
+                type="number"
+                name="number"
+                className="border mx-3 w-1/5 p-2"
+              />
+              <button className="bg-gray-300 p-2">
+                <ion-icon name="add-outline"></ion-icon>
+              </button>
+            </span>
+          </div>
           <div className=" flex justify-between">
             <button class="btn text-black bg-green-500 hover:bg-green-400  mt-10 w-1/2  border-0 b">
               Buy Now
