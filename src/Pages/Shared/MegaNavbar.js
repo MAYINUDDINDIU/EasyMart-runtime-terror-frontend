@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
-import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
+import {  BsFillTelephoneFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
@@ -31,12 +31,7 @@ const MegaNavbar = () => {
           <span>My Cart</span>
         </Link>
       </li>
-      {/* <li>
-        <Link to="/checkout" className="font-bold flex items-center  my-3">
-          <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
-          <span>Checkout</span>
-        </Link>
-      </li> */}
+    
       <li tabIndex="0">
         <Link to="/about"  className="font-bold flex items-center my-3">
           <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>&nbsp;&nbsp;<span>About</span>
@@ -91,18 +86,7 @@ const MegaNavbar = () => {
           )}
         </div>
 
-        {/* <div className="flex gap-3 text-2xl cursor-pointer">
-          <div>
-            <ion-icon name="log-in-outline"></ion-icon>
-          </div>
-          <div>
-            <ion-icon name="person-outline"></ion-icon>
-          </div>
-          <div>
-            {" "}
-            <ion-icon name="cart-outline"></ion-icon>
-          </div>
-        </div> */}
+      
       </div>
 
       {/* center navigation bar  */}
@@ -128,11 +112,7 @@ const MegaNavbar = () => {
         </div>
 
         <ul className="md:flex hidden  uppercase items-center gap-8 font-[poppins]">
-          {/* <li>
-            <Link to="/" className="py-7 px-2 inline-block text-white">
-              Catagories
-            </Link>
-          </li> */}
+        
           <NavLink />
         </ul>
 
