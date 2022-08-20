@@ -9,11 +9,16 @@ const SidebarCatagory = () => {
     fetch("http://localhost:5000/product").then(res=>res.json()).then(data=>setProducts(data))
   },[])
   const [providedCatagory,setProvidedCatagory] = useState([]);
+  function getUniqueListBy(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
+}
+
 
   const findSubcatagory = (catagory)=>{
     const subcatagories = products.filter(product=>product.catagory===catagory && product.subcatagory)
-    console.log(subcatagories);
-    setProvidedCatagory(subcatagories)
+    const uniqueSubcatagories = getUniqueListBy(subcatagories,"subcatagory")
+    console.log(uniqueSubcatagories);
+    setProvidedCatagory(uniqueSubcatagories)
   }
   return (
     <div className="fixed w-1/5  border-r-gray border-t-0 border-2">
