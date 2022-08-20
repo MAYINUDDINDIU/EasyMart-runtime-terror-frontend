@@ -1,6 +1,7 @@
 import { toLower } from "lodash";
 import React, { useEffect, useState } from "react";
-// import { links } from "./Mylinks";
+import { Link } from "react-router-dom";
+
 import Offers from "./Offers";
 const SidebarCatagory = () => {
   const links = [{name:"Men"},{name:"Women"},{name:"Kids"}]
@@ -29,17 +30,15 @@ const SidebarCatagory = () => {
         </h3>
         {links.map((link) => (
           <div tabIndex="0" className="collapse collapse-arrow  bg-base-100 ">
-       
-            <div className="collapse-title collapse collapse-arrow  bg-base-100 font-medium text-left" onClick={()=>findSubcatagory(toLower(link.name))}>
+    
+            <div className="collapse-title  bg-base-100 font-medium text-left" onClick={()=>findSubcatagory(toLower(link.name))}>
               {link.name}
               
             </div>
             <div className="collapse-content  text-left" >
-              {/* {link.sublinks.map((sublink) => (
-                <p className="collapse-content text-left">{sublink.Head}</p>
-              ))} */}
+             
 
-              {providedCatagory.map(sub=><p className="collapse-content text-left">{sub?.subcatagory}</p>)}
+              {providedCatagory.map(sub=><p><Link to={`/${sub?.catagory}/${sub?.subcatagory}`} className=" text-left block border my-2">{sub?.subcatagory}</Link></p>)}
               
             </div>
           </div>
