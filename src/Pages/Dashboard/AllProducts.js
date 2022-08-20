@@ -25,8 +25,8 @@ const AllProducts = () => {
       <Summery></Summery>
       <SalesStatistics></SalesStatistics>
       <div className="flex justify-center my-10">
-        <div class="overflow-x-auto w-3/4 shadow-2xl">
-          <table class="table w-full">
+        <div className="overflow-x-auto w-3/4 shadow-2xl">
+          <table className="table w-full">
             <thead>
               <tr>
                 <th></th>

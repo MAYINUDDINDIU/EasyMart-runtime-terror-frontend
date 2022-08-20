@@ -77,7 +77,7 @@ const MegaNavbar = () => {
       <div className="mx-20 p-5 md:flex hidden items-center justify-between font-sans">
         <div className="md:ml-10 border-b border-white py-2 flex justify-center items-center">
           <input
-            class="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-1 py-1 px-2 leading-tight focus:outline-none"
+            className="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-1 py-1 px-2 leading-tight focus:outline-none"
             type="text"
             placeholder="Search Products"
           ></input>
@@ -147,7 +147,7 @@ const MegaNavbar = () => {
           <li>
             <div className="md:ml-10 border-b border-gray-500 py-2 w-[310px] flex justify-center items-center">
               <input
-                class="appearance-none bg-transparent border-none w-full text-black mr-1 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border-none w-full text-black mr-1 py-1 px-2 leading-tight focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               ></input>

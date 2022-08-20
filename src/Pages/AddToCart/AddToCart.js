@@ -38,7 +38,7 @@ const AddToCart = () => {
         ))}
       </div> */}
 
-          <div class="overflow-x-auto ">
+          <div className="overflow-x-auto ">
             <section className="flex justify-between mb-10">
               {" "}
               <h1 className="text-3xl font-bold ">Shopping Cart</h1>
@@ -46,7 +46,7 @@ const AddToCart = () => {
             </section>
             <hr />
 
-            <table class="table w-full mt-5">
+            <table className="table w-full mt-5">
               <thead>
                 <tr>
                   <th className="bg-white text-gray-500	">Product Details</th>
@@ -121,7 +121,7 @@ const AddToCart = () => {
             <input
               type="text"
               placeholder="$10"
-              class="input  rounded-none w-full max-w-xs"
+              className="input  rounded-none w-full max-w-xs"
             />
             <h2 className=" font-semibold uppercase text-left mt-10 mb-3">
               Promo Code
@@ -129,7 +129,7 @@ const AddToCart = () => {
             <input
               type="text"
               placeholder="Enter your promo code here"
-              class="input  rounded-none w-full max-w-xs"
+              className="input  rounded-none w-full max-w-xs"
             />
             <input
               type="submit"

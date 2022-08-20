@@ -37,6 +37,7 @@ const Allcaetgory = () => {
 
     const posts = {
       catagory: selected,
+      subcatagory: selectedSubCatagory,
       name: e.target.name.value,
       price: e.target.price.value,
       quantity: e.target.quantity.value,
@@ -47,49 +48,51 @@ const Allcaetgory = () => {
     navigate("/dashboard", { replace: true });
   };
   return (
-    <div class="hero min-h-screen bg-base-200 flex justify-center items-start py-20">
-      <div class="hero-content flex-col lg:flex-row items-start">
-        <div class="text-center lg:text-left">
-          <h1 class="text-5xl font-bold">Add Products</h1>
-          <p class="py-6">
+    <div className="hero min-h-screen bg-base-200 flex justify-center items-start py-20">
+      <div className="hero-content flex-col lg:flex-row items-start">
+        <div className="text-center lg:text-left">
+          <h1 className="text-5xl font-bold">Add Products</h1>
+          <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
         </div>
         <form
-          class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-black"
+          className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-black"
           onSubmit={handleSubmit}
         >
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Product's Name</span>
+          <div className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product's Name</span>
               </label>
               <input
                 name="name"
                 type="text"
                 placeholder="Name"
-                class="input input-bordered text-black"
+                className="input input-bordered text-black"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Product's Image</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product's Image</span>
               </label>
               <input
                 name="url"
                 type="text"
                 placeholder="Image"
-                class="input input-bordered text-black"
+                className="input input-bordered text-black"
               />
             </div>
             {/* Catagory */}
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Which Catagory you want to add?</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">
+                  Which Catagory you want to add?
+                </span>
               </label>
-              <div class="input-group text-black">
+              <div className="input-group text-black">
                 <select
                   value={selected}
                   onChange={handleChange}
@@ -108,11 +111,11 @@ const Allcaetgory = () => {
               </div>
             </div>
             {/* Sub Catagory */}
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text"> Sub-catagory</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text"> Sub-catagory</span>
               </label>
-              <div class="input-group text-black">
+              <div className="input-group text-black">
                 <select
                   value={selectedSubCatagory}
                   onChange={handleChangeSub}
@@ -130,32 +133,32 @@ const Allcaetgory = () => {
                 </select>
               </div>
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text ">Price</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text ">Price</span>
               </label>
               <input
                 name="price"
                 type="text"
                 placeholder="Price"
-                class="input input-bordered text-black"
+                className="input input-bordered text-black"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Quantity</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Quantity</span>
               </label>
               <input
                 name="quantity"
                 type="text"
                 placeholder="Quantity"
-                class="input input-bordered text-black"
+                className="input input-bordered text-black"
               />
             </div>
 
-            <div class="form-control mt-6">
+            <div className="form-control mt-6">
               <button
-                class="btn bg-secondary text-black font-bold border-0 hover:bg-primary"
+                className="btn bg-secondary text-black font-bold border-0 hover:bg-primary"
                 type="submit"
               >
                 Add Product
