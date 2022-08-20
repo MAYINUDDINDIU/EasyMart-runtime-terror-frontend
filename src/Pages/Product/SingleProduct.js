@@ -35,7 +35,7 @@ const SingleProduct = ({ pd }) => {
             {" "}
             <label
               for={`my-modal-${_id}`}
-              class="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
+              className="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
             >
               Details &nbsp;{" "}
               <ion-icon name="chevron-forward-outline"></ion-icon>
