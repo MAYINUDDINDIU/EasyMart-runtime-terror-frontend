@@ -5,7 +5,12 @@ import Offers from "./Offers";
 import { FaTshirt, FaMale, FaFemale, FaBaby } from "react-icons/fa";
 import { GiArmoredPants, GiRunningShoe } from "react-icons/gi";
 const SidebarCatagory = () => {
-  const links = [{ name: "Men" }, { name: "Women" }, { name: "Kids" }];
+  const links = [
+    { name: "Men" },
+    { name: "Women" },
+    { name: "Kids" },
+    { name: "Electronics" },
+  ];
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/product")
@@ -48,7 +53,7 @@ const SidebarCatagory = () => {
               {providedCatagory.map((sub) => (
                 <p>
                   <Link
-                    to={`/${sub?.catagory}/${sub?.subcatagory}`}
+                    to={`/catagories/${sub?.catagory}/${sub?.subcatagory}`}
                     className=" text-left flex items-center  my-2"
                   >
                     {sub.subcatagory === "Topwear" && <FaTshirt></FaTshirt>}
