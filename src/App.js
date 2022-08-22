@@ -30,6 +30,7 @@ import NotFound from "./Pages/NotFound";
 import Customers from "./Pages/Dashboard/Customers";
 import StatisticsComponent from "./Pages/Dashboard/StatisticsComponent";
 import Details from "./Pages/Details";
+import SidebarCatagoryComponent from "./Pages/Shared/SidebarCatagoryComponent";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -92,7 +93,10 @@ function App() {
                 element={<KidsCollection></KidsCollection>}
               ></Route>
             </Route>
+
             <Route path="/details/:productId" element={<Details />}></Route>
+            <Route path="catagories/:catagory/:subcatagory" element={<SidebarCatagoryComponent></SidebarCatagoryComponent>}></Route>
+        
             <Route path="/contact" element={<Contact />}></Route>
 
             <Route path="/register" element={<Register></Register>}></Route>

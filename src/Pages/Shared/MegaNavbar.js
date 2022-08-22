@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
-import { BsFillBagCheckFill, BsFillTelephoneFill } from "react-icons/bs";
+import {  BsFillTelephoneFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
@@ -31,12 +31,7 @@ const MegaNavbar = () => {
           <span>My Cart</span>
         </Link>
       </li>
-      {/* <li>
-        <Link to="/checkout" className="font-bold flex items-center  my-3">
-          <BsFillBagCheckFill></BsFillBagCheckFill>&nbsp;&nbsp;
-          <span>Checkout</span>
-        </Link>
-      </li> */}
+    
       <li tabIndex="0">
         <Link to="/about"  className="font-bold flex items-center my-3">
           <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>&nbsp;&nbsp;<span>About</span>
@@ -77,7 +72,7 @@ const MegaNavbar = () => {
       <div className="mx-20 p-5 md:flex hidden items-center justify-between font-sans">
         <div className="md:ml-10 border-b border-white py-2 flex justify-center items-center">
           <input
-            class="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-1 py-1 px-2 leading-tight focus:outline-none"
+            className="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-1 py-1 px-2 leading-tight focus:outline-none"
             type="text"
             placeholder="Search Products"
           ></input>
@@ -91,18 +86,7 @@ const MegaNavbar = () => {
           )}
         </div>
 
-        {/* <div className="flex gap-3 text-2xl cursor-pointer">
-          <div>
-            <ion-icon name="log-in-outline"></ion-icon>
-          </div>
-          <div>
-            <ion-icon name="person-outline"></ion-icon>
-          </div>
-          <div>
-            {" "}
-            <ion-icon name="cart-outline"></ion-icon>
-          </div>
-        </div> */}
+      
       </div>
 
       {/* center navigation bar  */}
@@ -128,11 +112,7 @@ const MegaNavbar = () => {
         </div>
 
         <ul className="md:flex hidden  uppercase items-center gap-8 font-[poppins]">
-          {/* <li>
-            <Link to="/" className="py-7 px-2 inline-block text-white">
-              Catagories
-            </Link>
-          </li> */}
+        
           <NavLink />
         </ul>
 
@@ -147,7 +127,7 @@ const MegaNavbar = () => {
           <li>
             <div className="md:ml-10 border-b border-gray-500 py-2 w-[310px] flex justify-center items-center">
               <input
-                class="appearance-none bg-transparent border-none w-full text-black mr-1 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border-none w-full text-black mr-1 py-1 px-2 leading-tight focus:outline-none"
                 type="text"
                 placeholder="Search Products"
               ></input>

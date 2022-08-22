@@ -4,19 +4,19 @@ const Modal = ({ pd }) => {
   const { _id, name, img, price, quantity, offer } = pd;
   return (
     <div className=" z-50 overflow-hidden">
-      <input type="checkbox" id={`my-modal-${_id}`} class="modal-toggle" />
+      <input type="checkbox" id={`my-modal-${_id}`} className="modal-toggle" />
       <div
-        class="modal  overflow-visible z-50"
+        className="modal  overflow-visible z-50"
         style={{ height: "400px", width: "500px", zindex: "10000" }}
       >
-        <div class="modal-box w-full h-full bg-yellow-500 z-10">
+        <div className="modal-box w-full h-full bg-yellow-500 z-10">
           <label
             for={`my-modal-${_id}`}
-            class="btn btn-sm btn-circle absolute right-2 top-2 "
+            className="btn btn-sm btn-circle absolute right-2 top-2 "
           >
             ✕
           </label>
-          <h3 class="text-lg font-bold text-black">{name}</h3>
+          <h3 className="text-lg font-bold text-black">{name}</h3>
           <p className="text-center">
             {" "}
             {offer === "5% Off" ? (
