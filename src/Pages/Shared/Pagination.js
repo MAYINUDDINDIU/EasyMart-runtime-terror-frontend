@@ -7,11 +7,14 @@ const Pagination = ({ productPrePage, totalProduct, paginate, currentPage }) => 
         pageNumbers.push(i);
     }
     return (
-        <div className="btn-group flex justify-center">
+        <div className=" flex justify-center mt-20">
+            <button className='mt-12'><ion-icon name="chevron-back-outline"></ion-icon></button>
             {pageNumbers.map(num => (
 
-                <button onClick={() => paginate(num)} className={`btn text-black font-bold bg-transparent ${currentPage === num ? 'bg-indigo-600 text-white font-bold' : 'text-black'}`}>{num}</button>
+                <button onClick={() => paginate(num)} className={`btn  font-bold bg-white mt-10 border-0 mx-3 ${currentPage === num ? 'bg-[#E3F56C]  hover:bg-[#E3F56C] text-black font-bold' : 'text-black hover:bg-white '}`}>{num}</button>
+                
             ))}
+             <button className='mt-12'><ion-icon name="chevron-forward-outline"></ion-icon></button>
         </div>
     );
 };

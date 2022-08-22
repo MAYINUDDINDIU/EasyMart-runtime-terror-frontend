@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProduct } from "../features/productSlice";
 
 const Details = () => {
   const { productId } = useParams();
   const [products, setProducts] = useState([]);
+  const [amount, setAmount] = useState(1);
+  const [disable, setDisable] = useState(false);
+  const increaseAmount = () => {
+    if (amount < selectedProduct.quantity) {
+      setAmount(amount + 1);
+    }
+  };
+  const decreaseAmount = () => {
+    if (amount >= 1) {
+      setAmount(amount - 1);
+    }
+  };
   useEffect(() => {
     fetch("http://localhost:5000/product")
       .then((res) => res.json())
@@ -17,7 +27,14 @@ const Details = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row shadow-2xl">
-        <img src={selectedProduct?.img} alt="productImg" />
+        <div className="h-90 w-90 ">
+          <img
+            src={selectedProduct?.img}
+            alt="productImg"
+            className="object-fill	 h-90 w-96"
+          />
+        </div>
+
         <div className="text-left ml-10  p-5">
           <h1 className="text-5xl font-bold">{selectedProduct?.name}</h1>
           <p className="py-6">
@@ -49,15 +66,16 @@ const Details = () => {
           <div className="my-3">
             Quantity:{" "}
             <span className="ml-3">
-              <button className="bg-gray-100 p-2">
+              <button className="bg-gray-100 p-2" onClick={decreaseAmount}>
                 <ion-icon name="remove-outline"></ion-icon>
               </button>
               <input
                 type="number"
                 name="number"
                 className="border mx-3 w-1/5 p-2"
+                value={amount}
               />
-              <button className="bg-gray-300 p-2">
+              <button className="bg-gray-300 p-2" onClick={increaseAmount}>
                 <ion-icon name="add-outline"></ion-icon>
               </button>
             </span>
