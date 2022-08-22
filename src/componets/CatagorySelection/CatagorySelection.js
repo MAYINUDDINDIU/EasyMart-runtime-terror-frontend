@@ -17,7 +17,7 @@ const CatagorySelection = () => {
   // pagination Part
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [productPrePage, setProductPrePage] = useState(8);
+  const [productPrePage] = useState(8);
 
   const indexOfLastProduct = currentPage * productPrePage;
   const indexOfFirstProduct = indexOfLastProduct - productPrePage;
@@ -149,7 +149,7 @@ const CatagorySelection = () => {
           ))}
       </div>
       <div>
-        <Pagination productPrePage={productPrePage} totalProduct={products.length} paginate={paginate}></Pagination>
+        <Pagination productPrePage={productPrePage} totalProduct={products.length} paginate={paginate} currentPage={currentPage}></Pagination>
       </div>
     </section>
   );
