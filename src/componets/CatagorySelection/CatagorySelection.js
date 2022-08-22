@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import SingleCatagory from "../CatagoryWiseProduct/SingleCatagory";
 import { FaMale, FaFemale } from "react-icons/fa";
 import { TbMoodKid } from "react-icons/tb";
+import Pagination from "../../Pages/Shared/Pagination";
 const CatagorySelection = () => {
   const [searchItem, setSearchItem] = useState('');
   const [products, setProducts] = useState([]);
@@ -12,6 +13,18 @@ const CatagorySelection = () => {
   const [menClick, setMenClick] = useState(false);
   const [womenClick, setWomenClick] = useState(false);
   const [kidClick, setKidClick] = useState(false);
+
+  // pagination Part
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPrePage] = useState(8);
+
+  const indexOfLastProduct = currentPage * productPrePage;
+  const indexOfFirstProduct = indexOfLastProduct - productPrePage;
+  const currentProduct = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   useEffect(() => {
     fetch("http://localhost:5000/product")
       .then((res) => res.json())
@@ -33,21 +46,21 @@ const CatagorySelection = () => {
       <div className="p-6 mb-[-25px] w-full  flex justify-center bg-secondary ">
         <input type="text" placeholder="Search Products" className="input  w-1/2 rounded-r-none" onChange={event => { setSearchItem(event.target.value) }} />
         <button className="btn btn-square bg-success border-0 rounded-none text-black hover:bg-success">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#ffff"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#ffff"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
       </div>
       <div className="flex justify-center my-10">
         <div className="px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-4  mt-5 mb-5 grid justify-center ">
@@ -110,7 +123,7 @@ const CatagorySelection = () => {
       </div>
       <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-5 mb-5 grid justify-center ">
         {!menClick && !womenClick && !kidClick
-          ? products.filter((val) => {
+          ? currentProduct.filter((val) => {
             if (searchItem === '') {
               return val;
             } else if (val.name.toLowerCase().includes(searchItem.toLowerCase())) {
@@ -134,6 +147,9 @@ const CatagorySelection = () => {
               product={product}
             ></SingleCatagory>
           ))}
+      </div>
+      <div>
+        <Pagination productPrePage={productPrePage} totalProduct={products.length} paginate={paginate} currentPage={currentPage}></Pagination>
       </div>
     </section>
   );
