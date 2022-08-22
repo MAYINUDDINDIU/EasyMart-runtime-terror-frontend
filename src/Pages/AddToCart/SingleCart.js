@@ -17,8 +17,8 @@ const SingleCart = ({ pd }) => {
                 </div>
                 <div className=" font-bold text-left">
                     <p>Name: {name}</p>
-                    <p>Price: ${price}</p>
-                    <p>Available: {quantity}</p>
+            
+                    {/* <p>Available: {quantity}</p> */}
                     <p>
                         Quantity: <button className=" btn btn-active btn-ghost">-</button>{" "}
                         {quantity} <button className=" btn btn-active btn-ghost">+</button>

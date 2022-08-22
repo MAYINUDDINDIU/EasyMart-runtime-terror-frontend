@@ -15,10 +15,12 @@ const SidebarCatagoryComponent = () => {
       product.catagory === catagory && product.subcatagory === subcatagory
   );
   return (
-    <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-10 mb-5 grid justify-center ">
-      {subcatagories.map((product) => (
-        <SingleCatagory key={product._id} product={product}></SingleCatagory>
-      ))}
+    <div className="h-screen">
+      <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-20 mb-5 grid justify-center">
+        {subcatagories.map((product) => (
+          <SingleCatagory key={product._id} product={product}></SingleCatagory>
+        ))}
+      </div>
     </div>
   );
 };

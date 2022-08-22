@@ -80,7 +80,7 @@ const CatagorySelection = () => {
               setWomenClick(false);
               setMenClick(true);
               setKidClick(false);
-              catagoryWiseProductHandler("men");
+              catagoryWiseProductHandler("Men");
             }}
           >
             <FaMale className="text-5xl   bg-yellow-500 text-white rounded-full p-2"></FaMale>
@@ -95,7 +95,7 @@ const CatagorySelection = () => {
               setWomenClick(true);
               setMenClick(false);
               setKidClick(false);
-              catagoryWiseProductHandler("women");
+              catagoryWiseProductHandler("Women");
             }}
           >
             <FaFemale className="text-5xl bg-green-500  text-white rounded-full p-2"></FaFemale>
@@ -110,7 +110,7 @@ const CatagorySelection = () => {
               setWomenClick(false);
               setMenClick(false);
               setKidClick(true);
-              catagoryWiseProductHandler("kids");
+              catagoryWiseProductHandler("Kids");
             }}
           >
             <TbMoodKid className="text-5xl bg-indigo-400 text-white rounded-full p-2"></TbMoodKid>

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { deleteCartData, getFromCart } from "../../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../utilities/Loading/Loading";
+ 
 import "./AddToCart.css";
 import { toast } from "react-toastify";
+import { AiOutlineClose } from "react-icons/ai";
 const lodash = require("lodash");
 const AddToCart = () => {
   const { isLoading, product, error } = useSelector((state) => state.cartSlice);
@@ -25,6 +27,7 @@ const AddToCart = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteCartData(id));
+    window.location.reload();
     // toast.success('Remove Successfully')
   };
   return (
@@ -51,12 +54,12 @@ const AddToCart = () => {
                 <tr>
                   <th className="bg-white text-gray-500	">Product Details</th>
                   <th className="bg-white "></th>
-                  <th className="bg-white text-gray-500	">Available</th>
+                  {/* <th className="bg-white text-gray-500	">Available</th> */}
                   <th className="bg-white text-gray-500	">Quantity</th>
-                  <th className="bg-white text-gray-500	">Price</th>
+                 
                   <th className="bg-white text-gray-500	">Total</th>
-                  <th className="bg-white text-gray-500	">Purchase</th>
-                  <th className="bg-white text-gray-500	">Remove</th>
+             
+                  {/* <th className="bg-white text-gray-500	">Remove</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -71,9 +74,9 @@ const AddToCart = () => {
                     <td>
                       <b>{pd?.name}</b>
                     </td>
-                    <td>
+                    {/* <td>
                       <b>{pd?.quantity}</b>
-                    </td>
+                    </td> */}
                     <td>
                       <div className=" flex items-center cursor-pointer">
                         <button onClick={() => handleDecrease(pd.quantity - 1)}><ion-icon name="remove-outline"></ion-icon> &nbsp;</button>
@@ -82,22 +85,16 @@ const AddToCart = () => {
                         <button onClick={() => handleIncrease()}> &nbsp;<ion-icon name="add-outline"></ion-icon></button>
                       </div>
                     </td>
-                    <td>
+                    {/* <td>
                       $<b>{pd?.price}</b>
-                    </td>
+                    </td> */}
                     <td>
                       $<b>{pd?.quantity * pd?.price}</b>
                     </td>
+                  
                     <td>
-                      <button className="shadow-lg p-2 bg-transparent text-black font-bold">Buy Now</button>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => handleDelete(pd?._id)}
-                        className="btn btn-error rounded p-4 font-bold "
-                      >
-                        X
-                      </button>
+                      <AiOutlineClose   onClick={() => handleDelete(pd?._id)} className="text-xl cursor-pointer text-gray-400"></AiOutlineClose>
+                    
                     </td>
                   </tr>
                 ))}

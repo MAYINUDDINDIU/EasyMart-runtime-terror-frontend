@@ -2,14 +2,35 @@ import { toLower } from "lodash";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Offers from "./Offers";
-import { FaTshirt, FaMale, FaFemale, FaBaby } from "react-icons/fa";
-import { GiArmoredPants, GiRunningShoe } from "react-icons/gi";
+import {
+  FaTshirt,
+  FaMale,
+  FaFemale,
+  FaBaby,
+  FaHome,
+  FaChair,
+} from "react-icons/fa";
+import {
+  GiArmoredPants,
+  GiRunningShoe,
+  GiCookingPot,
+  GiSoap,
+} from "react-icons/gi";
+import {
+  MdLocalGroceryStore,
+  MdFitnessCenter,
+  MdSportsBaseball,
+} from "react-icons/md";
+import { BsSmartwatch, BsBicycle } from "react-icons/bs";
 const SidebarCatagory = () => {
   const links = [
     { name: "Men" },
     { name: "Women" },
     { name: "Kids" },
-    { name: "Electronics" },
+    { name: "Groceries" },
+    { name: "Electronic Accessories" },
+    { name: "Home & Lifestyle" },
+    { name: "Sports & Outdoors" },
   ];
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -39,14 +60,21 @@ const SidebarCatagory = () => {
         </h3>
         {links.map((link) => (
           <div tabIndex="0" className="collapse collapse-arrow  bg-base-100 ">
-            <input
-              type="checkbox"
-              onClick={() => findSubcatagory(toLower(link.name))}
-            />
+            <input type="checkbox" onClick={() => findSubcatagory(link.name)} />
             <div className="collapse-title  bg-base-100 text-xl text-left flex items-center">
               {link.name === "Men" && <FaMale></FaMale>}
               {link.name === "Women" && <FaFemale></FaFemale>}
               {link.name === "Kids" && <FaBaby></FaBaby>}
+              {link.name === "Groceries" && (
+                <MdLocalGroceryStore></MdLocalGroceryStore>
+              )}
+              {link.name === "Electronic Accessories" && (
+                <BsSmartwatch></BsSmartwatch>
+              )}
+              {link.name === "Home & Lifestyle" && <FaHome></FaHome>}
+              {link.name === "Sports & Outdoors" && (
+                <MdSportsBaseball></MdSportsBaseball>
+              )}
               &nbsp;&nbsp;{link.name}
             </div>
             <div className="collapse-content text-left ml-5">
@@ -63,6 +91,18 @@ const SidebarCatagory = () => {
                     {sub.subcatagory === "Footerwear" && (
                       <GiRunningShoe></GiRunningShoe>
                     )}
+                    {sub.subcatagory === "Cooking Ingredients" && (
+                      <GiCookingPot></GiCookingPot>
+                    )}
+                    {sub.subcatagory === "Bath & Body" && <GiSoap></GiSoap>}
+                    {sub.subcatagory === "Smart Watch" && (
+                      <BsSmartwatch></BsSmartwatch>
+                    )}
+                    {sub.subcatagory === "Cycling" && <BsBicycle></BsBicycle>}
+                    {sub.subcatagory === "Fitness" && (
+                      <MdFitnessCenter></MdFitnessCenter>
+                    )}
+                    {sub.subcatagory === "Furniture" && <FaChair></FaChair>}
                     <span className="text-left mx-3">{sub?.subcatagory}</span>
                   </Link>
                 </p>
