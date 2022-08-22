@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiFillHome ,AiFillInfoCircle} from "react-icons/ai";
-import { FaShoppingCart } from "react-icons/fa";
-import {  BsFillTelephoneFill } from "react-icons/bs";
+import { AiFillHome, AiFillInfoCircle, AiFillStar } from "react-icons/ai";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import { BsFillTelephoneFill, BsStar, BsCart } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { getFromCart } from "../../features/cartSlice";
 import { IoHelpCircleSharp } from "react-icons/io5";
+import { MdOutlineCancel } from "react-icons/md";
+import { RiLogoutBoxLine } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
 const Navbar = () => {
-  const { isLoading, product, error } = useSelector(state => state.cartSlice)
+  const { isLoading, product, error } = useSelector((state) => state.cartSlice);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFromCart());
-  }, [dispatch])
-
+  }, [dispatch]);
 
   const [user] = useAuthState(auth);
   //Checking Admin
@@ -25,7 +27,7 @@ const Navbar = () => {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
-  const selectedUser = users.find(u=>u.email===user?.email)
+  const selectedUser = users.find((u) => u.email === user?.email);
   const adminStatus = selectedUser?.role;
   const navigate = useNavigate();
 
@@ -35,23 +37,21 @@ const Navbar = () => {
   };
   const navItems = (
     <>
-    {console.log(user)}
+      {console.log(user)}
       <li>
         <Link to="/" className="font-bold">
           <AiFillHome></AiFillHome>Home
         </Link>
       </li>
       <li className="indicator relative" tabIndex="0">
-        <span className="indicator-item top-4 right-2 text-2xl bg-transparent border-none absolute badge text-red-500 font-bold">{product.length}</span>
+        <span className="indicator-item top-4 right-2 text-2xl bg-transparent border-none absolute badge text-red-500 font-bold">
+          {product.length}
+        </span>
         <Link to="/addtocart" className=" font-bold">
           <FaShoppingCart></FaShoppingCart>My Cart
         </Link>
       </li>
-      {/* <li tabIndex="0">
-        <Link to="/todo" className="font-bold">
-          <BsFillBagCheckFill></BsFillBagCheckFill>Checkout
-        </Link>
-      </li> */}
+
       <li tabIndex="0">
         <Link to="/about" className="font-bold">
           <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>About
@@ -68,16 +68,16 @@ const Navbar = () => {
           <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
-      {adminStatus? <li tabIndex="0">
-        <Link to="/dashboard" className="font-bold">
-          <AiFillHome></AiFillHome>Dashboard
-        </Link>
-      </li>:null}
-     
+      {adminStatus ? (
+        <li tabIndex="0">
+          <Link to="/dashboard" className="font-bold">
+            <AiFillHome></AiFillHome>Dashboard
+          </Link>
+        </li>
+      ) : null}
     </>
   );
   return (
-
     <div className="navbar bg-[#E3F56C] text-black lg:px-24  sticky top-0 z-50">
       {isLoading && <p>.</p>}
       <div className="navbar-start">
@@ -105,70 +105,79 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        {
-          !adminStatus?  <Link
-          className=" normal-case font-bold drop-shadow text-2xl "
-          to="/"
-        >
-          EASY <span className="text-primary">MART</span>
-        </Link>:  <Link
-          className=" normal-case font-bold drop-shadow text-2xl"
-          to="/"
-        >
-           EASY <span className="text-primary">MART</span>  
-        
-          <small style={{fontSize:"15px"}} className="m-0 text-blue-400">(Admin)</small>
-        </Link>
-        }
-      
+        {!adminStatus ? (
+          <Link className=" normal-case font-bold drop-shadow text-2xl " to="/">
+            EASY <span className="text-primary">MART</span>
+          </Link>
+        ) : (
+          <Link className=" normal-case font-bold drop-shadow text-2xl" to="/">
+            EASY <span className="text-primary">MART</span>
+            <small style={{ fontSize: "15px" }} className="m-0 text-blue-400">
+              (Admin)
+            </small>
+          </Link>
+        )}
       </div>
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal p-0  ">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        {/* <div className="form-control mr-10">
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Search…"
-              className="input input-bordered text-black bg-white"
-            />
-            <button className="btn btn-square bg-success border-0 text-black hover:bg-success">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div> */}
         {user ? (
           <>
-            <span className="text-primary mx-3 font-bold flex items-center w-1/2"> <div><img src={user?.photoURL} alt="profileImg" className="mr-5" style={{height:"50px",width:"70%", borderRadius:"50%"}}/></div>{user?.displayName} </span>{" "}
-            <button className="btn btn-primary font-bold" onClick={logout}>
+            <label
+              className=" mx-3 font-bold flex items-center cursor-pointer"
+              for="my-modal-3"
+            >
+              <FaUserAlt></FaUserAlt>&nbsp;&nbsp; {user?.displayName}{" "}
+            </label>
+            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+            <div class="modal">
+              <div class=" modal-box absolute w-64 right-0 top-16 rounded-none text-left">
+                <label
+                  for="my-modal-3"
+                  class="btn btn-sm btn-circle absolute right-2 top-2"
+                >
+                  ✕
+                </label>
+                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                  <CgProfile className="text-xl"></CgProfile> &nbsp;
+                  &nbsp;Profile
+                </h3>
+                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                  <BsCart className="text-xl"></BsCart> &nbsp; &nbsp;My Orders
+                </h3>
+                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                  <BsStar className="text-xl"></BsStar> &nbsp; &nbsp;My Reviews
+                </h3>
+                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                  <MdOutlineCancel className="text-xl"></MdOutlineCancel> &nbsp;
+                  &nbsp;My Returns
+                </h3>
+                <h3
+                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  onClick={logout}
+                >
+                  <RiLogoutBoxLine className="text-xl"></RiLogoutBoxLine>
+                  &nbsp;&nbsp;Logout
+                </h3>
+              </div>
+            </div>
+
+            {/* <button className="btn btn-primary font-bold" onClick={logout}>
               Logout
-            </button>
+            </button> */}
           </>
         ) : (
           <>
             {" "}
             <Link to="/login" className=" font-bold mr-3 text-3xl">
-              <ion-icon name="log-in-outline" ></ion-icon>
+              <ion-icon name="log-in-outline"></ion-icon>
             </Link>
             <Link to="/addtocart" className=" font-bold mr-3 text-3xl">
-              <ion-icon name="cart-outline" ></ion-icon>
+              <ion-icon name="cart-outline"></ion-icon>
             </Link>
             <Link to="/profile" className=" font-bold mr-3 text-3xl">
-            <ion-icon name="person-outline"></ion-icon>
+              <ion-icon name="person-outline"></ion-icon>
             </Link>
             {/* <Link to="/register" className="text-white font-bold mr-3">
               Register
