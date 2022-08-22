@@ -9,15 +9,28 @@ const Allcaetgory = () => {
   //For selection
   const options = [
     { value: "", text: "--Choose an option--" },
-    { value: "men", text: "Men" },
-    { value: "women", text: "Women" },
-    { value: "kids", text: "Kids" },
+    { value: "Men", text: "Men" },
+    { value: "Women", text: "Women" },
+    { value: "Kids", text: "Kids" },
+    { value: "Groceries", text: "Groceries" },
+    { value: "Electronic Accessories", text: "Electronic Accessories" },
+    { value: "Home & Lifestyle", text: "Home & Lifestyle" },
+    { value: "Sports & Outdoors", text: "Sports & Outdoors" },
   ];
   const optionsSubcatagory = [
     { value: "", text: "Select Subcatagory" },
     { value: "Topwear", text: "Topwear" },
     { value: "Bottomwear", text: "Bottomwear" },
     { value: "Footerwear", text: "Footerwear" },
+    { value: "Laundry & Household", text: "Laundry & Household" },
+    { value: "Furniture", text: "Furniture" },
+    { value: "Cooking Ingredients", text: "Cooking Ingredients" },
+    { value: "Bath & Body", text: "Bath & Body" },
+    { value: "Fragrances", text: "Fragrances" },
+    { value: "Smart Watch", text: "Smart Watch" },
+    { value: "Audio", text: "Audio" },
+    { value: "Cycling", text: "Cycling" },
+    { value: "Fitness", text: "Fitness" },
   ];
   const [selected, setSelected] = useState(options[0].value);
   const [selectedSubCatagory, setSelectedSubCatagory] = useState(
