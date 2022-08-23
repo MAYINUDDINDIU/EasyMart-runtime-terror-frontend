@@ -74,14 +74,14 @@ const SingleCatagory = ({ product }) => {
             <span className="text-neutral   text-2xl  font-bold">${price}</span>
           )}
         </p>
-        <div className="card-actions justify-center">
+        {/* <div className="card-actions justify-center">
           <button
             onClick={handleAddToCart}
             className="btn btn-secondary btn-sm  rounded px-12 mt-3 "
           >
             Add To Cart
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

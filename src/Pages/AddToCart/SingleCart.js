@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteCartData } from "../../features/cartSlice";
 
 const SingleCart = ({ pd }) => {
-    const { _id, img, price, name, quantity } = pd;
+    const { _id, img, price, name, quantity,amount } = pd;
 
     const dispatch = useDispatch();
     const handleDelete = (id) => {
@@ -23,7 +23,7 @@ const SingleCart = ({ pd }) => {
                         Quantity: <button className=" btn btn-active btn-ghost">-</button>{" "}
                         {quantity} <button className=" btn btn-active btn-ghost">+</button>
                     </p>
-                    <p>Sub Total: ${price * quantity}</p>
+                    <p>Sub Total: ${price * amount}</p>
                 </div>
             </section>
 
