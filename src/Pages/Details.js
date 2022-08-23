@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addToCart } from "../features/collectionSlice";
+import auth from "../firebase.init";
 
 const Details = () => {
+  const [user] = useAuthState(auth);
   const { productId } = useParams();
   const [products, setProducts] = useState([]);
   const [amount, setAmount] = useState(1);
@@ -24,6 +29,13 @@ const Details = () => {
   const selectedProduct = products.find(
     (product) => product?._id === productId
   );
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    selectedProduct.amount = amount;
+    selectedProduct.email = user?.email;
+    dispatch(addToCart(selectedProduct));
+  };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row shadow-2xl">
@@ -84,7 +96,10 @@ const Details = () => {
             <button className="btn text-black bg-green-500 hover:bg-green-400  mt-10 w-1/2  border-0 b">
               Buy Now
             </button>
-            <button className="btn   mt-10 w-1/2 ml-3 btn-warning border-0 ">
+            <button
+              className="btn   mt-10 w-1/2 ml-3 btn-warning border-0 "
+              onClick={handleAddToCart}
+            >
               Add To Cart
             </button>
           </div>

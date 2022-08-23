@@ -2,28 +2,80 @@ import React, { useEffect, useState } from "react";
 import { deleteCartData, getFromCart } from "../../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../utilities/Loading/Loading";
- 
+import { useAuthState } from "react-firebase-hooks/auth";
+
 import "./AddToCart.css";
 import { toast } from "react-toastify";
 import { AiOutlineClose } from "react-icons/ai";
+import auth from "../../firebase.init";
+
 const lodash = require("lodash");
 const AddToCart = () => {
+  const [user] = useAuthState(auth);
+
   const { isLoading, product, error } = useSelector((state) => state.cartSlice);
-  const productPrices = product.map((e) => parseFloat(e.price));
-  const totalPrice = lodash.sum(productPrices);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFromCart());
   }, [dispatch]);
 
-  const [quan, setQuan] = useState(1);
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/addtocart")
+      .then((res) => res.json())
+      .then((data) => setCart(data));
+  }, []);
+  const filteredProductsByEmail = cart.filter((p) => p.email === user?.email);
 
-  const handleDecrease = () => {
-    setQuan(quan - 1)
-  }
-  const handleIncrease = () => {
-    setQuan(quan + 1)
-  }
+  const ProductPrices = filteredProductsByEmail.map((e) => {
+    return parseFloat(e.price) * e.amount;
+  });
+  const totalPrice = lodash.sum(ProductPrices);
+  const handleIncrease = (id) => {
+    setCart((cart) =>
+      cart.map((item) =>
+        item._id === id ? { ...item, amount: item.amount + 1 } : item
+      )
+    );
+
+    const selectedItem = cart.find((c) => c._id === id);
+    const selectedItemData = {
+      amount: selectedItem?.amount + 1,
+    };
+    console.log(selectedItemData);
+    fetch(`http://localhost:5000/increase/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selectedItemData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+  const handleDecrease = (id) => {
+    setCart(
+      cart.map((item) =>
+        item._id === id ? { ...item, amount: item.amount - 1 } : item
+      )
+    );
+    const selectedItem = cart.find((c) => c._id === id);
+    const selectedItemData = {
+      amount: selectedItem?.amount - 1,
+    };
+    console.log(selectedItemData);
+    fetch(`http://localhost:5000/increase/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selectedItemData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    console.log(selectedItem);
+  };
 
   const handleDelete = (id) => {
     dispatch(deleteCartData(id));
@@ -35,6 +87,7 @@ const AddToCart = () => {
       <div className="flex    mt-20 w-3/4  shadow-inner">
         <div className="w-3/4 p-10">
           {isLoading && <Loading></Loading>}
+
           {/* <div className="grid grid-cols-1 p-4 gap-5  mx-auto border ">
         {product.map((pd) => (
           <SingleCart key={pd._id} pd={pd}></SingleCart>
@@ -54,16 +107,14 @@ const AddToCart = () => {
                 <tr>
                   <th className="bg-white text-gray-500	">Product Details</th>
                   <th className="bg-white "></th>
-                  {/* <th className="bg-white text-gray-500	">Available</th> */}
+
                   <th className="bg-white text-gray-500	">Quantity</th>
-                 
+
                   <th className="bg-white text-gray-500	">Total</th>
-             
-                  {/* <th className="bg-white text-gray-500	">Remove</th> */}
                 </tr>
               </thead>
               <tbody>
-                {product.map((pd) => (
+                {cart.map((pd) => (
                   <tr>
                     <th>
                       {" "}
@@ -74,27 +125,30 @@ const AddToCart = () => {
                     <td>
                       <b>{pd?.name}</b>
                     </td>
-                    {/* <td>
-                      <b>{pd?.quantity}</b>
-                    </td> */}
+
                     <td>
                       <div className=" flex items-center cursor-pointer">
-                        <button onClick={() => handleDecrease(pd.quantity - 1)}><ion-icon name="remove-outline"></ion-icon> &nbsp;</button>
-                        <button className="border-2 p-2">{pd?.quantity}</button>
+                        <button onClick={() => handleDecrease(pd?._id)}>
+                          <ion-icon name="remove-outline"></ion-icon> &nbsp;
+                        </button>
+                        <button className="border-2 p-2">{pd?.amount}</button>
 
-                        <button onClick={() => handleIncrease()}> &nbsp;<ion-icon name="add-outline"></ion-icon></button>
+                        <button onClick={() => handleIncrease(pd?._id)}>
+                          {" "}
+                          &nbsp;<ion-icon name="add-outline"></ion-icon>
+                        </button>
                       </div>
                     </td>
-                    {/* <td>
-                      $<b>{pd?.price}</b>
-                    </td> */}
+
                     <td>
-                      $<b>{pd?.quantity * pd?.price}</b>
+                      $<b>{pd?.amount * pd?.price}</b>
                     </td>
-                  
+
                     <td>
-                      <AiOutlineClose   onClick={() => handleDelete(pd?._id)} className="text-xl cursor-pointer text-gray-400"></AiOutlineClose>
-                    
+                      <AiOutlineClose
+                        onClick={() => handleDelete(pd?._id)}
+                        className="text-xl cursor-pointer text-gray-400"
+                      ></AiOutlineClose>
                     </td>
                   </tr>
                 ))}
@@ -118,7 +172,8 @@ const AddToCart = () => {
             <input
               type="text"
               placeholder="$10"
-              className="input  rounded-none w-full max-w-xs"
+              className="input border-0 rounded-none focus:outline-none disabled:bg-white disabled:placeholder-black w-full"
+              disabled
             />
             <h2 className=" font-semibold uppercase text-left mt-10 mb-3">
               Promo Code
