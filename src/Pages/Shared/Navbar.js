@@ -140,10 +140,13 @@ const Navbar = () => {
                 >
                   ✕
                 </label>
-                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                <Link
+                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  to="/profile"
+                >
                   <CgProfile className="text-xl"></CgProfile> &nbsp;
                   &nbsp;Profile
-                </h3>
+                </Link>
                 <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
                   <BsCart className="text-xl"></BsCart> &nbsp; &nbsp;My Orders
                 </h3>
