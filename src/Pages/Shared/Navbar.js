@@ -20,6 +20,7 @@ const Navbar = () => {
   }, [dispatch]);
 
   const [user] = useAuthState(auth);
+  const filteredProducts = product.filter((p) => p?.email === user?.email);
   //Checking Admin
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -45,7 +46,7 @@ const Navbar = () => {
       </li>
       <li className="indicator relative" tabIndex="0">
         <span className="indicator-item top-4 right-2 text-2xl bg-transparent border-none absolute badge text-red-500 font-bold">
-          {product.length}
+          {filteredProducts.length}
         </span>
         <Link to="/addtocart" className=" font-bold">
           <FaShoppingCart></FaShoppingCart>My Cart
@@ -146,9 +147,12 @@ const Navbar = () => {
                 <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
                   <BsCart className="text-xl"></BsCart> &nbsp; &nbsp;My Orders
                 </h3>
-                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                <Link
+                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  to="/review"
+                >
                   <BsStar className="text-xl"></BsStar> &nbsp; &nbsp;My Reviews
-                </h3>
+                </Link>
                 <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
                   <MdOutlineCancel className="text-xl"></MdOutlineCancel> &nbsp;
                   &nbsp;My Returns

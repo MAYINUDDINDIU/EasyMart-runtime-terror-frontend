@@ -31,6 +31,7 @@ import Customers from "./Pages/Dashboard/Customers";
 import StatisticsComponent from "./Pages/Dashboard/StatisticsComponent";
 import Details from "./Pages/Details";
 import SidebarCatagoryComponent from "./Pages/Shared/SidebarCatagoryComponent";
+import Review from "./Pages/Review";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -102,6 +103,7 @@ function App() {
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
+            <Route path="/review" element={<Review></Review>}></Route>
             <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
 
