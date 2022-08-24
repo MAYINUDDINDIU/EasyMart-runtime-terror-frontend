@@ -79,7 +79,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-[#E3F56C] text-black lg:px-24  sticky top-0 z-50">
+    <div className="navbar bg-[#E3F56C]  lg:px-24  sticky top-0 z-50">
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">
@@ -133,7 +133,7 @@ const Navbar = () => {
             </label>
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">
-              <div class=" modal-box absolute w-64 right-0 top-16 rounded-none text-left">
+              <div class=" modal-box absolute w-64 right-0 top-16 rounded-none text-left text-black">
                 <label
                   for="my-modal-3"
                   class="btn btn-sm btn-circle absolute right-2 top-2"

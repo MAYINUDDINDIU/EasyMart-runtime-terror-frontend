@@ -36,7 +36,7 @@ const Review = () => {
             className="form-control lg:w-1/4 sm:w-3/4 w-3/4 shadow-xl p-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <h1 className="text-3xl text-left text-blue-500 mb-10">
+            <h1 className="text-3xl mt-0 w-full p-3 font-semibold text-center mb-10 bg-secondary">
               Review Us
             </h1>
 
@@ -81,7 +81,7 @@ const Review = () => {
 
             <input
               type="submit"
-              className="btn bg-secondary text-black hover:bg-green-400 border-0 mt-5 text-xl"
+              className="btn text-white border-0 mt-5 text-xl"
               value="ADD REVIEW"
             />
           </form>
