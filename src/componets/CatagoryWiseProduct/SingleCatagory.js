@@ -53,13 +53,20 @@ const SingleCatagory = ({ product }) => {
         )}
       </section>
 
-      <div className="p-3">
-        <h1 className=" font-bold text-2xl text-black mt-1">{name}</h1>
-        <p className="text-center">
+      <div className="p-3 text-left">
+        <h1 className=" text-lg text-black mt-1 font-semibold">{name}</h1>
+        <div class="rating">
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+</div>
+        <p className="">
           {" "}
-          <span className="text-green-600  text-lg font-bold">{offer}</span>
+          <span className="text-green-600 ">{offer}</span>
         </p>
-        <p className="text-center">
+        <p className="">
           {" "}
           {offer === "5% Off" ? (
             <>

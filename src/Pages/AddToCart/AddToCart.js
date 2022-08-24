@@ -114,7 +114,7 @@ const AddToCart = () => {
                 </tr>
               </thead>
               <tbody>
-                {cart.map((pd) => (
+                {filteredProductsByEmail.map((pd) => (
                   <tr>
                     <th>
                       {" "}
