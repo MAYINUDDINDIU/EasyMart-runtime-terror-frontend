@@ -14,9 +14,9 @@ const CheckoutPage = () => {
   const [card, setCard] = useState(false);
   const [bkash, setBkash] = useState(false);
   return (
-    <div className="flex justify-center">
-      <section className="mt-10 flex   w-3/4 justify-around border p-5">
-        <div className="w-1/2 text-left border p-5 uppercase text-gray-500">
+    <div className="flex justify-center ">
+      <section className="mt-10 flex   lg:w-3/4 md:w-3/4 sm:w-full w-full justify-around border p-5 lg:flex-row md:flex-row sm:flex-col flex-col">
+        <div className="lg:w-1/2 md:w-1/2 sm:w-full w-full text-left border p-5 uppercase text-gray-500">
           <h1 className="text-3xl mb-3 font-semibold">Checkout</h1>
           <h3>Personal Details</h3>
           <hr />
@@ -96,7 +96,7 @@ const CheckoutPage = () => {
             </span>
           </div>
         </div>
-        <div className="w-1/4 border">
+        <div className="lg:w-1/4 md:w-1/4 sm:w-full w-full border">
           {card && (
             <Elements stripe={stripePromise}>
               <Payment />
