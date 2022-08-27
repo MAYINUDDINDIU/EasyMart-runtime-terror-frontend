@@ -79,7 +79,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-[#E3F56C]  lg:px-24  sticky top-0 z-50">
+    <div className="navbar bg-[#448bba]  lg:px-24  sticky top-0 z-50 text-white">
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">

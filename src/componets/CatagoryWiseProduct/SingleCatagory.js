@@ -18,11 +18,7 @@ const SingleCatagory = ({ product }) => {
     setIsHovering(false);
   };
 
-  // const dispatch = useDispatch();
-
-  // const handleAddToCart = () => {
-  //   dispatch(addToCart(product));
-  // };
+ 
   return (
     <div className=" bordered rounded lg:w-60 w-72   hover:scale-105 duration-500 cardBg shadow-2xl cursor-pointer">
       <section
@@ -40,7 +36,7 @@ const SingleCatagory = ({ product }) => {
             {" "}
             <label
               for={`my-modal-${_id}`}
-              className="btn modal-button bg-secondary hover:bg-secondary text-black border-0  absolute bottom-0 left-0 w-full rounded-none"
+              className="btn modal-button bg-secondary hover:bg-secondary text-white border-0  absolute bottom-0 left-0 w-full rounded-none"
               onClick={() => {
                 handleDetail(_id);
               }}

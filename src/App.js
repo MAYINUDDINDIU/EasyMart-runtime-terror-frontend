@@ -42,6 +42,8 @@ import {
 } from 'react-query'
 import MyOrders from "./Pages/MyOrders";
 import MyReviewCollection from "./Pages/MyReviewCollection";
+import Payment from "./Pages/Payment";
+import CheckoutPage from "./Pages/CheckoutPage";
 
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
@@ -115,6 +117,7 @@ function App() {
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="/myReviewCollection" element={<MyReviewCollection></MyReviewCollection>}></Route>
           <Route path="/review/:productId" element={<Review></Review>}></Route>
+          <Route path="/payment/:totalAmountToPay" element={<CheckoutPage></CheckoutPage>}></Route>
           <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
           <Route path="/orders" element={<MyOrders></MyOrders>}></Route>

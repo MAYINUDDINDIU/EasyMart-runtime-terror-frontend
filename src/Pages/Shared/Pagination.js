@@ -11,7 +11,7 @@ const Pagination = ({ productPrePage, totalProduct, paginate, currentPage }) => 
             <button className='mt-12'><ion-icon name="chevron-back-outline"></ion-icon></button>
             {pageNumbers.map(num => (
 
-                <button onClick={() => paginate(num)} className={`btn  font-bold bg-white mt-10 border-0 mx-3 ${currentPage === num ? 'bg-[#E3F56C]  hover:bg-[#E3F56C] text-black font-bold' : 'text-black hover:bg-white '}`}>{num}</button>
+                <button onClick={() => paginate(num)} className={`btn  font-bold bg-white mt-10 border-0 mx-3 ${currentPage === num ? 'bg-[#448bba]  hover:bg-[#448bba] text-white font-bold' : 'text-black hover:bg-white '}`}>{num}</button>
                 
             ))}
              <button className='mt-12'><ion-icon name="chevron-forward-outline"></ion-icon></button>
