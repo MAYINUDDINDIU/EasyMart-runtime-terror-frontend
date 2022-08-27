@@ -4,7 +4,7 @@ const Carousel = () => {
   return (
     <div className="carousel w-full ">
       <div id="slide1" className="carousel-item relative w-full">
-        <img src="https://img.freepik.com/free-psd/fashion-sale-banner-template_23-2148102424.jpg?w=2000" className="w-full" alt='firstImg' />
+        <img src="https://img.freepik.com/premium-vector/online-shopping-banner-design-with-3d-cart-with-red-gift-white-background-with-balloons-shopping-bags-vector-illustration_548887-141.jpg?w=2000" className="w-full" alt='firstImg' />
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
           <a href="#slide4" className="btn btn-circle">❮</a>
           <a href="#slide2" className="btn btn-circle">❯</a>

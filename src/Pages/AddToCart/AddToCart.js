@@ -3,14 +3,22 @@ import { deleteCartData, getFromCart } from "../../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../utilities/Loading/Loading";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 import "./AddToCart.css";
 import { toast } from "react-toastify";
 import { AiOutlineClose } from "react-icons/ai";
 import auth from "../../firebase.init";
+import { Elements } from "@stripe/react-stripe-js";
+ 
+import { loadStripe } from "@stripe/stripe-js";
+import Payment from "../Payment";
 
 const lodash = require("lodash");
+
 const AddToCart = () => {
+
+  const navigate = useNavigate()
   const [user] = useAuthState(auth);
 
   const { isLoading, product, error } = useSelector((state) => state.cartSlice);
@@ -38,7 +46,7 @@ const AddToCart = () => {
         item._id === id ? { ...item, amount: item.amount + 1 } : item
       )
     );
-
+   
     const selectedItem = cart.find((c) => c._id === id);
     const selectedItemData = {
       amount: selectedItem?.amount + 1,
@@ -82,6 +90,11 @@ const AddToCart = () => {
     window.location.reload();
     // toast.success('Remove Successfully')
   };
+
+  //Redirecting to payment route
+  const handleGoToPayment=(totalAmountToPay)=>{
+    navigate(`/payment/${totalAmountToPay}`)
+  }
   return (
     <div className="flex justify-center">
       <div className="flex    mt-20 w-3/4  shadow-2xl">
@@ -196,9 +209,11 @@ const AddToCart = () => {
               <h2 className="uppercase font-bold  ">Total Amount</h2>
               <h2 className="font-bold">${totalPrice - 10}</h2>
             </div>
-            <button className="btn bg-green-400 hover:bg-green-300 border-0 text-black uppercase w-full rounded-none mt-10">
+            <button className="btn bg-green-400 hover:bg-green-300 border-0 text-black uppercase w-full rounded-none mt-10" onClick={()=>handleGoToPayment((totalPrice - 10))}>
               Checkout
             </button>
+    
+       
           </section>
         </div>
       </div>

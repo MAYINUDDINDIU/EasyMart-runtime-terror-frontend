@@ -1,4 +1,3 @@
-import { toLower } from "lodash";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Offers from "./Offers";
@@ -22,6 +21,7 @@ import {
   MdSportsBaseball,
 } from "react-icons/md";
 import { BsSmartwatch, BsBicycle } from "react-icons/bs";
+import PriceRange from "./PriceRange";
 const SidebarCatagory = () => {
   const links = [
     { name: "Men" },
@@ -52,10 +52,11 @@ const SidebarCatagory = () => {
     setProvidedCatagory(uniqueSubcatagories);
   };
   return (
-    <div className="fixed w-1/5  border-r-gray border-t-0 border-2">
+    <div className="fixed w-1/5  border-r-gray border-t-0 border-2 h-screen overflow-y-scroll">
       <Offers></Offers>
-      <div className="bg-white h-screen p-5">
-        <h3 className="text-xl bg-[#E3F56C] p-3 text-black font-bold">
+
+      <div className="bg-white  p-5 border-r-gray border-t-0 border-b-2 mb-5">
+        <h3 className="text-xl bg-[#448bba] p-3   font-bold text-white">
           Catagories
         </h3>
         {links.map((link) => (
@@ -110,6 +111,9 @@ const SidebarCatagory = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        <PriceRange></PriceRange>
       </div>
     </div>
   );
