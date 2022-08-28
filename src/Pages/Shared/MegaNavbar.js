@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
-import {  BsFillTelephoneFill } from "react-icons/bs";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavLink from "./Navlink";
-import { AiFillInfoCircle} from "react-icons/ai";
+import { AiFillInfoCircle } from "react-icons/ai";
 import { IoHelpCircleSharp } from "react-icons/io5";
 
 const MegaNavbar = () => {
@@ -19,36 +19,36 @@ const MegaNavbar = () => {
   });
   const menuItems = (
     <>
-      <li>
+      <li onClick={() => setOpen(false)}>
         <Link to="/" className="font-bold flex items-center my-3">
           <AiFillHome></AiFillHome>&nbsp;&nbsp;
           <span>Home</span>
         </Link>
       </li>
-      <li>
+      <li onClick={() => setOpen(false)}>
         <Link to="/cart" className="font-bold flex items-center my-3">
           <FaShoppingCart></FaShoppingCart>&nbsp;&nbsp;
           <span>My Cart</span>
         </Link>
       </li>
-    
-      <li tabIndex="0">
-        <Link to="/about"  className="font-bold flex items-center my-3">
+
+      <li tabIndex="0" onClick={() => setOpen(false)}>
+        <Link to="/about" className="font-bold flex items-center my-3">
           <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>&nbsp;&nbsp;<span>About</span>
         </Link>
       </li>
-      <li tabIndex="0">
-        <Link to="/help"className="font-bold flex items-center my-3">
+      <li tabIndex="0" onClick={() => setOpen(false)}>
+        <Link to="/help" className="font-bold flex items-center my-3">
           <IoHelpCircleSharp className="text-2xl"></IoHelpCircleSharp>&nbsp;&nbsp;<span>Help</span>
         </Link>
       </li>
-      <li>
+      <li onClick={() => setOpen(false)}>
         <Link to="/contact" className="font-bold flex items-center my-3">
           <BsFillTelephoneFill></BsFillTelephoneFill>&nbsp;&nbsp;
           <span>Contact Us</span>
         </Link>
       </li>
-      <li>
+      <li onClick={() => setOpen(false)}>
         <Link to="/dashboard" className="font-bold flex items-center">
           <AiFillHome></AiFillHome>&nbsp;&nbsp;
           <span>Dashboard</span>
@@ -86,7 +86,7 @@ const MegaNavbar = () => {
           )}
         </div>
 
-      
+
       </div>
 
       {/* center navigation bar  */}
@@ -112,16 +112,15 @@ const MegaNavbar = () => {
         </div>
 
         <ul className="md:flex hidden  uppercase items-center gap-8 font-[poppins]">
-        
+
           <NavLink />
         </ul>
 
         {/* For  Mobile  nav  */}
         <ul
           className={`
-                md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-black ${
-                  open ? "left-0" : "left-[-100%]"
-                }
+                md:hidden bg-white absolute w-full h-full bottom-0 py-24 pl-4 z-10 duration-500 text-black ${open ? "left-0" : "left-[-100%]"
+            }
                 `}
         >
           <li>
@@ -139,9 +138,8 @@ const MegaNavbar = () => {
           <li className="flex justify-between">
             <div className="w-1/2 cursor-pointer">
               <h4
-                className={`text-center my-3 p-3 ${
-                  showMenuItems ? "bg-secondary" : "bg-gray-400"
-                }`}
+                className={`text-center my-3 p-3 ${showMenuItems ? "bg-secondary" : "bg-gray-400"
+                  }`}
                 onClick={handleShowMenuItems}
               >
                 Menu
@@ -152,9 +150,8 @@ const MegaNavbar = () => {
             <div className="w-1/2 cursor-pointer">
               {" "}
               <h4
-                className={`text-center my-3 p-3 ${
-                  showCatagories ? "bg-secondary" : "bg-gray-400 "
-                }`}
+                className={`text-center my-3 p-3 ${showCatagories ? "bg-secondary" : "bg-gray-400 "
+                  }`}
                 onClick={handleShowCatagories}
               >
                 Catagories
