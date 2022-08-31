@@ -17,6 +17,11 @@ export const fetchOrder = createAsyncThunk('cart/fetchOrder', async () => {
     return fetch('http://localhost:5000/addtocart').then(res => res.json())
 });
 
+// Customers Reviews
+export const fetchReviews = createAsyncThunk('cart/fetchReviews', async () => {
+    return fetch('http://localhost:5000/reviews').then(res => res.json())
+});
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {

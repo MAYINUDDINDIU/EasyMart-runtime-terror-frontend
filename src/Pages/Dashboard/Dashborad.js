@@ -57,7 +57,7 @@ const Dashborad = () => {
             </li>
             <li>
               <Link to="/dashboard/customers">
-                <FaUsers className="mr-3 text-2xl"></FaUsers>Customers
+                <FaUsers className="mr-3 text-2xl"></FaUsers>Reviews
               </Link>
             </li>
             <li>
@@ -66,11 +66,11 @@ const Dashborad = () => {
                 Statistics
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard/allcategory">
+            {/* <li>
+              <Link to="/dashboard/reviews">
                 <MdReviews className="mr-3 text-2xl"></MdReviews>Reviews
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/dashboard/allcategory">
                 <BsGlobe className="mr-3 text-2xl"></BsGlobe>Sellers

@@ -28,10 +28,11 @@ import AddToCart from "./Pages/AddToCart/AddToCart";
 import Orders from "./Pages/Dashboard/Orders";
 import NotFound from "./Pages/NotFound";
 import Customers from "./Pages/Dashboard/Customers";
+import Reviews from "./Pages/Dashboard/Reviews";
 import StatisticsComponent from "./Pages/Dashboard/StatisticsComponent";
 import Details from "./Pages/Details";
 import SidebarCatagoryComponent from "./Pages/Shared/SidebarCatagoryComponent";
-import Review from "./Pages/Review";
+// import Review from "./Pages/Review";
 import Profile from "./Pages/Profile";
 import {
   useQuery,
@@ -116,7 +117,7 @@ function App() {
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
             <Route path="/myReviewCollection" element={<MyReviewCollection></MyReviewCollection>}></Route>
-            <Route path="/review/:productId" element={<Review></Review>}></Route>
+            {/* <Route path="/review/:productId" element={<Review></Review>}></Route> */}
             <Route path="/payment/:totalAmountToPay" element={<CheckoutPage></CheckoutPage>}></Route>
             <Route path="/profile" element={<Profile></Profile>}></Route>
             <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
@@ -137,6 +138,7 @@ function App() {
                 path="statistics"
                 element={<StatisticsComponent></StatisticsComponent>}
               ></Route>
+              <Route path="reviews" element={<Reviews></Reviews>}></Route>
               <Route path="allcategory" element={<Allcaetgory></Allcaetgory>}>
                 <Route index element={<MensItem></MensItem>}></Route>
                 <Route
