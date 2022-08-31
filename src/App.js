@@ -45,6 +45,7 @@ import MyReviewCollection from "./Pages/MyReviewCollection";
 import Payment from "./Pages/Payment";
 import CheckoutPage from "./Pages/CheckoutPage";
 
+
 function App() {
   const [desktop, setDesktop] = useState(window.innerWidth > 650);
   const updatePic = () => {
@@ -57,10 +58,10 @@ function App() {
   const location = useLocation();
   const queryClient = new QueryClient()
   return (
+      
     <QueryClientProvider client={queryClient}><div className="App">
       {desktop ? <Navbar></Navbar> : <MegaNavbar></MegaNavbar>}
-
-      <div className="flex">
+      <div className="flex" >
         {location.pathname !== "/dashboard" &&
           location.pathname !== "/dashboard/allcategory" &&
           location.pathname !== "/dashboard/editproduct" &&
