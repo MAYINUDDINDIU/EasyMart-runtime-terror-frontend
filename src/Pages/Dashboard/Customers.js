@@ -33,7 +33,7 @@ const Customers = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Your Ordered Products </th>
+                <th>Your Ordered Product </th>
                 <th>Your Given Ratings</th>
                 <th>Your Review</th>
               </tr>
