@@ -53,6 +53,10 @@ const productSlice = createSlice({
             state.product = [];
             state.error = action.payload;
         });
+
+        builder.addCase(deleteProduct.fulfilled, (state, action) => {
+            action.isLoading = true;
+        });
     },
 });
 

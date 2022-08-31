@@ -57,7 +57,7 @@ const data = [
 
 const SalesStatistics = () => {
   return (
-    <div className="flex justify-center mt-10">
+    <div className="flex flex-col items-center justify-center mt-10">
       <div className="flex justify-between items-center w-3/4 ">
         <BarChart
           width={700}
@@ -78,8 +78,10 @@ const SalesStatistics = () => {
           <Bar dataKey="pv" fill="#16a34a" />
           <Bar dataKey="uv" fill="#bbf7d0" />
         </BarChart>
-        <PieChartComponent></PieChartComponent>
       </div>
+        <div>
+        <PieChartComponent></PieChartComponent>
+        </div>
     </div>
   );
 };
