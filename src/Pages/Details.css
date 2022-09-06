@@ -1,0 +1,16 @@
+.details {
+  background-image: linear-gradient(
+      rgba(240, 224, 146, 0.865),
+      rgba(249, 227, 227, 0.769)
+    ),
+    url("https://morecustomersapp.com/wp-content/uploads/2020/08/banner-and-eCommerce.jpg");
+  background-size: 100% 100%;
+
+  background-attachment: fixed;
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+}

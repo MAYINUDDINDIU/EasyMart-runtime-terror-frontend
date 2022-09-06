@@ -25,6 +25,7 @@ const Home = () => {
             <Carousel></Carousel>
             <CatagorySelection></CatagorySelection>
             {/* <Product></Product> */}
+            <div className='my-10'></div>
             <Hero></Hero>
             <CarouselSlider></CarouselSlider>
 

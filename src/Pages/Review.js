@@ -11,7 +11,7 @@ const Review = () => {
   //Loading specific product for review
   const [product, setproduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addtocart")
+    fetch("http://localhost:5000/displayOrders")
       .then((res) => res.json())
       .then((data) => setproduct(data));
   }, []);

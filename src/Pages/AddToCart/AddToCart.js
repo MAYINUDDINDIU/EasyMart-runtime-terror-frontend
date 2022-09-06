@@ -31,7 +31,7 @@ const AddToCart = () => {
   const [cart, setCart] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/addtocart")
-      .then((res) => res.json())
+      .then((res) => res.json()) 
       .then((data) => setCart(data));
   }, []);
   const filteredProductsByEmail = cart.filter((p) => p.email === user?.email);
@@ -41,12 +41,11 @@ const AddToCart = () => {
   });
   const totalPrice = lodash.sum(ProductPrices);
   const handleIncrease = (id) => {
-    setCart((cart) =>
+    setCart(
       cart.map((item) =>
         item._id === id ? { ...item, amount: item.amount + 1 } : item
       )
     );
-   
     const selectedItem = cart.find((c) => c._id === id);
     const selectedItemData = {
       amount: selectedItem?.amount + 1,
@@ -61,6 +60,7 @@ const AddToCart = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    console.log(selectedItem);
   };
   const handleDecrease = (id) => {
     setCart(

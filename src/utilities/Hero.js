@@ -3,7 +3,7 @@ import "./Hero.css";
 const Hero = () => {
   return (
     <div>
-      <div class="hero h-96	mt-10  bg-cover bg-no-repeat    bg-top hero-home ">
+      <div class="hero h-96	  bg-cover bg-no-repeat    bg-top hero-home ">
         <div></div>
         <div class="hero-content    flex justify-end  w-full text-left ">
           <div class="max-w-md">
