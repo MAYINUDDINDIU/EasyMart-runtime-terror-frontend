@@ -12,6 +12,16 @@ export const deleteCartData = createAsyncThunk('cart/deleteCartData', async (id)
     }).then(res => res.json())
 });
 
+// Total order from all users
+export const fetchOrder = createAsyncThunk('cart/fetchOrder', async () => {
+    return fetch('http://localhost:5000/addtocart').then(res => res.json())
+});
+
+// Customers Reviews
+export const fetchReviews = createAsyncThunk('cart/fetchReviews', async () => {
+    return fetch('http://localhost:5000/reviews').then(res => res.json())
+});
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
@@ -29,6 +39,20 @@ const cartSlice = createSlice({
             state.error = null;
         });
         builder.addCase(getFromCart.rejected, (state, action) => {
+            action.isLoading = false;
+            state.product = [];
+            state.error = action.payload;
+        });
+
+        builder.addCase(fetchOrder.pending, (state, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(fetchOrder.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.product = action.payload;
+            state.error = null;
+        });
+        builder.addCase(fetchOrder.rejected, (state, action) => {
             action.isLoading = false;
             state.product = [];
             state.error = action.payload;

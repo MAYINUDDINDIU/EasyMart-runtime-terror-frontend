@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOrder } from '../../features/cartSlice';
 
 const Orders = () => {
+    const { isLoading, product, error } = useSelector((state) => state.cartSlice);
+    const dispatch=useDispatch();
+    useEffect(() => {
+        dispatch(fetchOrder());
+      }, [dispatch]);
     return (
-        <div className='mt-20 bg-red-300'>
-            <h1>Orders</h1>
+        <div className="">
+           <div className="shadow-2xl flex h-24 w-80 mt-8 mx-auto items-center p-3">
+          <AiOutlineShoppingCart className="text-5xl bg-secondary  text-white rounded-full p-2"></AiOutlineShoppingCart>
+          <div className="text-left ml-5">
+            <p className="text-cyan-700 font-bold"><span className='text-2xl'>{product.length}</span> Order From All Users</p>
+          </div>
+        </div>
+        <div className="mx-auto w-3/4 shadow-2xl mt-8"> 
+        <table className="table w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+{
+    product.map(product=>{
+        const { _id, name, img, price ,quantity} = product;
+        return (
+            <tr >
+            <th></th>
+            <td>{name}</td>
+            <td>{quantity}</td>
+            <td>${price*quantity}</td>
+          </tr>
+        )
+    })
+}
+            </tbody>
+          </table>
+        </div>
         </div>
     );
 };

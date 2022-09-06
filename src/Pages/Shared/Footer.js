@@ -1,8 +1,10 @@
 import React from 'react';
+import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-neutral text-base-content mt-20">
+            <ScrollToTop smooth width="" height='24' top={28} color='white' style={{ backgroundColor: '#3E8AB6', paddingTop: '7px' }} />
             <div className="text-white">
                 <span className="footer-title">Services</span>
                 <a className="link link-hover">Branding</a>
@@ -46,7 +48,6 @@ const Footer = () => {
                 </div>
 
             </div >
-
         </footer >
     );
 };

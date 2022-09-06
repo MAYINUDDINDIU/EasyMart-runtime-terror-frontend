@@ -23,7 +23,7 @@ const AllProducts = () => {
     <div>
       {" "}
       <Summery></Summery>
-      <SalesStatistics></SalesStatistics>
+      {/* <SalesStatistics></SalesStatistics> */}
       <div className="flex justify-center my-10">
         <div className="overflow-x-auto w-3/4 shadow-2xl">
           <table className="table w-full">
