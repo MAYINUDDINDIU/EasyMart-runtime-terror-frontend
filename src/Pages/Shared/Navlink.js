@@ -9,7 +9,7 @@ const NavLink = () => {
   const links = [{name:"Men"},{name:"Women"},{name:"Kids"}]
   const [products,setProducts] = useState([]);
   useEffect(()=>{
-    fetch("https://limitless-everglades-36569.herokuapp.com/product").then(res=>res.json()).then(data=>setProducts(data))
+    fetch("http://localhost:5000/product").then(res=>res.json()).then(data=>setProducts(data))
   },[])
   const [providedCatagory,setProvidedCatagory] = useState([]);
   function getUniqueListBy(arr, key) {

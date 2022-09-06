@@ -30,7 +30,7 @@ const AddToCart = () => {
 
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/addtocart")
+    fetch("http://localhost:5000/addtocart")
       .then((res) => res.json()) 
       .then((data) => setCart(data));
   }, []);
@@ -51,7 +51,7 @@ const AddToCart = () => {
       amount: selectedItem?.amount + 1,
     };
     console.log(selectedItemData);
-    fetch(`https://limitless-everglades-36569.herokuapp.com/increase/${id}`, {
+    fetch(`http://localhost:5000/increase/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const AddToCart = () => {
       amount: selectedItem?.amount - 1,
     };
     console.log(selectedItemData);
-    fetch(`https://limitless-everglades-36569.herokuapp.com/increase/${id}`, {
+    fetch(`http://localhost:5000/increase/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

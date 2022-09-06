@@ -12,7 +12,7 @@ const Register = () => {
   const [passwordMatchError, setPasswordMatchError] = useState("");
   const [updateProfile, updating, error_update] = useUpdateProfile(auth);
   const addUser = (email, currentUser) => {
-    fetch(`https://limitless-everglades-36569.herokuapp.com/user/${email}`, {
+    fetch(`http://localhost:5000/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
