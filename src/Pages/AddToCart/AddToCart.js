@@ -30,8 +30,8 @@ const AddToCart = () => {
 
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addtocart")
-      .then((res) => res.json())
+    fetch("https://limitless-everglades-36569.herokuapp.com/addtocart")
+      .then((res) => res.json()) 
       .then((data) => setCart(data));
   }, []);
   const filteredProductsByEmail = cart.filter((p) => p.email === user?.email);
@@ -41,18 +41,17 @@ const AddToCart = () => {
   });
   const totalPrice = lodash.sum(ProductPrices);
   const handleIncrease = (id) => {
-    setCart((cart) =>
+    setCart(
       cart.map((item) =>
         item._id === id ? { ...item, amount: item.amount + 1 } : item
       )
     );
-   
     const selectedItem = cart.find((c) => c._id === id);
     const selectedItemData = {
       amount: selectedItem?.amount + 1,
     };
     console.log(selectedItemData);
-    fetch(`http://localhost:5000/increase/${id}`, {
+    fetch(`https://limitless-everglades-36569.herokuapp.com/increase/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -61,6 +60,7 @@ const AddToCart = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    console.log(selectedItem);
   };
   const handleDecrease = (id) => {
     setCart(
@@ -73,7 +73,7 @@ const AddToCart = () => {
       amount: selectedItem?.amount - 1,
     };
     console.log(selectedItemData);
-    fetch(`http://localhost:5000/increase/${id}`, {
+    fetch(`https://limitless-everglades-36569.herokuapp.com/increase/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

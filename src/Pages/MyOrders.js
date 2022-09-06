@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5000/addtocart")
+      fetch("https://limitless-everglades-36569.herokuapp.com/displayOrders")
         .then((res) => res.json())
         .then((data) => setCart(data));
     }, []);

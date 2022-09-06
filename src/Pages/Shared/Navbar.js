@@ -24,7 +24,7 @@ const Navbar = () => {
   //Checking Admin
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://limitless-everglades-36569.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

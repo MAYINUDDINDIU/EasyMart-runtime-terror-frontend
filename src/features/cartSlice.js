@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // get From cart
 export const getFromCart = createAsyncThunk('cart/getFromCart', async () => {
-    return fetch('http://localhost:5000/addtocart').then(res => res.json())
+    return fetch('https://limitless-everglades-36569.herokuapp.com/addtocart').then(res => res.json())
 });
 
 // // Delete cart data
 export const deleteCartData = createAsyncThunk('cart/deleteCartData', async (id) => {
-    return fetch(`http://localhost:5000/deleteCart/${id}`, {
+    return fetch(`https://limitless-everglades-36569.herokuapp.com/deleteCart/${id}`, {
         method: 'DELETE',
     }).then(res => res.json())
 });
