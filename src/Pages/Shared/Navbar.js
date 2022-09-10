@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome, AiFillInfoCircle, AiFillStar } from "react-icons/ai";
-import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import { FaShoppingCart, FaUserAlt,FaSortDown } from "react-icons/fa";
 import { BsFillTelephoneFill, BsStar, BsCart } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -41,7 +41,7 @@ const Navbar = () => {
       {console.log(user)}
       <li>
         <Link to="/" className="font-bold">
-          <AiFillHome></AiFillHome>Home
+          <AiFillHome className="mr-[-8px]"></AiFillHome>Home
         </Link>
       </li>
       <li className="indicator relative" tabIndex="0">
@@ -49,30 +49,30 @@ const Navbar = () => {
           {filteredProducts.length}
         </span>
         <Link to="/addtocart" className=" font-bold">
-          <FaShoppingCart></FaShoppingCart>My Cart
+          <FaShoppingCart className="mr-[-8px]"></FaShoppingCart>My Cart
         </Link>
       </li>
 
       <li tabIndex="0">
         <Link to="/about" className="font-bold">
-          <AiFillInfoCircle className="text-xl"></AiFillInfoCircle>About
+          <AiFillInfoCircle className="text-xl mr-[-8px]"></AiFillInfoCircle>About
         </Link>
       </li>
       {console.log(adminStatus)}
       <li tabIndex="0">
         <Link to="/help" className="font-bold">
-          <IoHelpCircleSharp className="text-2xl"></IoHelpCircleSharp>Help
+          <IoHelpCircleSharp className="text-2xl mr-[-8px]"></IoHelpCircleSharp>Help
         </Link>
       </li>
       <li tabIndex="0">
         <Link to="/contact" className="font-bold">
-          <BsFillTelephoneFill></BsFillTelephoneFill>Contact Us
+          <BsFillTelephoneFill className="mr-[-8px]"></BsFillTelephoneFill>Contact Us
         </Link>
       </li>
       {adminStatus ? (
         <li tabIndex="0">
           <Link to="/dashboard" className="font-bold">
-            <AiFillHome></AiFillHome>Dashboard
+            <AiFillHome className="mr-[-8px]"></AiFillHome>Dashboard
           </Link>
         </li>
       ) : null}
@@ -108,12 +108,12 @@ const Navbar = () => {
         </div>
         {!adminStatus ? (
           <Link className=" normal-case font-bold drop-shadow text-2xl " to="/">
-            EASY <span className="text-primary">MART</span>
+            EASY <span className="text-red-400">MART</span>
           </Link>
         ) : (
           <Link className=" normal-case font-bold drop-shadow text-2xl" to="/">
-            EASY <span className="text-primary">MART</span>
-            <small style={{ fontSize: "15px" }} className="m-0 text-blue-400">
+            EASY <span className="text-green-300">MART</span>
+            <small style={{ fontSize: "15px" }} className="m-0 text-green-400">
               (Admin)
             </small>
           </Link>
@@ -129,7 +129,7 @@ const Navbar = () => {
               className=" mx-3 font-bold flex items-center cursor-pointer"
               for="my-modal-3"
             >
-              <FaUserAlt></FaUserAlt>&nbsp;&nbsp; {user?.displayName}{" "}
+              <FaUserAlt className="mr-[-8px]"></FaUserAlt>&nbsp;&nbsp; {user?.displayName}{" "}<FaSortDown className="text-2xl mb-1"></FaSortDown>
             </label>
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">

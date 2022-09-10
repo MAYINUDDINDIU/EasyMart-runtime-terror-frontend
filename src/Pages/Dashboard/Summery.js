@@ -12,7 +12,7 @@ const Summery = () => {
   }, []);
   return (
     <div className="flex justify-center my-10">
-      <div className="flex justify-between w-3/4">
+      <div className="grid justify-between grid-cols-1 md:grid-cols-3 justify-items-center w-3/4">
         <div className="shadow-2xl flex h-24 w-64 items-center p-3">
           <BsCurrencyDollar className="text-5xl   bg-yellow-500 text-white rounded-full p-2"></BsCurrencyDollar>
           <div className="text-left ml-5">

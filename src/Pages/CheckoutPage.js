@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Payment from "./Payment";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
-
+import "./CheckoutPage.css";
 const CheckoutPage = () => {
   const [user] = useAuthState(auth);
   const stripePromise = loadStripe(
@@ -49,7 +49,7 @@ const CheckoutPage = () => {
                 type="radio"
                 id="cod"
                 name="radio-1"
-                class="radio"
+                class="radio  "
                 value="Cash On Delivery"
                 checked={cod}
                 onClick={(e) => {
@@ -58,7 +58,13 @@ const CheckoutPage = () => {
                   setBkash(!e.target.value);
                 }}
               />
-                <label for="cod">Cash On Delivery</label>
+               {" "}
+              <label
+                for="cod"
+                className={`${cod ? "text-blue-500 font-bold" : null}`}
+              >
+                Cash On Delivery
+              </label>
             </span>
             <span className="flex items-center">
               {" "}
@@ -75,7 +81,13 @@ const CheckoutPage = () => {
                   setBkash(!e.target.value);
                 }}
               />
-                <label for="card">Card Payment</label>
+               {" "}
+              <label
+                for="card"
+                className={`${card ? "text-blue-500 font-bold" : null}`}
+              >
+                Card Payment
+              </label>
             </span>
             <span className="flex items-center">
               {" "}
@@ -83,7 +95,7 @@ const CheckoutPage = () => {
                 type="radio"
                 id="bkash"
                 name="radio-3"
-                class="radio"
+                class={`radio`}
                 value="Bkash Payment"
                 checked={bkash}
                 onClick={(e) => {
@@ -92,7 +104,13 @@ const CheckoutPage = () => {
                   setBkash(e.target.value);
                 }}
               />
-                <label for="bkash">Bkash Payment</label>
+               {" "}
+              <label
+                for="bkash"
+                className={`${bkash ? "text-blue-500 font-bold" : null}`}
+              >
+                Bkash Payment
+              </label>
             </span>
           </div>
         </div>
@@ -109,7 +127,13 @@ const CheckoutPage = () => {
           )}
           {bkash && (
             <>
-              <p>Bkash Payment</p>
+              <p className="text-xl mb-3">Bkash Payment</p>
+              <div>
+                <img
+                  src="https://www.bdshop.com/pub/media/catalog/product/b/k/bkash-payment-gateway-plugin-for-magento-2.png"
+                  alt="bkash"
+                />
+              </div>
             </>
           )}
         </div>

@@ -18,9 +18,9 @@ const Dashborad = () => {
       <div className="drawer-content">
         <label
           for="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-square btn-ghost drawer-button lg:hidden sticky ml-[400px] top-0 z-50"
         >
-          Open drawer
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-7 h-7 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
 
         <Outlet></Outlet>
@@ -28,11 +28,11 @@ const Dashborad = () => {
       <div className="drawer-side">
         <label for="my-drawer-2" className="drawer-overlay"></label>
         <div className="w-76 border-r-gray border-t-0 border-2">
-          <ul className="menu p-4 overflow-y-auto   text-base-content text-xl ">
+          <ul className="menu p-4 overflow-y-auto text-base-content text-xl ">
             <li className="rounded-none w-full">
               <Link
                 to="/dashboard"
-                className="  border-2 border-orange-600 text-2xl p-3  my-5  justify-center font-bold"
+                className=" bg-secondary text-2xl p-3 my-5 justify-center font-bold"
               >
                 Dashboard
               </Link>
