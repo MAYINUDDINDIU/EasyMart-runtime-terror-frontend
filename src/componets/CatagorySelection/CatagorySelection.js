@@ -43,8 +43,12 @@ const CatagorySelection = () => {
   };
   return (
     <section>
-      <div className="p-6 mb-[-25px] w-full  flex justify-center bg-secondary ">
-        <input type="text" placeholder="Search Products" className="input  w-1/2 rounded-r-none" onChange={event => { setSearchItem(event.target.value) }} />
+      <div className="p-6 mb-[-25px] w-full sticky md:top-12 md:z-50 flex justify-center bg-secondary "
+      data-aos="zoom-in-down"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      >
+        <input type="text" placeholder="Search Products" className="input w-1/2 rounded-r-none" onChange={event => { setSearchItem(event.target.value) }} />
         <button className="btn btn-square bg-success border-0 rounded-none text-black hover:bg-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"

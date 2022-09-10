@@ -122,7 +122,6 @@ function App() {
             <Route path="/profile" element={<Profile></Profile>}></Route>
             <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
             <Route path="/orders" element={<MyOrders></MyOrders>}></Route>
-            <Route path="*" element={<NotFound></NotFound>}></Route>
 
             <Route
               path="/dashboard"
@@ -157,6 +156,7 @@ function App() {
                 element={<EditProduct></EditProduct>}
               ></Route>
             </Route>
+            <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
 
           <Footer></Footer>
