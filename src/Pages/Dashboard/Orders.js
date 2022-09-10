@@ -17,7 +17,7 @@ const Orders = () => {
             <p className="text-cyan-700 font-bold"><span className='text-2xl'>{product.length}</span> Order From All Users</p>
           </div>
         </div>
-        <div className="mx-auto w-3/4 shadow-2xl mt-8"> 
+        <div className="px-6 shadow-2xl mt-8"> 
         <table className="table w-full">
             <thead>
               <tr>
@@ -29,11 +29,11 @@ const Orders = () => {
             </thead>
             <tbody>
 {
-    product.map(product=>{
+    product.map((product,index)=>{
         const { _id, name, img, price ,quantity} = product;
         return (
             <tr >
-            <th></th>
+            <th>{index+1}</th>
             <td>{name}</td>
             <td>{quantity}</td>
             <td>${price*quantity}</td>
