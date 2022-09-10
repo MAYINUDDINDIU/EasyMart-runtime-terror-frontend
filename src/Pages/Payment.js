@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../utilities/Loading/Loading";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-
+import "./Payment.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 const Payment = () => {
@@ -32,13 +32,10 @@ const Payment = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
     //Removing Products from cart
-    fetch(
-      `http://localhost:5000/removeFromCart/${user?.email}`,
-      {
-        method: "DELETE",
-        headers: { "Content-type": "application/json" },
-      }
-    )
+    fetch(`http://localhost:5000/removeFromCart/${user?.email}`, {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+    })
       .then((res) => res.json())
       .then((data) => console.log(data));
   }
@@ -50,16 +47,13 @@ const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
   useEffect(() => {
-    fetch(
-      "http://localhost:5000/create_payment_intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(totalPayment),
-      }
-    )
+    fetch("http://localhost:5000/create_payment_intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(totalPayment),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -117,7 +111,7 @@ const Payment = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="p-3">
       <CardElement
         options={{
           style: {
@@ -144,13 +138,13 @@ const Payment = () => {
           </p>
         </div>
       )}
-      <p>
+      {/* <p>
         Please Pay: <b>{totalPayment.totalAmountToPay}</b>
-      </p>
+      </p> */}
       <button
         type="submit"
         disabled={!stripe || !clientSecret || success}
-        className="btn btn-xs btn-secondary"
+        className="btn  bg-indigo-500 w-full mt-5 text-xl text-white border-0 rounded-none"
       >
         Pay
       </button>

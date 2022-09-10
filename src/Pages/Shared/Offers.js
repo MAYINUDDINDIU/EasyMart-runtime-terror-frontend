@@ -13,8 +13,8 @@ const Offers = () => {
   const offers = products.filter(product=>product?.offer )
   return (
     <div>
-      <div className="bg-white text-left p-5 font-semibold">
-        <h3 className="text-xl bg-[#448bba] p-3 text-white font-bold text-center mb-3">
+      <div className="bg-white text-left p-5 font-semibold shadow-2xl my-5">
+        <h3 className="text-xl border-2 border-orange-600 p-3   font-bold text-center mb-3 mt-5">
           Offers
         </h3>
         <div className="flex">
