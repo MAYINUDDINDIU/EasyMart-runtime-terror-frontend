@@ -43,8 +43,12 @@ const CatagorySelection = () => {
   };
   return (
     <section>
-      <div className="p-6 mb-[-25px] w-full  flex justify-center bg-secondary ">
-        <input type="text" placeholder="Search Products" className="input  w-1/2 rounded-r-none" onChange={event => { setSearchItem(event.target.value) }} />
+      <div className="p-6 mb-[-25px] w-full sticky md:top-12 md:z-50 flex justify-center bg-secondary "
+      data-aos="zoom-in-down"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      >
+        <input type="text" placeholder="Search Products" className="input w-1/2 rounded-r-none" onChange={event => { setSearchItem(event.target.value) }} />
         <button className="btn btn-square bg-success border-0 rounded-none text-black hover:bg-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +125,11 @@ const CatagorySelection = () => {
           </div>
         </div>
       </div>
-      <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-5 mb-5 grid justify-center ">
+      <div className=" px-6 lg:px-12 md:grid-cols-3 lg:grid-cols-4 gap-5  mt-5 mb-5 grid justify-center "
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      >
         {!menClick && !womenClick && !kidClick
           ? currentProduct.filter((val) => {
             if (searchItem === '') {
