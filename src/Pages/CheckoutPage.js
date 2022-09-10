@@ -5,6 +5,7 @@ import Payment from "./Payment";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import "./CheckoutPage.css";
+import CodForm from "./Shared/CodForm";
 const CheckoutPage = () => {
   const [user] = useAuthState(auth);
   const stripePromise = loadStripe(
@@ -15,8 +16,8 @@ const CheckoutPage = () => {
   const [bkash, setBkash] = useState(false);
   return (
     <div className="flex justify-center ">
-      <section className="mt-10 flex   lg:w-3/4 md:w-3/4 sm:w-full w-full justify-around border p-5 lg:flex-row md:flex-row sm:flex-col flex-col">
-        <div className="lg:w-1/2 md:w-1/2 sm:w-full w-full text-left border p-5 uppercase text-gray-500">
+      <section className="mt-10 flex   lg:w-3/4 md:w-3/4 sm:w-full w-full justify-around  p-5 lg:flex-row md:flex-row sm:flex-col flex-col">
+        <div className="lg:w-1/2 md:w-1/2 sm:w-full w-full text-left  p-5 uppercase text-gray-500">
           <h1 className="text-3xl mb-3 font-semibold">Checkout</h1>
           <h3>Personal Details</h3>
           <hr />
@@ -113,21 +114,90 @@ const CheckoutPage = () => {
               </label>
             </span>
           </div>
-        </div>
-        <div className="lg:w-1/4 md:w-1/4 sm:w-full w-full border">
+          {/* Relevent Images */}
+          {cod && (
+            <div>
+              {/* For  COD */}
+              <img
+                src="https://d2kh7o38xye1vj.cloudfront.net/wp-content/uploads/2017/08/2.jpg"
+                className="h-48 w-full mt-10 object-fill"
+                alt="COD"
+              />
+            </div>
+          )}
           {card && (
-            <Elements stripe={stripePromise}>
-              <Payment />
-            </Elements>
+            <div>
+              {/* For  COD */}
+              <img
+                src="https://i0.wp.com/www.inventiva.co.in/wp-content/uploads/2022/02/Best-Credit-Cards-Accepted-Everywhere.jpg?resize=780%2C470&ssl=1"
+                className="h-48 w-full mt-10 object-fill"
+                alt="COD"
+              />
+            </div>
+          )}
+          {bkash && (
+            <div>
+              {/* For  COD */}
+              <img
+                src="https://i0.wp.com/motoautobd.com/wp-content/uploads/2020/06/5a39d37486e4b-resize-710x380-1.jpg?fit=710%2C380&ssl=1"
+                className="h-48 w-full mt-10 object-fill"
+                alt="Bkash"
+              />
+            </div>
+          )}
+        </div>
+        <div className="lg:w-1/4 md:w-1/4 sm:w-full w-full ">
+          {card && (
+            <div className="shadow-xl">
+              {" "}
+              <p className="text-xl   bg-blue-500 text-white p-3 mb-5">
+                Pay With Bank Card
+              </p>{" "}
+              <div className="flex mt-10 w-3/4 justify-center mb-5">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/349/349221.png"
+                  alt="visa"
+                  className="h-7 mr-2"
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/179/179431.png"
+                  alt="amex"
+                  className="h-7 mr-2"
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/196/196559.png"
+                  alt="jcb"
+                  className="h-7 mr-2"
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/349/349230.png"
+                  alt="discover"
+                  className="h-7 mr-2"
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/217/217449.png"
+                  alt="union Pay"
+                  className="h-7 mr-2"
+                />
+              </div>
+              <Elements stripe={stripePromise}>
+                <Payment />
+              </Elements>
+            </div>
           )}
           {cod && (
-            <>
-              <p>Cash on delivery</p>
-            </>
+            <div className="shadow-xl">
+              <p className="text-xl mb-3 bg-green-500 text-white p-3">
+                Order Form
+              </p>
+              <CodForm></CodForm>
+            </div>
           )}
           {bkash && (
             <>
-              <p className="text-xl mb-3">Bkash Payment</p>
+              <p className="text-xl   bg-pink-500 text-white p-3 mb-5">
+                Pay With Bkash
+              </p>
               <div>
                 <img
                   src="https://www.bdshop.com/pub/media/catalog/product/b/k/bkash-payment-gateway-plugin-for-magento-2.png"

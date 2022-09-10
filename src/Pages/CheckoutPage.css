@@ -1,7 +1,7 @@
 .radio:checked,
 .radio[aria-checked="true"] {
   --tw-bg-opacity: 1;
-  background-color: indigo;
+  background-color: blue;
 }
 [type="radio"]:checked {
   background-image: none;
