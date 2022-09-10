@@ -32,7 +32,7 @@ const Dashborad = () => {
             <li className="rounded-none w-full">
               <Link
                 to="/dashboard"
-                className=" bg-secondary text-2xl p-3  my-5  justify-center font-bold"
+                className="  border-2 border-orange-600 text-2xl p-3  my-5  justify-center font-bold"
               >
                 Dashboard
               </Link>

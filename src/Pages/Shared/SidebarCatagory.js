@@ -52,11 +52,11 @@ const SidebarCatagory = () => {
     setProvidedCatagory(uniqueSubcatagories);
   };
   return (
-    <div className="fixed w-1/5  border-r-gray border-t-0 border-2 h-screen overflow-y-scroll">
+    <div className="fixed w-1/5   h-screen overflow-y-scroll p-3">
       <Offers></Offers>
 
-      <div className="bg-white  p-5 border-r-gray border-t-0 border-b-2 mb-5">
-        <h3 className="text-xl bg-[#448bba] p-3   font-bold text-white">
+      <div className="bg-white  p-5 shadow-2xl mb-5">
+        <h3 className="text-xl  border-2 border-orange-600 p-3   font-bold  ">
           Catagories
         </h3>
         {links.map((link) => (
