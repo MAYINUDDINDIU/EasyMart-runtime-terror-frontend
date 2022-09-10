@@ -79,7 +79,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-[#448bba]  lg:px-24  sticky top-0 z-50 text-white">
+    <div className="navbar  shadow-xl border-0 border-orange-600  lg:px-24  sticky top-0 z-50 bg-white">
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">
@@ -173,9 +173,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* <button className="btn btn-primary font-bold" onClick={logout}>
-              Logout
-            </button> */}
+            
           </>
         ) : (
           <>
