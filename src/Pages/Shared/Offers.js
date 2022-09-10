@@ -14,7 +14,7 @@ const Offers = () => {
   return (
     <div>
       <div className="bg-white text-left p-5 font-semibold shadow-2xl my-5">
-        <h3 className="text-xl border-2 border-orange-600 p-3   font-bold text-center mb-3 mt-5">
+        <h3 className="text-xl   bg-accent text-white p-3   font-bold text-center mb-3 mt-5">
           Offers
         </h3>
         <div className="flex">

@@ -79,7 +79,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar  shadow-xl border-0 border-orange-600  lg:px-24  sticky top-0 z-50 bg-white">
+    <div className="navbar shadow-xl border-0  text-white  lg:px-24  sticky top-0 z-50 bg-secondary">
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">

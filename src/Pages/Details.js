@@ -144,7 +144,7 @@ const Details = () => {
               {/* Add to cart button */}
               <div className="w-full flex items-start">
                 <button
-                  className="btn w-full btn-secondary text-white border-0 rounded-none"
+                  className="btn w-full btn-accent text-white border-0 rounded-none"
                   onClick={handleAddToCart}
                 >
                   Add To Cart
@@ -152,7 +152,7 @@ const Details = () => {
               </div>
             </div>
             <button
-              className="btn w-full btn-secondary text-white border-0 uppercase mt-5 rounded-none"
+              className="btn w-full btn-accent text-white border-0 uppercase mt-5 rounded-none"
               onClick={() => {
                 handleAddToCart();
                 navigate("/addtocart");

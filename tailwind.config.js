@@ -6,8 +6,8 @@ module.exports = {
         mytheme: {
           "primary": "#22c55e",
           // "secondary": "#E3F56C",
-          "secondary":"#FF6600",
-          "accent": "#37CDBE",
+          "secondary":"#2a2a4d",
+          "accent": "#f05454",
           "neutral": "#3D4451",
           "base-100": "#FFFFFF",
           "info": "#3ABFF8",
