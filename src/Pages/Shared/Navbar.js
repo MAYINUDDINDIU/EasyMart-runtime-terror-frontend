@@ -38,7 +38,7 @@ const Navbar = () => {
   };
   const navItems = (
     <>
-      {console.log(user)}
+      {console.log(selectedUser)}
       <li>
         <Link to="/" className="font-bold">
           <AiFillHome className="mr-[-8px]"></AiFillHome>Home
@@ -77,9 +77,11 @@ const Navbar = () => {
         </li>
       ) : null}
     </>
+   
   );
   return (
     <div className="navbar shadow-xl border-0  text-white  lg:px-24  sticky top-0 z-50 bg-secondary">
+    
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">

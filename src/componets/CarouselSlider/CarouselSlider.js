@@ -52,7 +52,7 @@ const CarouselSlider = () => {
           <div className="card bg-neutral">
             <div className="card-top">
               <img className="w-60 h-60" src={item.image} alt={item.title} />
-              <h1 className="text-3xl bg-secondary  text-neutral font-bold   uppercase">
+              <h1 className="text-3xl bg-accent  text-white font-bold   uppercase">
                 {item.title}
               </h1>
             </div>
@@ -65,23 +65,6 @@ const CarouselSlider = () => {
             </div>
           </div>
 
-          //    <div className=''>
-          //      <div className="card w-96 bg-base-100 shadow-xl mt-10">
-          //         <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-          //         <div className="card-body">
-          //             <h2 className="card-title">Shoes!</h2>
-          //             <p>If a dogs chews shoes whose shoes does he choose?</p>
-          //             <div className="card-actions justify-end">
-          //             <button className="btn btn-primary">Buy Now</button>
-          //         <div className="card-body">
-          //             <h2 className="card-title">Shoes!</h2>
-          //             <p>If a dog chews shoes whose shoes does he choose?</p>
-          //             <div className="card-actions justify-end">
-          //             <button className="btn btn-primary">Buy Now</button>
-          //             </div>
-          //         </div>
-          //     </div>
-          //    </div>
         ))}
       </Slider>
     </div>
