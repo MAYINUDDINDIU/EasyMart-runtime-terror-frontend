@@ -50,7 +50,7 @@ const CheckoutPage = () => {
                 type="radio"
                 id="cod"
                 name="radio-1"
-                class="radio  "
+                className="radio  "
                 value="Cash On Delivery"
                 checked={cod}
                 onClick={(e) => {
@@ -73,7 +73,7 @@ const CheckoutPage = () => {
                 type="radio"
                 id="card"
                 name="radio-2"
-                class="radio"
+                className="radio"
                 value="Card Payment"
                 checked={card}
                 onClick={(e) => {

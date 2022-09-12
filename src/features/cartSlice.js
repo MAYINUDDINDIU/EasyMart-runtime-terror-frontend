@@ -2,24 +2,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // get From cart
 export const getFromCart = createAsyncThunk('cart/getFromCart', async () => {
-    return fetch('http://localhost:5000/addtocart').then(res => res.json())
+    return fetch('https://limitless-everglades-36569.herokuapp.com/addtocart').then(res => res.json())
 });
 
 // // Delete cart data
 export const deleteCartData = createAsyncThunk('cart/deleteCartData', async (id) => {
-    return fetch(`http://localhost:5000/deleteCart/${id}`, {
+    return fetch(`https://limitless-everglades-36569.herokuapp.com/deleteCart/${id}`, {
         method: 'DELETE',
     }).then(res => res.json())
 });
 
 // Total order from all users
 export const fetchOrder = createAsyncThunk('cart/fetchOrder', async () => {
-    return fetch('http://localhost:5000/addtocart').then(res => res.json())
+    return fetch('https://limitless-everglades-36569.herokuapp.com/addtocart').then(res => res.json())
 });
 
 // Customers Reviews
 export const fetchReviews = createAsyncThunk('cart/fetchReviews', async () => {
-    return fetch('http://localhost:5000/reviews').then(res => res.json())
+    return fetch('https://limitless-everglades-36569.herokuapp.com/reviews').then(res => res.json())
 });
 
 const cartSlice = createSlice({

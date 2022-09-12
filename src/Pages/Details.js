@@ -26,7 +26,7 @@ const Details = () => {
     }
   };
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("https://limitless-everglades-36569.herokuapp.com/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -43,10 +43,10 @@ const Details = () => {
   return (
     <div>
       <div className=" details w-full ">
-        <div class=" h-64	  bg-cover bg-no-repeat    bg-top  flex text-left items-center justify-around">
-          <div class="hero-content    flex justify-start  w-1/2 text-left border">
-            <div class="max-w-md">
-              <h1 class="mb-5 text-5xl ">
+        <div className=" h-64	  bg-cover bg-no-repeat    bg-top  flex text-left items-center justify-around">
+          <div className="hero-content    flex justify-start  w-1/2 text-left border">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl ">
                 <span className="font-bold uppercase">Product Details</span>
               </h1>
             </div>
@@ -68,32 +68,32 @@ const Details = () => {
             <h1 className="text-3xl font-bold">{selectedProduct?.name}</h1>
             {/* Ratings */}
             <section className="flex items-center">
-              <div class="rating mt-5">
+              <div className="rating mt-5">
                 <input
                   type="radio"
                   name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   type="radio"
                   name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                   checked
                 />
                 <input
                   type="radio"
                   name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   type="radio"
                   name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   type="radio"
                   name="rating-2"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
               </div>
               <span className="mt-5 ml-3 font-semibold">(3.5)</span>

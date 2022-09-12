@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchProduct = createAsyncThunk('product/fetchProduct', async () => {
-    return fetch('http://localhost:5000/product').then(res => res.json())
+    return fetch('https://limitless-everglades-36569.herokuapp.com/product').then(res => res.json())
 });
 
 export const createProduct = createAsyncThunk('product/createProduct', async (posts) => {
-    return fetch('http://localhost:5000/product', {
+    return fetch('https://limitless-everglades-36569.herokuapp.com/product', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -15,7 +15,7 @@ export const createProduct = createAsyncThunk('product/createProduct', async (po
 });
 
 export const deleteProduct = createAsyncThunk('product/deleteProduct', async (id) => {
-    return fetch(`http://localhost:5000/product/${id}`, {
+    return fetch(`https://limitless-everglades-36569.herokuapp.com/product/${id}`, {
         method: 'DELETE',
     }).then(res => res.json())
 });
@@ -23,7 +23,7 @@ export const deleteProduct = createAsyncThunk('product/deleteProduct', async (id
 
 export const updateProduct = createAsyncThunk('product/updateProduct', async (data) => {
     const { id } = data;
-    return fetch(`http://localhost:5000/product/${id}`, {
+    return fetch(`https://limitless-everglades-36569.herokuapp.com/product/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

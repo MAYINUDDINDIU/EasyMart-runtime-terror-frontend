@@ -24,7 +24,7 @@ const Navbar = () => {
   //Checking Admin
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://limitless-everglades-36569.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -133,40 +133,40 @@ const Navbar = () => {
             >
               <FaUserAlt className="mr-[-8px]"></FaUserAlt>&nbsp;&nbsp; {user?.displayName}{" "}<FaSortDown className="text-2xl mb-1"></FaSortDown>
             </label>
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-              <div class=" modal-box absolute w-64 right-0 top-16 rounded-none text-left text-black">
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+              <div className=" modal-box absolute w-64 right-0 top-16 rounded-none text-left text-black">
                 <label
                   for="my-modal-3"
-                  class="btn btn-sm btn-circle absolute right-2 top-2"
+                  className="btn btn-sm btn-circle absolute right-2 top-2"
                 >
                   ✕
                 </label>
                 <Link
-                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  className="py-2 flex items-center hover:text-lime-500 cursor-pointer"
                   to="/profile"
                 >
                   <CgProfile className="text-xl"></CgProfile> &nbsp;
                   &nbsp;Profile
                 </Link>
                 <Link
-                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  className="py-2 flex items-center hover:text-lime-500 cursor-pointer"
                   to="/orders"
                 >
                   <BsCart className="text-xl"></BsCart> &nbsp; &nbsp;My Orders
                 </Link>
                 <Link
-                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  className="py-2 flex items-center hover:text-lime-500 cursor-pointer"
                   to="/myReviewCollection"
                 >
                   <BsStar className="text-xl"></BsStar> &nbsp; &nbsp;My Reviews
                 </Link>
-                <h3 class="py-2 flex items-center hover:text-lime-500 cursor-pointer">
+                <h3 className="py-2 flex items-center hover:text-lime-500 cursor-pointer">
                   <MdOutlineCancel className="text-xl"></MdOutlineCancel> &nbsp;
                   &nbsp;My Returns
                 </h3>
                 <h3
-                  class="py-2 flex items-center hover:text-lime-500 cursor-pointer"
+                  className="py-2 flex items-center hover:text-lime-500 cursor-pointer"
                   onClick={logout}
                 >
                   <RiLogoutBoxLine className="text-xl"></RiLogoutBoxLine>
