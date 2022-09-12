@@ -34,7 +34,7 @@ const SidebarCatagory = () => {
   ];
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("https://limitless-everglades-36569.herokuapp.com/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -56,7 +56,7 @@ const SidebarCatagory = () => {
       <Offers></Offers>
 
       <div className="bg-white  p-5 shadow-2xl mb-5">
-        <h3 className="text-xl  border-2 border-orange-600 p-3   font-bold  ">
+        <h3 className="text-xl   bg-accent text-white p-3   font-bold  ">
           Catagories
         </h3>
         {links.map((link) => (

@@ -36,7 +36,7 @@ const SingleCatagory = ({ product }) => {
             {" "}
             <label
               for={`my-modal-${_id}`}
-              className="btn modal-button bg-secondary hover:bg-secondary text-white border-0  absolute bottom-0 left-0 w-full rounded-none"
+              className="btn modal-button bg-accent hover:bg-accent opacity-95 text-white border-0  absolute bottom-0 left-0 w-full rounded-none"
               onClick={() => {
                 handleDetail(_id);
               }}
@@ -51,32 +51,32 @@ const SingleCatagory = ({ product }) => {
 
       <div className="p-3 text-left">
         <h1 className=" text-lg text-black mt-1 font-semibold">{name}</h1>
-        <div class="rating">
+        <div className="rating">
           <input
             type="radio"
             name="rating-2"
-            class="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-orange-400"
           />
           <input
             type="radio"
             name="rating-2"
-            class="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-orange-400"
             checked
           />
           <input
             type="radio"
             name="rating-2"
-            class="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-orange-400"
           />
           <input
             type="radio"
             name="rating-2"
-            class="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-orange-400"
           />
           <input
             type="radio"
             name="rating-2"
-            class="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-orange-400"
           />
         </div>
         <p className="">

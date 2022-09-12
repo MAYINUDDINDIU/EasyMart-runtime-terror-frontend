@@ -10,7 +10,7 @@ const Profile = () => {
 
     refetch,
   } = useQuery("profileData", () =>
-    fetch(`http://localhost:5000/users`, {}).then((res) => {
+    fetch(`https://limitless-everglades-36569.herokuapp.com/users`, {}).then((res) => {
       refetch();
       return res.json();
     })
@@ -30,7 +30,7 @@ const Profile = () => {
       phone: event.target.phone.value,
     };
 
-    fetch(`http://localhost:5000/users/${user?.email}`, {
+    fetch(`https://limitless-everglades-36569.herokuapp.com/users/${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -45,16 +45,16 @@ const Profile = () => {
   };
   return (
     <section className="flex justify-around items-center w-full lg:flex-row md:flex-row sm:flex-col flex-col">
-      <div class="card lg:w-1/4 md:w-1/2 sm:w-full w-full bg-base-100 shadow-xl">
-        <div class=" flex justify-center  p-3">
+      <div className="card lg:w-1/4 md:w-1/2 sm:w-full w-full bg-base-100 shadow-xl">
+        <div className=" flex justify-center  p-3">
           <img
             src={user?.photoURL}
             alt="ProfilePic"
             className=" object-cover   h-48 w-96  "
           />
         </div>
-        <div class="card-body items-left  text-left text-black">
-          <h2 class="card-title ">
+        <div className="card-body items-left  text-left text-black">
+          <h2 className="card-title ">
             <span className="text-blue-500">{user?.displayName}</span>
           </h2>
           <span className="flex items-center">
@@ -78,11 +78,11 @@ const Profile = () => {
       </div>
       <div className="mt-20  lg:w-1/2 md:w-1/2 sm:w-full w-full">
         <section className="flex justify-center p-3">
-          <div class="card w-96 bg-base-100 shadow-xl">
+          <div className="card w-96 bg-base-100 shadow-xl">
             <h1 className="text-3xl mb-10 text-black bg-secondary p-3">
               My Profile
             </h1>
-            <div class="card-body">
+            <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <label className="label">
                   <span className="label-text">Name</span>

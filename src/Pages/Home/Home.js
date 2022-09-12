@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CarouselSlider from '../../componets/CarouselSlider/CarouselSlider';
 import CatagorySelection from '../../componets/CatagorySelection/CatagorySelection';
+import FreeShipping from '../../componets/CatagoryWiseComponents/FreeShipping';
 import Carousel from '../../utilities/Carousel/Carousel';
 import Hero from '../../utilities/Hero';
 
@@ -27,6 +28,7 @@ const Home = () => {
             {/* <Product></Product> */}
             <div className='my-10'></div>
             <Hero></Hero>
+            <FreeShipping></FreeShipping>
             <CarouselSlider></CarouselSlider>
 
         </div>

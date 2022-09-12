@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const [cart, setCart] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5000/displayOrders")
+      fetch("https://limitless-everglades-36569.herokuapp.com/displayOrders")
         .then((res) => res.json())
         .then((data) => setCart(data));
     }, []);
@@ -19,8 +19,8 @@ const MyOrders = () => {
         navigate(`/review/${id}`);
     }
     return (
-        <div class="overflow-x-auto">
-  <table class="table w-full">
+        <div className="overflow-x-auto">
+  <table className="table w-full">
  
     <thead>
       <tr>

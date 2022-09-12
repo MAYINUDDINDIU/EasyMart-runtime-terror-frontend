@@ -6,7 +6,7 @@ const MyReviewCollection = () => {
   const [user] = useAuthState(auth);
   const [reviewedProducts, setReviewedProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://limitless-everglades-36569.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviewedProducts(data));
   }, []);
@@ -16,7 +16,7 @@ const MyReviewCollection = () => {
   //Loading all ordered products
   const [products, setproducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addtocart")
+    fetch("https://limitless-everglades-36569.herokuapp.com/addtocart")
       .then((res) => res.json())
       .then((data) => setproducts(data));
   }, []);
@@ -27,8 +27,8 @@ const MyReviewCollection = () => {
   };
   return (
     <div className=" flex justify-center mt-20">
-      <div class="overflow-x-auto w-3/4">
-        <table class="table w-full">
+      <div className="overflow-x-auto w-3/4">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>

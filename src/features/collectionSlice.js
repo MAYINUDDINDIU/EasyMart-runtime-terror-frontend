@@ -3,20 +3,20 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 export const menProduct = createAsyncThunk("product/menProduct", async () => {
-  return fetch("http://localhost:5000/MenProduct").then((res) => res.json());
+  return fetch("https://limitless-everglades-36569.herokuapp.com/MenProduct").then((res) => res.json());
 });
 
 export const womenProduct = createAsyncThunk(
   "product/womenProduct",
   async () => {
-    return fetch("http://localhost:5000/WomenProduct").then((res) =>
+    return fetch("https://limitless-everglades-36569.herokuapp.com/WomenProduct").then((res) =>
       res.json()
     );
   }
 );
 
 export const kidProduct = createAsyncThunk("product/kidProduct", async () => {
-  return fetch("http://localhost:5000/kidProduct").then((res) => res.json());
+  return fetch("https://limitless-everglades-36569.herokuapp.com/kidProduct").then((res) => res.json());
 });
 
 // Add To Cart
@@ -31,7 +31,7 @@ export const addToCart = createAsyncThunk("product/addToCart", async (pd) => {
     img: pd?.img,
     offer: pd?.offer,
   };
-  return fetch("http://localhost:5000/addtocart", {
+  return fetch("https://limitless-everglades-36569.herokuapp.com/addtocart", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

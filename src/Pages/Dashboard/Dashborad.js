@@ -29,13 +29,13 @@ const Dashborad = () => {
 
         <Outlet></Outlet>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side border">
         <label for="my-drawer-2" className="drawer-overlay"></label>
           <ul className={`menu p-4 overflow-y-auto w-96 bg-base-100 text-base-content text-xl`}>
             <li className="rounded-none w-full hidden lg:block">
               <Link
                 to="/dashboard"
-                className=" bg-secondary text-2xl p-3 my-5 justify-center font-bold"
+                className=" bg-accent text-white text-2xl p-3 my-5 justify-center font-bold"
               >
                 Dashboard
               </Link>
