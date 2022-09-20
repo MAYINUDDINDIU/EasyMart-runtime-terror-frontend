@@ -1,28 +1,31 @@
 import { toLower } from "lodash";
 import React, { useEffect, useState } from "react";
- 
+
 import { Link } from "react-router-dom";
 
 const NavLink = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
-  const links = [{name:"Men"},{name:"Women"},{name:"Kids"}]
-  const [products,setProducts] = useState([]);
-  useEffect(()=>{
-    fetch("https://limitless-everglades-36569.herokuapp.com/product").then(res=>res.json()).then(data=>setProducts(data))
-  },[])
-  const [providedCatagory,setProvidedCatagory] = useState([]);
+  const links = [{ name: "Men" }, { name: "Women" }, { name: "Kids" }];
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/product")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+  const [providedCatagory, setProvidedCatagory] = useState([]);
   function getUniqueListBy(arr, key) {
-    return [...new Map(arr.map(item => [item[key], item])).values()]
-}
-
-
-  const findSubcatagory = (catagory)=>{
-    const subcatagories = products.filter(product=>product.catagory===catagory && product.subcatagory)
-    const uniqueSubcatagories = getUniqueListBy(subcatagories,"subcatagory")
-    console.log(uniqueSubcatagories);
-    setProvidedCatagory(uniqueSubcatagories)
+    return [...new Map(arr.map((item) => [item[key], item])).values()];
   }
+
+  const findSubcatagory = (catagory) => {
+    const subcatagories = products.filter(
+      (product) => product.catagory === catagory && product.subcatagory
+    );
+    const uniqueSubcatagories = getUniqueListBy(subcatagories, "subcatagory");
+    console.log(uniqueSubcatagories);
+    setProvidedCatagory(uniqueSubcatagories);
+  };
   return (
     <>
       {links.map((link) => (
@@ -33,7 +36,7 @@ const NavLink = () => {
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
                 setSubHeading("");
-                findSubcatagory(toLower(link.name))
+                findSubcatagory(toLower(link.name));
               }}
             >
               {link.name}
@@ -50,7 +53,6 @@ const NavLink = () => {
                 <ion-icon name="chevron-down"> </ion-icon>
               </span>
             </h1>
-
           </div>
 
           {/* mobile menues  */}
@@ -63,7 +65,8 @@ const NavLink = () => {
             {providedCatagory.map((sub) => (
               <div>
                 <div>
-                  <Link to={`/${sub?.subcatagory}`}
+                  <Link
+                    to={`/${sub?.subcatagory}`}
                     onClick={() =>
                       subHeading !== sub.subcatagory
                         ? setSubHeading(sub.subcatagory)
@@ -72,15 +75,12 @@ const NavLink = () => {
                     className="py-4 pl-7 font-bold md:pr-0 pr-5 flex justify-between items-center"
                   >
                     {sub.subcatagory}
-                  
                   </Link>
                   <div
                     className={`${
                       subHeading === sub.subcatagory ? "md:hidden" : "hidden"
                     }`}
-                  >
-                 
-                  </div>
+                  ></div>
                 </div>
               </div>
             ))}

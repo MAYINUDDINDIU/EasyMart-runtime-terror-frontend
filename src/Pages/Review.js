@@ -11,7 +11,7 @@ const Review = () => {
   //Loading specific product for review
   const [product, setproduct] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/displayOrders")
+    fetch("http://localhost:5000/displayOrders")
       .then((res) => res.json())
       .then((data) => setproduct(data));
   }, []);
@@ -21,7 +21,7 @@ const Review = () => {
   const reviewerImg = user?.photoURL;
   const reviewdProductId = productId;
   const onSubmit = (data) => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/reviews", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

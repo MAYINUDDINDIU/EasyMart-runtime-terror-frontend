@@ -6,7 +6,7 @@ const MyReviewCollection = () => {
   const [user] = useAuthState(auth);
   const [reviewedProducts, setReviewedProducts] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/reviews")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setReviewedProducts(data));
   }, []);
@@ -16,7 +16,7 @@ const MyReviewCollection = () => {
   //Loading all ordered products
   const [products, setproducts] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/addtocart")
+    fetch("http://localhost:5000/addtocart")
       .then((res) => res.json())
       .then((data) => setproducts(data));
   }, []);

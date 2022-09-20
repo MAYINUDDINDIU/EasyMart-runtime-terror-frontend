@@ -26,7 +26,7 @@ const Details = () => {
     }
   };
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/product")
+    fetch("http://localhost:5000/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

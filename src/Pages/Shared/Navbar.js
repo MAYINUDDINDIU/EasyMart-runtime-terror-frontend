@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome, AiFillInfoCircle, AiFillStar } from "react-icons/ai";
-import { FaShoppingCart, FaUserAlt,FaSortDown } from "react-icons/fa";
+import { FaShoppingCart, FaUserAlt, FaSortDown } from "react-icons/fa";
 import { BsFillTelephoneFill, BsStar, BsCart } from "react-icons/bs";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -24,7 +24,7 @@ const Navbar = () => {
   //Checking Admin
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-everglades-36569.herokuapp.com/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -55,18 +55,21 @@ const Navbar = () => {
 
       <li tabIndex="0">
         <Link to="/about" className="font-bold">
-          <AiFillInfoCircle className="text-xl mr-[-8px]"></AiFillInfoCircle>About
+          <AiFillInfoCircle className="text-xl mr-[-8px]"></AiFillInfoCircle>
+          About
         </Link>
       </li>
       {console.log(adminStatus)}
       <li tabIndex="0">
         <Link to="/help" className="font-bold">
-          <IoHelpCircleSharp className="text-2xl mr-[-8px]"></IoHelpCircleSharp>Help
+          <IoHelpCircleSharp className="text-2xl mr-[-8px]"></IoHelpCircleSharp>
+          Help
         </Link>
       </li>
       <li tabIndex="0">
         <Link to="/contact" className="font-bold">
-          <BsFillTelephoneFill className="mr-[-8px]"></BsFillTelephoneFill>Contact Us
+          <BsFillTelephoneFill className="mr-[-8px]"></BsFillTelephoneFill>
+          Contact Us
         </Link>
       </li>
       {adminStatus ? (
@@ -77,11 +80,9 @@ const Navbar = () => {
         </li>
       ) : null}
     </>
-   
   );
   return (
     <div className="navbar shadow-xl border-0  text-white  lg:px-24  sticky top-0 z-50 bg-secondary">
-    
       {isLoading && <p>.</p>}
       <div className="navbar-start">
         <div className="dropdown">
@@ -131,7 +132,9 @@ const Navbar = () => {
               className=" mx-3 font-bold flex items-center cursor-pointer"
               for="my-modal-3"
             >
-              <FaUserAlt className="mr-[-8px]"></FaUserAlt>&nbsp;&nbsp; {user?.displayName}{" "}<FaSortDown className="text-2xl mb-1"></FaSortDown>
+              <FaUserAlt className="mr-[-8px]"></FaUserAlt>&nbsp;&nbsp;{" "}
+              {user?.displayName}{" "}
+              <FaSortDown className="text-2xl mb-1"></FaSortDown>
             </label>
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
@@ -174,8 +177,6 @@ const Navbar = () => {
                 </h3>
               </div>
             </div>
-
-            
           </>
         ) : (
           <>
@@ -183,14 +184,11 @@ const Navbar = () => {
             <Link to="/login" className=" font-bold mr-3 text-3xl">
               <ion-icon name="log-in-outline"></ion-icon>
             </Link>
-            <Link to="/addtocart" className=" font-bold mr-3 text-3xl">
+            {/* <Link to="/addtocart" className=" font-bold mr-3 text-3xl">
               <ion-icon name="cart-outline"></ion-icon>
             </Link>
             <Link to="/profile" className=" font-bold mr-3 text-3xl">
               <ion-icon name="person-outline"></ion-icon>
-            </Link>
-            {/* <Link to="/register" className="text-white font-bold mr-3">
-              Register
             </Link> */}
           </>
         )}

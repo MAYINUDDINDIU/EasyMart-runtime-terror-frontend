@@ -120,7 +120,7 @@ function App() {
             <Route path="/review/:productId" element={<Review></Review>}></Route>
             <Route path="/payment/:totalAmountToPay" element={<CheckoutPage></CheckoutPage>}></Route>
             <Route path="/profile" element={<Profile></Profile>}></Route>
-            <Route path="/addtocart" element={<AddToCart></AddToCart>}></Route>
+            <Route path="/addtocart" element={<PrivateRoute><AddToCart></AddToCart></PrivateRoute>}></Route>
             <Route path="/orders" element={<MyOrders></MyOrders>}></Route>
 
             <Route
