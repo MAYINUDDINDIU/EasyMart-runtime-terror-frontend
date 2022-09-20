@@ -29,7 +29,7 @@ const CatagorySelection = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("https://limitless-everglades-36569.herokuapp.com/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

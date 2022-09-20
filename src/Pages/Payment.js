@@ -15,7 +15,7 @@ const Payment = () => {
   const [user] = useAuthState(auth);
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addtocart")
+    fetch("https://limitless-everglades-36569.herokuapp.com/addtocart")
       .then((res) => res.json())
       .then((data) => setCart(data));
   }, []);
@@ -24,7 +24,7 @@ const Payment = () => {
 
   if (transactionId) {
     //Adding products to order after paying
-    fetch(`http://localhost:5000/addToOrders`, {
+    fetch(`https://limitless-everglades-36569.herokuapp.com/addToOrders`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ filteredProductsByEmail }),
@@ -32,10 +32,13 @@ const Payment = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
     //Removing Products from cart
-    fetch(`http://localhost:5000/removeFromCart/${user?.email}`, {
-      method: "DELETE",
-      headers: { "Content-type": "application/json" },
-    })
+    fetch(
+      `https://limitless-everglades-36569.herokuapp.com/removeFromCart/${user?.email}`,
+      {
+        method: "DELETE",
+        headers: { "Content-type": "application/json" },
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
   }
@@ -47,13 +50,16 @@ const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
   useEffect(() => {
-    fetch("http://localhost:5000/create_payment_intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(totalPayment),
-    })
+    fetch(
+      "https://limitless-everglades-36569.herokuapp.com/create_payment_intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(totalPayment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {

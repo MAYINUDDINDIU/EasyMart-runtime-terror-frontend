@@ -10,10 +10,12 @@ const Profile = () => {
 
     refetch,
   } = useQuery("profileData", () =>
-    fetch(`http://localhost:5000/users`, {}).then((res) => {
-      refetch();
-      return res.json();
-    })
+    fetch(`https://limitless-everglades-36569.herokuapp.com/users`, {}).then(
+      (res) => {
+        refetch();
+        return res.json();
+      }
+    )
   );
 
   const selectedProfile = allProfiles?.find(
@@ -30,13 +32,16 @@ const Profile = () => {
       phone: event.target.phone.value,
     };
 
-    fetch(`http://localhost:5000/users/${user?.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userProfile),
-    })
+    fetch(
+      `https://limitless-everglades-36569.herokuapp.com/users/${user?.email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userProfile),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     refetch();
